@@ -1,0 +1,46 @@
+.content-body{
+    min-height: 100%;
+    padding: 60px 1rem;
+    background: #16bca8 ;
+    display: block;
+}
+
+mat-card{
+    max-width: 600px;
+    margin: 2em auto;
+    text-align: center;
+    max-height: 1000px;
+}
+
+.header{
+    text-align: center;
+}
+
+.full-width{
+    width: 80%;
+}
+
+.forgot-password{
+    padding-left: 0px;
+}
+
+.email-input{
+    padding-top: 10px;
+}
+
+.aLink{
+    float: right;
+    padding-right: 60px;
+    text-decoration: none;
+}
+
+.footer{ 
+    width: 1900px;
+    height: 200px; 
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    background-color: #07325d;
+    color:azure;
+    
+}

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  boutiqueBackend: 'https://localhost:7197/',
 };

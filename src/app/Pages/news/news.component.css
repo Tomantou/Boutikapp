@@ -1,0 +1,27 @@
+ 
+
+  .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+.footer{ 
+    width: 1900px;
+    height: 200px; 
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    background-color: #07325d;
+    color:azure;
+}
+
+.contentnews{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+}
+
+.item-news{
+  width: 600px;
+  height: 300px;
+  margin-right: 5px;
+}

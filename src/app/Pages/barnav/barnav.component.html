@@ -1,0 +1,89 @@
+<div class="">        
+    <mat-toolbar>
+        <mat-toolbar-row  class="navbar">  
+          
+  
+                    <h4>BOUTIKline</h4>
+                  
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span><a mat-button [routerLink]="'/recherche'"><h5><mat-icon>search</mat-icon>Recherche</h5></a></span>
+                    <span><a mat-button [routerLink]="'/panier'"><h5><mat-icon>shopping_basket</mat-icon>Panier</h5></a></span>
+                
+        </mat-toolbar-row>     
+        <mat-divider [inset]="true"></mat-divider>      
+        <mat-toolbar-row  class="navbar">  
+  
+              <div class="example-button-container">
+                <button mat-mini-fab color="accent" [matMenuTriggerFor]="menu" aria-label="Example icon button with a menu icon">
+                  <mat-icon>menu</mat-icon>
+                </button>
+              </div>
+          
+                <!-- <button mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button> -->
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    
+                    
+                    <span>
+                         <div class="example-button-container"><a mat-button style="color:white ;text-decoration: none;" [routerLink]="'../accueil'"><h5><mat-icon>home</mat-icon>Accueil</h5></a>
+                         </div></span>
+                    <span><a mat-button [routerLink]="'/news'"><h5><mat-icon>info</mat-icon>News</h5></a></span>
+                    <span><a mat-button [routerLink]="'/promo'"><h5><mat-icon>percentage</mat-icon>Promos</h5></a></span>
+                    <span><a mat-button [routerLink]="'/contact'"><h5><mat-icon> contacts</mat-icon>Contact</h5></a></span>
+                    <span><a mat-button [routerLink]="'/apropos'"><h5><mat-icon>about_us</mat-icon>A Propos de nous</h5></a></span>
+                    <span><a mat-button [routerLink]="'/login'"><h5><mat-icon>account_circle</mat-icon>Se connecter</h5></a></span>
+                    
+                    
+                
+        </mat-toolbar-row>            
+    </mat-toolbar>
+    
+  
+  <router-outlet></router-outlet>
+  </div>
+  
+  <div>    
+    <mat-menu #menu="matMenu" class="matmenu">
+     <button mat-menu-item  (click)="gotoProduitClick()"> <mat-icon>launch</mat-icon>Produits</button>
+     <mat-divider></mat-divider>
+     <button mat-menu-item style="background-color: cadetblue;color: aliceblue;border-radius: 15px;" (click)="gotoMarqueClick()"> <mat-icon>launch</mat-icon>Marques</button>
+     <mat-divider></mat-divider>
+     <button mat-menu-item style="background-color: cadetblue;color: aliceblue; border-radius: 15px;" (click)="gotoCategorieClick()"> <mat-icon>launch</mat-icon>Catégories</button>
+     <mat-divider></mat-divider>
+     <button mat-menu-item style="background-color: cadetblue;color: aliceblue; border-radius: 15px;" (click)="gotoStockClick()"> <mat-icon>launch</mat-icon>Stock</button>
+     <mat-divider></mat-divider>
+     <button mat-menu-item style="background-color: cadetblue;color: aliceblue; border-radius: 15px;" (click)="gotoNewsClick()"> <mat-icon>launch</mat-icon>News</button>
+     <mat-divider></mat-divider>
+     <button mat-menu-item style="background-color: cadetblue;color: aliceblue; border-radius: 15px;" (click)="gotoPromotionClick()"> <mat-icon>launch</mat-icon>Promotions</button>
+     <mat-divider></mat-divider>
+     <button mat-menu-item style="background-color: cadetblue;color: aliceblue; border-radius: 15px;" (click)="gotoClientClick()"> <mat-icon>launch</mat-icon>Clients</button>
+     <mat-divider></mat-divider>
+     <button mat-menu-item style="background-color: cadetblue;color: aliceblue; border-radius: 15px;" (click)="gotoCommandeClick()"> <mat-icon>launch</mat-icon>Commandes</button>
+     <mat-divider></mat-divider>
+     <button mat-menu-item style="background-color: cadetblue;color: aliceblue; border-radius: 15px;" (click)="gotoGerantClick()"> <mat-icon>launch</mat-icon>Gétants</button>
+     <mat-divider></mat-divider>
+     <button mat-menu-item style=" background-color: cadetblue;color: aliceblue; border-radius: 15px;" (click)="gotoFournisseurClick()"> <mat-icon>launch</mat-icon>Fournisseurs</button>
+     <mat-divider></mat-divider>
+     <button mat-menu-item style="background-color: cadetblue;color: aliceblue; border-radius: 15px;" (click)="gotoPventeClick()"> <mat-icon>launch</mat-icon>Points de Ventes</button>
+     <mat-divider></mat-divider>
+     <button mat-menu-item style="background-color: cadetblue;color: aliceblue; border-radius: 15px;" (click)="gotoConfigdataClick()"> <mat-icon>launch</mat-icon>Signaletiques</button>
+     <mat-divider></mat-divider>
+    
+    </mat-menu>
+  </div>

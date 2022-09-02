@@ -1,0 +1,18 @@
+#conteneur{
+    display: flex;
+    flex-direction: row;
+    row-gap: 20px;
+    justify-content:space-around;
+    flex-wrap: wrap;
+
+}
+
+img {
+    object-fit: cover;
+    border-radius: 10px;
+}
+img:hover{
+    opacity: 0.5;
+    width: 200px;
+    height: 200px;
+}

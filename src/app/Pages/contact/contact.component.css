@@ -1,0 +1,40 @@
+#conteneur{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    background-color:silver;
+  
+  }
+  
+  
+  
+  
+  .example-form {
+      min-width: 250px;
+      max-width: 900px;
+      width: 100%;
+    }
+    
+    .example-full-width {
+      width: 90%;
+    }
+    
+    td {
+      padding-right: 8px;
+    }
+  
+    mat-form-field.mat-form-field {
+      font-size: 18px;
+    }
+
+    .footer{ 
+      width: 1900px;
+      height: 200px; 
+      display: flex;
+      flex-direction: row;
+      justify-content:space-around;
+      background-color: #07325d;
+      color:azure;
+      
+  }
+  

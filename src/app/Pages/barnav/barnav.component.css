@@ -1,0 +1,79 @@
+mat-sidenav-container{
+    height: calc(205vh - 115vh);
+}
+
+mat-sidenav{
+    width: 200px;
+    background-color: wheat;
+}
+
+.matmenu {
+   padding-top: 40px ;
+  width: 200px;
+  height: 400px;
+  display: flex; 
+   
+}
+
+a {
+  font-family:'Courier New', Courier, monospace;
+  font-size: 35px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+.navbar{
+    display: flex;
+    justify-content:center;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(3,56,75,0.9416141456582633) 35%, rgba(0,212,255,1) 100%);
+    
+}
+
+span{
+    padding-right: 4rem;
+}
+
+.example-button-container {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    width: 200px;
+   
+  }
+
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+    
+  }
+
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .example-full-width {
+      background-color: ghostwhite;
+      color:black;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      height: 60px;
+      width: 100%;
+    
+  }
+
+  section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
