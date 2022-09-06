@@ -19,6 +19,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatBadgeModule} from '@angular/material/badge';
 
 import { AccueilComponent } from './Pages/accueil/accueil.component';
 import { NewsComponent } from './Pages/news/news.component';
@@ -44,7 +45,11 @@ import { PventesComponent } from './Pages/pventes/pventes.component';
 import { ContactComponent } from './Pages/contact/contact.component';
 import { FooterComponent } from './Pages/footer/footer.component';
 import { LoginComponent } from './Pages/login/login.component';
-
+import {HttpClientModule} from '@angular/common/http';
+import { CarouselComponent } from './Pages/carousel/carousel.component';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { DetcommandeclComponent } from './Pages/detcommandecl/detcommandecl.component';
+import { DetcommandefournComponent } from './Pages/detcommandefourn/detcommandefourn.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,10 +76,14 @@ import { LoginComponent } from './Pages/login/login.component';
     PventesComponent,
     ContactComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    CarouselComponent,
+    DetcommandeclComponent,
+    DetcommandefournComponent
   ],
   imports: [
     BrowserModule,
+    NgImageSliderModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule,
@@ -88,7 +97,8 @@ import { LoginComponent } from './Pages/login/login.component';
     MatCardModule,
     MatFormFieldModule,
     FormsModule, ReactiveFormsModule, MatInputModule,
-    MatTabsModule,MatExpansionModule,MatDatepickerModule
+    MatTabsModule,MatExpansionModule,MatDatepickerModule,
+    HttpClientModule,MatBadgeModule
 
   ],
   providers: [],

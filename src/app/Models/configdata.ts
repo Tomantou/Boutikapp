@@ -10,5 +10,8 @@ export class Configdata {
     Pays!: String;
     Tauxtva!: Number;
     Devise!: String;
+    Quisommesnous!: String;
+    Notrepolitique!: String;
+    Nosobjectifs!: String;
     
 }

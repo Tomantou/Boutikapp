@@ -4,8 +4,18 @@
 <mat-card>
     <mat-card-content>
         <div class="hedaer">
-            <h2>LOGIN</h2>
+            <h2>CONNEXION</h2>
         </div>
+        <mat-form-field appearance="fill">
+            <mat-label>User</mat-label>
+            <input matInput>
+        </mat-form-field>
+          <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        
         <!--
         <form (ngSubmit)="onLogin()" name ="loginForm" [FormGroup]="loginForm">
              <div class="email-input">
@@ -34,7 +44,9 @@
             <button mat-flat-button color = "primary">Login</button>
         </form> -->
     </mat-card-content>
+    <button mat-raised-button color="primary"><h4>Se connecter</h4></button>&nbsp;&nbsp;&nbsp;
+    <button mat-raised-button color="primary"><h4>Annuler</h4></button>
 </mat-card>
 </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
 <app-footer></app-footer>

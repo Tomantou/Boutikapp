@@ -5,6 +5,8 @@
 export const environment = {
   production: false,
   boutiqueBackend: 'https://localhost:7197/',
+  imagesUrl: 'C:/Users/hp/Boutikapp/src/app/Images'
+
 };
 
 /*

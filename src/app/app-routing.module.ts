@@ -22,6 +22,9 @@ import { ContactComponent } from 'src/app/Pages/contact/contact.component';
 import { SigninComponent } from 'src/app/Pages/signin/signin.component';
 import { BottomComponent } from 'src/app/Pages/bottom/bottom.component';
 import { LoginComponent } from './Pages/login/login.component';
+import { TransferstocksComponent } from './Pages/transferstocks/transferstocks.component';
+import { DetcommandeclComponent } from './Pages/detcommandecl/detcommandecl.component';
+import { DetcommandefournComponent } from './Pages/detcommandefourn/detcommandefourn.component';
 
 
 const routes: Routes = [
@@ -55,6 +58,51 @@ const routes: Routes = [
   {
     path:"signin", component:SigninComponent,
   },
+  {
+    path:"categorie", component:CategoriesComponent,
+  },
+  {
+    path:"clients", component:ClientsComponent,
+  },
+  {
+    path:"commandecl", component:CommandeclComponent,
+  },
+  {
+    path:"commandefourn", component:CommandefournComponent,
+  },
+  {
+    path:"detcommandecl", component:DetcommandeclComponent,
+  },
+  {
+    path:"detcommandefourn", component:DetcommandefournComponent,
+  },
+  {
+    path:"factures", component:FacturesComponent,
+  },
+  {
+    path:"fournisseurs", component:FournisseursComponent,
+  },
+  {
+    path:"gerants", component:GerantsComponent,
+  },
+  {
+    path:"configdata", component:ConfigdataComponent,
+  },
+  {
+    path:"marques", component:MarquesComponent,
+  },
+  {
+    path:"produits", component:ProduitsComponent,
+  },
+  {
+    path:"pventes", component:PventesComponent,
+  },
+  {
+    path:"stocks", component:StocksComponent,
+  },
+  {
+    path:"transfertstock", component:TransferstocksComponent,
+  }
 
 
 ];
