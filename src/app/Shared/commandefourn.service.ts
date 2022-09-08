@@ -13,7 +13,7 @@ import { ok } from 'assert';
   providedIn: 'root'
 })
 export class CommandefournService {
-  private lien = environment.boutiqueBackend + '/commandefourns';
+  private lien = environment.boutiqueContainer + '/commandefourns';
 
   constructor(private readonly http: HttpClient) { 
     let headers = new Headers();

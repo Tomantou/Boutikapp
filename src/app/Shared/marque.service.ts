@@ -6,14 +6,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { HttpErrorResponse,  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment';
 import { Categorie } from '../Models/categorie';
-import { ok } from 'assert';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class MarqueService {
-  private lien = environment.boutiqueBackend + '/marques';
+  private lien = environment.boutiqueContainer + '/marques';
 
   constructor(private readonly http: HttpClient) { 
     let headers = new Headers();

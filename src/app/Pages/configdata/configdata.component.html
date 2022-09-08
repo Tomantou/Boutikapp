@@ -1,18 +1,92 @@
-
-<div class="example-container">
+<br><br>
+<div class="titre">
+    <br>
+    <h2>SAISIE DES DONNEES SIGNALETIQUES</h2>
+</div>
+<br>
+<div class="conteneur">
     <mat-form-field appearance="fill">
-      <mat-label>Enter your email</mat-label>
-      <input matInput placeholder="pat@example.com" [formControl]="email" required>
-      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      <mat-label>Numéro TVA</mat-label>
+      <input matInput placeholder="N° Tva" [formControl]="tva" required>
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
     </mat-form-field>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-form-field appearance="fill">  
+        <mat-label>Raison sociale</mat-label>
+        <input matInput placeholder="la raison sociale" [formControl]="raisonsociale" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <br>
     <mat-form-field appearance="fill">
+        <mat-label>Type de société</mat-label>
+        <input matInput placeholder="type de société" [formControl]="email" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-form-field appearance="fill">
+        <mat-label>Logo</mat-label>
+        <input matInput placeholder="entrez le logo" [formControl]="logo" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+          <mat-label>Adresse</mat-label>
+          <input matInput placeholder="adresse" [formControl]="adresse" required>
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-form-field appearance="fill">
+          <mat-label>Contact</mat-label>
+          <input matInput placeholder="contact téléphonique" [formControl]="contact" required>
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
         <mat-label>Enter your email</mat-label>
         <input matInput placeholder="pat@example.com" [formControl]="email" required>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+          <mat-label>Pays</mat-label>
+          <input matInput placeholder="pays" [formControl]="pays" required>
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+          <mat-label>Taux Tva</mat-label>
+          <input matInput placeholder="taux de tva" [formControl]="tauxtva" required>
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Devise</mat-label>
+        <input matInput placeholder="devise" [formControl]="devise" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+          <mat-label>Qui sommes-nous?</mat-label>
+          <input matInput placeholder="quisommesnous" [formControl]="quisommesnous" required>
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Notre Politique</mat-label>
+        <input matInput placeholder="notrepolitique" [formControl]="notrepolitique" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
     </mat-form-field>
+    <br>
     <mat-form-field appearance="fill">
-        <mat-label>Enter your email</mat-label>
-        <input matInput placeholder="pat@example.com" [formControl]="email" required>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        <mat-label>Nos objectifs</mat-label>
+        <input matInput placeholder="nosobjectifs" [formControl]="nosobjectifs" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
     </mat-form-field>
+  
+</div>
+<br>
+<div style="text-align:center;">
+    
+      <button mat-flat-button color="primary"><h4>Enregistrer</h4></button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-flat-button color="accent"><h4>Annuler</h4></button>
 </div>

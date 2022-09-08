@@ -1,0 +1,54 @@
+
+<br><br>
+<div class="titre">
+    <br>
+    <h2>EDITION DES STOCKS</h2>
+</div>
+<br>
+<div class="conteneur">
+    <mat-form-field appearance="fill">
+      <mat-label>Id</mat-label>
+      <input matInput placeholder="id du stock" [formControl]="Id" required>
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-form-field appearance="fill">  
+        <mat-label>Quantité</mat-label>
+        <input matInput placeholder="Quantite " [formControl]="Quantite" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Quantité Min.</mat-label>
+        <input matInput placeholder="quantité min." [formControl]="QuantiteMin">
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-form-field appearance="fill">
+        <mat-label>Quantité Max.</mat-label>
+        <input matInput placeholder="quantité Max." [formControl]="QuantiteMax">
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+          <mat-label>Point Vente</mat-label>
+          <input matInput placeholder="point de vente" [formControl]= "PventeId" required>
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-form-field appearance="fill">
+          <mat-label>Produit</mat-label>
+          <input matInput placeholder="nom produit" [formControl]= "ProduitId" required>
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <br>
+      
+  
+</div>
+<br>
+<div style="text-align:center;">
+    
+      <button mat-flat-button color="primary"><h4>Enregistrer</h4></button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-flat-button color="accent"><h4>Annuler</h4></button>
+</div>
+<br>

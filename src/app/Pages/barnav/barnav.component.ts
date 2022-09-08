@@ -49,8 +49,8 @@ gotoGerantClick(): void{
   this.router.navigate(['gerants']);
 }
 
-gotoNewsClick(): void{
-  this.router.navigate(['News']);
+gotoGerernewsClick(): void{
+  this.router.navigate(['gerernews']);
 }
 
 gotoPromotionClick(): void{

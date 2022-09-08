@@ -20,6 +20,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatTableModule} from '@angular/material/table';
 
 import { AccueilComponent } from './Pages/accueil/accueil.component';
 import { NewsComponent } from './Pages/news/news.component';
@@ -50,6 +51,18 @@ import { CarouselComponent } from './Pages/carousel/carousel.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { DetcommandeclComponent } from './Pages/detcommandecl/detcommandecl.component';
 import { DetcommandefournComponent } from './Pages/detcommandefourn/detcommandefourn.component';
+import { GerernewsComponent } from './Pages/gerernews/gerernews.component';
+import { TabprodComponent } from './Pages/tabprod/tabprod.component';
+import { EditproduitComponent } from './Pages/editproduit/editproduit.component';
+import { EditnewsComponent } from './Pages/editnews/editnews.component';
+import { EditstockComponent } from './Pages/editstock/editstock.component';
+import { EditcategorieComponent } from './Pages/editcategorie/editcategorie.component';
+import { EditmarqueComponent } from './Pages/editmarque/editmarque.component';
+import { EditgerantComponent } from './Pages/editgerant/editgerant.component';
+import { EditpventeComponent } from './Pages/editpvente/editpvente.component';
+import { EditclientComponent } from './Pages/editclient/editclient.component';
+import { EditfournisseurComponent } from './Pages/editfournisseur/editfournisseur.component';
+import { EditpromotionComponent } from './Pages/editpromotion/editpromotion.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,7 +92,19 @@ import { DetcommandefournComponent } from './Pages/detcommandefourn/detcommandef
     LoginComponent,
     CarouselComponent,
     DetcommandeclComponent,
-    DetcommandefournComponent
+    DetcommandefournComponent,
+    GerernewsComponent,
+    TabprodComponent,
+    EditproduitComponent,
+    EditnewsComponent,
+    EditstockComponent,
+    EditcategorieComponent,
+    EditmarqueComponent,
+    EditgerantComponent,
+    EditpventeComponent,
+    EditclientComponent,
+    EditfournisseurComponent,
+    EditpromotionComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +123,7 @@ import { DetcommandefournComponent } from './Pages/detcommandefourn/detcommandef
     MatFormFieldModule,
     FormsModule, ReactiveFormsModule, MatInputModule,
     MatTabsModule,MatExpansionModule,MatDatepickerModule,
-    HttpClientModule,MatBadgeModule
+    HttpClientModule,MatBadgeModule,MatTableModule
 
   ],
   providers: [],

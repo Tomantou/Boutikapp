@@ -1,0 +1,48 @@
+<br><br>
+<div class="titre">
+    <br>
+    <h2>EDITION DES FOURNISSEURS</h2>
+</div>
+<br>
+<div class="conteneur">
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="nom" [formControl]="Nom" required>
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Adresse</mat-label>
+        <input matInput placeholder="adresse" [formControl]="Adresse" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+      <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Contact</mat-label>
+        <input matInput placeholder="contact" [formControl]="Contact">
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="email" [formControl]= "Email" required>
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      
+      
+      
+    
+    
+      <br>
+      
+  
+</div>
+<br>
+<div style="text-align:center;">
+    
+      <button mat-flat-button color="primary"><h4>Enregistrer</h4></button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-flat-button color="accent"><h4>Annuler</h4></button>
+</div>
+<br>
+

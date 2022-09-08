@@ -6,16 +6,20 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { HttpErrorResponse,  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment';
 import { Categorie } from '../Models/categorie';
-import { ok } from 'assert';
+import { ConfigdataComponent } from '../Pages/configdata/configdata.component';
+import { Configdata } from '../Models/configdata';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ConfigdataService {
-  private lien = environment.boutiqueBackend + '/configdatas';
 
-  constructor(private readonly http: HttpClient) {
+export class ConfigdataService {
+  private lien = environment.boutiqueContainer + '/configdatas';
+
+  constructor(private readonly http: HttpClient,) 
+  {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Access-Control-Allow-Origin', '*');
@@ -34,6 +38,25 @@ export class ConfigdataService {
      }
 
   }
+
+  saveSignaletique(signaletiq: Configdata) {
+    const headerDict = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    }
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+    };
+    return this.http.post(environment.boutiqueContainer + '/configdatas', signaletiq, requestOptions);
+  }
+
+
+  getSignaletique(): Observable<any>{
+    return this.http.get<Configdata[]>(this.lien + '?filter={"limit": 1}');           
+}
+
 
   geetCategories(): Observable<any>{
      return this.http.get<Categorie[]>(this.lien);

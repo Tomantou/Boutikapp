@@ -25,6 +25,7 @@ import { LoginComponent } from './Pages/login/login.component';
 import { TransferstocksComponent } from './Pages/transferstocks/transferstocks.component';
 import { DetcommandeclComponent } from './Pages/detcommandecl/detcommandecl.component';
 import { DetcommandefournComponent } from './Pages/detcommandefourn/detcommandefourn.component';
+import { GerernewsComponent } from './Pages/gerernews/gerernews.component';
 
 
 const routes: Routes = [
@@ -35,13 +36,18 @@ const routes: Routes = [
   {
     path:"accueil", component:AccueilComponent,
   },
-
   {
     path:"news", component:NewsComponent,
+  },
+  {
+    path:"gerernews", component:GerernewsComponent,
   },
 
   {
     path:"promo", component:PromoComponent,
+  },
+  {
+    path:"promotions", component:PromotionsComponent,
   },
 
   {
@@ -59,7 +65,7 @@ const routes: Routes = [
     path:"signin", component:SigninComponent,
   },
   {
-    path:"categorie", component:CategoriesComponent,
+    path:"categories", component:CategoriesComponent,
   },
   {
     path:"clients", component:ClientsComponent,

@@ -1,11 +1,5 @@
 
 export class Categorie {
-   Id: number;
-   libelle: string; 
-
-   constructor(id: number, lib: string){
-         this.Id = id;
-         this.libelle =lib;
-   }
-   
+   Id: number=0;
+   libelle: string=''; 
 }
