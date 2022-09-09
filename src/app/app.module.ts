@@ -66,6 +66,19 @@ import { BottompventesComponent } from './Pages/bottompventes/bottompventes.comp
 import { BottompventesrefComponent } from './Pages/bottompventesref/bottompventesref.component';
 import { EditfactureComponent } from './Pages/editfacture/editfacture.component';
 import { EditcommandeComponent } from './Pages/editcommande/editcommande.component';
+import { TabcategorieComponent } from './Pages/tabcategorie/tabcategorie.component';
+import { TabmarqueComponent } from './Pages/tabmarque/tabmarque.component';
+import { TabclientComponent } from './Pages/tabclient/tabclient.component';
+import { TabcommandeComponent } from './Pages/tabcommande/tabcommande.component';
+import { TabfactureComponent } from './Pages/tabfacture/tabfacture.component';
+import { TabfournisseurComponent } from './Pages/tabfournisseur/tabfournisseur.component';
+import { TabgerantComponent } from './Pages/tabgerant/tabgerant.component';
+import { TabpventeComponent } from './Pages/tabpvente/tabpvente.component';
+import { TabstockComponent } from './Pages/tabstock/tabstock.component';
+import { TabtranstockComponent } from './Pages/tabtranstock/tabtranstock.component';
+import { TabnewsComponent } from './Pages/tabnews/tabnews.component';
+import { TabpromotionComponent } from './Pages/tabpromotion/tabpromotion.component';
+import { EdittranstockComponent } from './Pages/edittranstock/edittranstock.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -110,7 +123,20 @@ import { EditcommandeComponent } from './Pages/editcommande/editcommande.compone
     BottompventesComponent,
     BottompventesrefComponent,
     EditfactureComponent,
-    EditcommandeComponent
+    EditcommandeComponent,
+    TabcategorieComponent,
+    TabmarqueComponent,
+    TabclientComponent,
+    TabcommandeComponent,
+    TabfactureComponent,
+    TabfournisseurComponent,
+    TabgerantComponent,
+    TabpventeComponent,
+    TabstockComponent,
+    TabtranstockComponent,
+    TabnewsComponent,
+    TabpromotionComponent,
+    EdittranstockComponent
   ],
   imports: [
     BrowserModule,
