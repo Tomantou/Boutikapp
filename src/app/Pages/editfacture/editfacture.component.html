@@ -1,0 +1,38 @@
+<br><br>
+<div class="titre">
+    <br>
+    <h2>EDITION DES FACTURES</h2>
+</div>
+<br>
+<div class="conteneur">
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input matInput placeholder="date" [formControl]="Date" required>
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Statut</mat-label>
+        <input matInput placeholder="statut" [formControl]="Statut" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+      <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Client</mat-label>
+        <input matInput placeholder="client" [formControl]="ClientId">
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+      <br>  
+      <br>
+      
+  
+</div>
+<br>
+<div style="text-align:center;">
+    
+      <button mat-flat-button color="primary"><h4>Enregistrer</h4></button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-flat-button color="accent"><h4>Annuler</h4></button>
+</div>
+<br>
+

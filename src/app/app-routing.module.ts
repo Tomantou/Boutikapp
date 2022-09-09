@@ -20,12 +20,12 @@ import { PromoComponent } from 'src/app/Pages/promo/promo.component';
 import { AproposComponent } from 'src/app/Pages/apropos/apropos.component';
 import { ContactComponent } from 'src/app/Pages/contact/contact.component';
 import { SigninComponent } from 'src/app/Pages/signin/signin.component';
-import { BottomComponent } from 'src/app/Pages/bottom/bottom.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { TransferstocksComponent } from './Pages/transferstocks/transferstocks.component';
 import { DetcommandeclComponent } from './Pages/detcommandecl/detcommandecl.component';
 import { DetcommandefournComponent } from './Pages/detcommandefourn/detcommandefourn.component';
 import { GerernewsComponent } from './Pages/gerernews/gerernews.component';
+import { BottompventesComponent } from './Pages/bottompventes/bottompventes.component';
 
 
 const routes: Routes = [
@@ -108,6 +108,12 @@ const routes: Routes = [
   },
   {
     path:"transfertstock", component:TransferstocksComponent,
+  },
+  {
+    path:"bottompventes", component:BottompventesComponent,
+  },
+  {
+    path:"factures", component:FacturesComponent,
   }
 
 

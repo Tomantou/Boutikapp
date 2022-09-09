@@ -28,7 +28,6 @@ import { BarnavComponent } from './Pages/barnav/barnav.component';
 import { PromoComponent } from './Pages/promo/promo.component';
 import { AproposComponent } from './Pages/apropos/apropos.component';
 import { SigninComponent } from './Pages/signin/signin.component';
-import { BottomComponent } from './Pages/bottom/bottom.component';
 import { ClientsComponent } from './Pages/clients/clients.component';
 import { GerantsComponent } from './Pages/gerants/gerants.component';
 import { CategoriesComponent } from './Pages/categories/categories.component';
@@ -63,6 +62,10 @@ import { EditpventeComponent } from './Pages/editpvente/editpvente.component';
 import { EditclientComponent } from './Pages/editclient/editclient.component';
 import { EditfournisseurComponent } from './Pages/editfournisseur/editfournisseur.component';
 import { EditpromotionComponent } from './Pages/editpromotion/editpromotion.component';
+import { BottompventesComponent } from './Pages/bottompventes/bottompventes.component';
+import { BottompventesrefComponent } from './Pages/bottompventesref/bottompventesref.component';
+import { EditfactureComponent } from './Pages/editfacture/editfacture.component';
+import { EditcommandeComponent } from './Pages/editcommande/editcommande.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +75,6 @@ import { EditpromotionComponent } from './Pages/editpromotion/editpromotion.comp
     PromoComponent,
     AproposComponent,
     SigninComponent,
-    BottomComponent,
     ClientsComponent,
     GerantsComponent,
     CategoriesComponent,
@@ -104,7 +106,11 @@ import { EditpromotionComponent } from './Pages/editpromotion/editpromotion.comp
     EditpventeComponent,
     EditclientComponent,
     EditfournisseurComponent,
-    EditpromotionComponent
+    EditpromotionComponent,
+    BottompventesComponent,
+    BottompventesrefComponent,
+    EditfactureComponent,
+    EditcommandeComponent
   ],
   imports: [
     BrowserModule,
