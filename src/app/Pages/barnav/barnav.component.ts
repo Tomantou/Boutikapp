@@ -73,8 +73,8 @@ gotoConfigdataClick(): void{
     this.router.navigate(['stocks']);
  }
 
- gotoTransferstockClick(): void{
-  this.router.navigate(['transferstocks']);
+ gotoTransfertstockClick(): void{
+  this.router.navigate(['transfertstocks']);
 }
 
 gotoSigninClick(): void{

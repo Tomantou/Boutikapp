@@ -1,5 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
+export interface PeriodicElement {
+  nom: string;
+  origine: string;
+  
+  
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [
+  {nom: 'HP', origine: 'USA'},
+  
+];
+
 @Component({
   selector: 'app-tabmarque',
   templateUrl: './tabmarque.component.html',
@@ -11,5 +23,9 @@ export class TabmarqueComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  displayedColumns: string[] = ['nom','origine'];
+  dataSource = ELEMENT_DATA;
+  
 
 }

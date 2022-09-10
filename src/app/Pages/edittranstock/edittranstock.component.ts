@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-edittranstock',
@@ -7,6 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EdittranstockComponent implements OnInit {
 
+  
+  Quantite = new FormControl;
+  Date = new FormControl;
+  Idstockdest = new FormControl;
+  // Navigation properthies
+  Idstocksrc = new FormControl;
+  Pvente = new FormControl;
+   
   constructor() { }
 
   ngOnInit(): void {

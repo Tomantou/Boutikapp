@@ -1,1 +1,49 @@
-<p>edittranstock works!</p>
+<br><br>
+<div class="titre">
+    <br>
+    <h2>EDITION DES TRANSFERTS STOCKS</h2>
+</div>
+<br>
+<div class="conteneur">
+    
+    
+    <mat-form-field appearance="fill">  
+        <mat-label>Quantité</mat-label>
+        <input matInput placeholder="Quantite " [formControl]="Quantite" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-form-field appearance="fill">
+        <mat-label>Date:</mat-label>
+        <input matInput placeholder="Date" [formControl]="Date">
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Id Stock dest.</mat-label>
+        <input matInput placeholder="Id stock destination" [formControl]="Idstockdest">
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-form-field appearance="fill">
+          <mat-label>Id stock source</mat-label>
+          <input matInput placeholder="id stock source" [formControl]= "Idstocksrc" required>
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+          <mat-label>Point vente</mat-label>
+          <input matInput placeholder="pvente" [formControl]= "Pvente" required>
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-flat-button color="primary"><h4>Enregistrer</h4></button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-flat-button color="accent"><h4>Annuler</h4></button>
+      <br>
+      
+  
+</div>
+<br>
+
+<br>
+

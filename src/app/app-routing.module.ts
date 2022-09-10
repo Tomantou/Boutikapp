@@ -107,7 +107,7 @@ const routes: Routes = [
     path:"stocks", component:StocksComponent,
   },
   {
-    path:"transfertstock", component:TransferstocksComponent,
+    path:"transfertstocks", component:TransferstocksComponent,
   },
   {
     path:"bottompventes", component:BottompventesComponent,
