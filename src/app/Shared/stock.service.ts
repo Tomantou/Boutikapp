@@ -13,7 +13,7 @@ import { ok } from 'assert';
   providedIn: 'root'
 })
 export class StockService {
-  private lien = environment.boutiqueBackend + '/stocks';
+  private lien = environment.boutiqueContainer + '/stocks';
 
   constructor(private readonly http: HttpClient) {
     let headers = new Headers();

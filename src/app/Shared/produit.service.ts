@@ -11,19 +11,15 @@ import { Stock } from '../Models/stock';
   providedIn: 'root'
 })
 export class ProduitsService {
-  private lien = environment.boutiqueContainer + '/produits';
+  private lien = environment.boutiqueContainer + 'api/produits';
    productAdded = new Subject();
+   
   constructor(
     private readonly http: HttpClient) { }
-
-    public getById(id: number) {
-      const filter = '{"where": {"Id": "' + id + '"}}'
-      return this.http.get<Produit[]>(this.lien + "?filter=" + filter);
-    }
    
   getProduits(): Observable<any> {
 
-    return this.http.get<Produit[]>(this.lien + '?filter={"limit": 100}');
+    return this.http.get<Produit[]>(this.lien + '/all');
     
 
   }
@@ -38,18 +34,24 @@ export class ProduitsService {
     const requestOptions = {
       headers: new HttpHeaders(headerDict),
     };
-    return this.http.post<Response>(environment.boutiqueContainer + '/produits', produit, requestOptions);
+    return this.http.post<Response>(this.lien + '/produits', produit, requestOptions);
   }
 
 // CRUD Operations
 
   createProduct(obj: any){
-     return this.http.post(environment.boutiqueContainer + '/produits', obj)
+    console.log(obj)
+     return this.http.post<Produit>(this.lien, obj)
 
   }
 
-  getLatestProducts(){
-
+  updateImage(image: File, prodId: number) {
+    if (image === undefined) {
+        return null;
+    }
+    const formData = new FormData();
+    formData.append('image', image);
+    return this.http.put(this.lien + '/' + prodId + '/photo', formData);
   }
 
   getProductById(id: number){

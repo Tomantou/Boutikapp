@@ -5,15 +5,15 @@ import { PromoProd } from "src/app/Models/promo_prod";
 import { Stock } from "./stock";
 export class Produit {
 
-    Id: number=0;
-    Nom: String='';
-    Prix: number=0;
-    Photo: String='';
-    Nouveaute: string='';
+    id: number=0;
+    nom: String='';
+    prix: number=0;
+    photo: String='';
+    nouveaute: string='';
     // Navigation properthies
-    CategorieId: number=0;
-    Categorie!: Categorie; 
-    MarqueId: number=0;
-    Marque!: Marque; 
-    PromoProds:PromoProd[] = [];
+    categorieId: number=0;
+    categorie!: Categorie; 
+    marqueId: number=0;
+    marque!: Marque; 
+    promoProds:PromoProd[] = [];
 }

@@ -6,45 +6,48 @@
 </div>
 <br>
 <div class="conteneur">
+
     <mat-form-field appearance="fill">
       <mat-label>Nom</mat-label>
       <input matInput placeholder="nom" [formControl]="Nom" required>
       <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
     </mat-form-field>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
     <mat-form-field appearance="fill">  
         <mat-label>Prix</mat-label>
         <input matInput placeholder="prix" [formControl]="Prix" required>
         <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
     </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
-        <mat-label>Photo</mat-label>
-        <input matInput placeholder="photo" [formControl]="Photo">
-        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-    </mat-form-field>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <mat-form-field appearance="fill">
+
+    <p>Photo</p>
+
+        <input #imageInput
+        type="file"
+        accept="image/*"
+        (change)="processFile(imageInput)">
+        
+
+        <mat-form-field appearance="fill">
         <mat-label>Nouveauté</mat-label>
         <input matInput placeholder="nouveauté ou non?" [formControl]="Nouveaute" required>
         <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
       </mat-form-field>
-      <br>
+
       <mat-form-field appearance="fill">
           <mat-label>Catégorie</mat-label>
           <input matInput placeholder="catégorie" [formControl]= "CategorieId" required>
           <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
       </mat-form-field>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
       <mat-form-field appearance="fill">
           <mat-label>Marque</mat-label>
           <input matInput placeholder="Marque" [formControl]= "MarqueId" required>
           <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
       </mat-form-field>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button mat-flat-button color="primary"><h4>Enregistrer</h4></button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <div></div>
+
+      <button mat-flat-button color="primary" (click)="this.create()"><h4>Enregistrer</h4></button>
       <button mat-flat-button color="accent"><h4>Annuler</h4></button>
-      <br>
       
   
 </div>
