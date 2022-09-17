@@ -26,7 +26,8 @@ import { DetcommandeclComponent } from './Pages/detcommandecl/detcommandecl.comp
 import { DetcommandefournComponent } from './Pages/detcommandefourn/detcommandefourn.component';
 import { GerernewsComponent } from './Pages/gerernews/gerernews.component';
 import { BottompventesComponent } from './Pages/bottompventes/bottompventes.component';
-
+import { EditProduitComponent } from './Pages/produits/edit-produit/edit-produit.component';
+import { AddProduitComponent } from './Pages/produits/add-produit/add-produit.component';
 
 const routes: Routes = [
   {
@@ -114,7 +115,14 @@ const routes: Routes = [
   },
   {
     path:"factures", component:FacturesComponent,
-  }
+  },
+
+  { path: 'produits/:id/edit', component: EditProduitComponent
+  },
+
+  { path: 'produits/add-produit', component: AddProduitComponent }
+
+
 
 
 ];

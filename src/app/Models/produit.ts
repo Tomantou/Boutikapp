@@ -10,10 +10,11 @@ export class Produit {
     prix: number=0;
     photo: String='';
     nouveaute: string='';
+    description: string='';
     // Navigation properthies
-    categorieId: number=0;
-    categorie!: Categorie; 
-    marqueId: number=0;
-    marque!: Marque; 
+    categorieid: number=0;
+    categorie: Categorie = new Categorie; 
+    marqueid: number=0;
+    marque: Marque = new Marque; 
     promoProds:PromoProd[] = [];
 }

@@ -1,0 +1,90 @@
+<router-outlet></router-outlet>
+
+<br><br>
+<div class="titre">
+    <br>
+    <h2>EDITION DES PRODUITS</h2>
+</div>
+<br>
+<div class="conteneur">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="nom" [formControl]="Nom" required>
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">  
+        <mat-label>Prix</mat-label>
+        <input matInput placeholder="prix" [formControl]="Prix" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    <p>Photo</p>
+
+        <!-- <input #imageInput
+        type="file"
+        accept="image/*"
+        (change)="processFile(imageInput)"> -->
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Photo</mat-label>
+            <input matInput placeholder="photo" [formControl]="photo" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Nouveauté</mat-label>
+            <input matInput placeholder="nouveauté ou non?" [formControl]="Nouveaute" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+
+      <mat-form-field appearance="fill">
+          <mat-label>Catégorie</mat-label>
+          <mat-select [(value)]="selectedCategorie">
+            <mat-option *ngFor="let categorie of Categories" [value]="categorie.libelle">
+              {{categorie.libelle}}
+            </mat-option>
+          </mat-select>
+          <!-- <input matInput placeholder="catégorie" [formControl]= "CategorieId" required> -->
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Favorite food</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{food.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+
+      <mat-form-field appearance="fill">
+          <mat-label>Marque</mat-label>
+          <mat-select [(value)]="selectedMarque">
+            <mat-option *ngFor="let marque of Marques" [value]="marque.nom">
+              {{marque.nom}}
+            </mat-option>
+          </mat-select>
+          <!-- <input matInput placeholder="Marque" [formControl]= "MarqueId" required> -->
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="description" [formControl]="description" required>
+    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <div></div><div></div>
+
+      <button mat-flat-button color="warn" (click)="this.create();gotoProduitClick()"><h4>Enregistrer</h4></button>
+      <button mat-flat-button color="primary" (click)="this.create();gotoProduitClick()"><h4>Quitter</h4></button>
+      
+  
+</div>
+<br>
+<div style="text-align:center;">
+    
+      
+</div>
+<br>

@@ -2,9 +2,9 @@
 import { Produit } from "./produit";
 
 export class Marque {
-     Id!: number;
-     Nom!: String;
-     Origine!: String;
+     id: number=0;
+     nom: String='';
+     origine: String='';
     // Navigation properties
     produits: Produit[] = [];
 

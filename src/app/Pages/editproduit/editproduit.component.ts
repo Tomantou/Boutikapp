@@ -19,7 +19,10 @@ export class EditproduitComponent implements OnInit {
     // Navigation properthies
     CategorieId = new FormControl;
     MarqueId = new FormControl;
+    description = new FormControl;
     prodid = 0;
+    
+
   constructor(private prodservice: ProduitsService) { }
 
   ngOnInit(): void {

@@ -13,7 +13,7 @@ import { Categorie } from '../Models/categorie';
 })
 export class CategorieService {
 
-  private lien = environment.boutiqueContainer + '/categories';
+  private lien = environment.boutiqueContainer + 'api/Categories';
 
   constructor(private readonly http: HttpClient) { 
     let headers = new Headers();
@@ -35,7 +35,7 @@ export class CategorieService {
 
   }
 
-  geetCategories(): Observable<any>{
+  getCategories(): Observable<any>{
      return this.http.get<Categorie[]>(this.lien);
    }
 

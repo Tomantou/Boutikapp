@@ -24,7 +24,7 @@ export class AccueilComponent implements OnInit {
   lesproduits: Produit[] = [];
   public configdatas: Configdata[] = [];
   panier: Produit[] = [];
-  selectedProduct: Produit = new Produit;
+  selectedProduct: any
   selectedConfigdata: Configdata = new Configdata;
  private link = ['accueil'];
   p: number = 1;
@@ -48,21 +48,21 @@ export class AccueilComponent implements OnInit {
     this.selectedProduct  = new Produit;
     this.produitservice.getProduits().subscribe(
       (produits) => {this.lesproduits=produits;
-      // console.log('liste produits',this.lesproduits);
+       console.log('liste produits',this.lesproduits);
       },
       (error) => {
          alert('probleme d\'acces a l api');
       }
       );  
 
-      this.configdataservice.getSignaletique().subscribe(
+     /*  this.configdataservice.getSignaletique().subscribe(
         (configdatas) => {this.configdatas = configdatas;
-        // console.log('liste signaletiques',this.signaletics);
+        console.log('liste signaletiques',this.signaletics);
         },
         (error) => {
            alert('probleme d\'acces a l api categories');
         }
-      ); 
+      );  */
       
     } 
    
@@ -72,7 +72,7 @@ export class AccueilComponent implements OnInit {
    }
    
    getProduit(id: number){
-     //this.selectedProduct = this.lesproduits.find(p => p.Id == id);
+     this.selectedProduct = this.lesproduits.find(p => p.id == id);
      console.log(this.selectedProduct);
    }
    

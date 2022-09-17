@@ -1,0 +1,71 @@
+<router-outlet></router-outlet>
+
+<br><br>
+<div class="titre">
+    <br>
+    <h2>EDITION DU PRODUIT</h2>
+</div>
+<br>
+<div class="conteneur">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="nom" [formControl]="produit.nom">
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">  
+        <mat-label>Prix</mat-label>
+        <input matInput placeholder="prix" [formControl]="produit.prix">
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    
+
+        <!-- <input #imageInput
+        type="file"
+        accept="image/*"
+        (change)="processFile(imageInput)"> -->
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Photo</mat-label>
+            <input matInput placeholder="photo" [formControl]="produit.photo" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Nouveauté</mat-label>
+            <input matInput placeholder="nouveauté ou non?" [formControl]="produit.nouveaute" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+
+      <mat-form-field appearance="fill">
+          <mat-label>Catégorie</mat-label>
+          <input matInput placeholder="catégorie" [formControl]= "produit.categorieid" required>
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+          <mat-label>Marque</mat-label>
+          <input matInput placeholder="marque" [formControl]= "produit.marqueid" required>
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="description" [formControl]="produit.description" required>
+    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <div></div><div></div>
+
+      <button mat-flat-button color="warn" (click)="this.updateProduit();gotoProduitClick()"><h4>Enregistrer</h4></button>
+      <button mat-flat-button color="primary" (click)="this.gotoProduitClick()"><h4>Quitter</h4></button>
+      
+  
+</div>
+<br>
+<div style="text-align:center;">
+    
+      
+</div>
+<br>

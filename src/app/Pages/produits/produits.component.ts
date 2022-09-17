@@ -33,11 +33,22 @@ export class ProduitsComponent implements OnInit {
     MarqueId: number=0;
     Marque: Marque = new Marque;    
     PromoProds:PromoProd[] = [];
-  constructor() { }
+    //router: any;
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
+  
+  gotoTransfertstockClick(): void{
+    this.router.navigate(['transfertstocks']);
+  }
+  gotoAddproduitClick(): void{
+    this.router.navigate(['produits/add-produit']);
+  }
 
+  gotoEditproduitClick(): void{
+    this.router.navigate(['produits/edit-produit']);
+  }
   
 
 

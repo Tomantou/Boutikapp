@@ -6,6 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { HttpErrorResponse,  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment';
 import { Categorie } from '../Models/categorie';
+import { Marque } from '../Models/marque';
 
 
 
@@ -13,7 +14,7 @@ import { Categorie } from '../Models/categorie';
   providedIn: 'root'
 })
 export class MarqueService {
-  private lien = environment.boutiqueContainer + '/marques';
+  private lien = environment.boutiqueContainer + 'api/Marques';
 
   constructor(private readonly http: HttpClient) { 
     let headers = new Headers();
@@ -35,8 +36,8 @@ export class MarqueService {
 
   }
 
-  geetCategories(): Observable<any>{
-     return this.http.get<Categorie[]>(this.lien);
+  getMarques(): Observable<any>{
+     return this.http.get<Marque[]>(this.lien);
    }
 
   /*  getCategories(): Observable<any>{

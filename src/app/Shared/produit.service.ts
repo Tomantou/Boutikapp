@@ -19,12 +19,12 @@ export class ProduitsService {
    
   getProduits(): Observable<any> {
 
-    return this.http.get<Produit[]>(this.lien + '/all');
+    return this.http.get<Produit[]>(this.lien);
     
 
   }
 
-  saveProduit(produit: Produit): Observable<Response> {
+  saveProduit(produit: Produit): Observable<Produit> {
     const headerDict = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
@@ -34,14 +34,14 @@ export class ProduitsService {
     const requestOptions = {
       headers: new HttpHeaders(headerDict),
     };
-    return this.http.post<Response>(this.lien + '/produits', produit, requestOptions);
+    return this.http.post<Produit>(this.lien, produit, requestOptions);
   }
 
 // CRUD Operations
 
-  createProduct(obj: any){
-    console.log(obj)
-     return this.http.post<Produit>(this.lien, obj)
+  createProduct(prodt: Object){
+    console.log(prodt)
+     return this.http.post<Produit>(this.lien, prodt)
 
   }
 

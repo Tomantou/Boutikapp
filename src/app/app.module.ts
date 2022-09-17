@@ -21,6 +21,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTableModule} from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AccueilComponent } from './Pages/accueil/accueil.component';
 import { NewsComponent } from './Pages/news/news.component';
@@ -78,7 +79,10 @@ import { TabstockComponent } from './Pages/tabstock/tabstock.component';
 import { TabtranstockComponent } from './Pages/tabtranstock/tabtranstock.component';
 import { TabnewsComponent } from './Pages/tabnews/tabnews.component';
 import { TabpromotionComponent } from './Pages/tabpromotion/tabpromotion.component';
+import { AddProduitComponent } from './Pages/produits/add-produit/add-produit.component';
+import { EditProduitComponent } from './Pages/produits/edit-produit/edit-produit.component';
 import { EdittranstockComponent } from './Pages/edittranstock/edittranstock.component';
+import { DetailsComponent } from './Pages/produits/details/details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -136,7 +140,10 @@ import { EdittranstockComponent } from './Pages/edittranstock/edittranstock.comp
     TabtranstockComponent,
     TabnewsComponent,
     TabpromotionComponent,
-    EdittranstockComponent
+    EdittranstockComponent,
+    AddProduitComponent,
+    EditProduitComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -155,7 +162,8 @@ import { EdittranstockComponent } from './Pages/edittranstock/edittranstock.comp
     MatFormFieldModule,
     FormsModule, ReactiveFormsModule, MatInputModule,
     MatTabsModule,MatExpansionModule,MatDatepickerModule,
-    HttpClientModule,MatBadgeModule,MatTableModule
+    HttpClientModule,MatBadgeModule,MatTableModule,
+    MatSelectModule
 
   ],
   providers: [],
