@@ -16,6 +16,10 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Stock } from 'src/app/Models/stock';
+import { MatDialog } from '@angular/material/dialog';
+import { AddProduitComponent } from './add-produit/add-produit.component';
+import { ProddetailComponent } from '../proddetail/proddetail.component';
+import { TabprodComponent } from '../tabprod/tabprod.component';
 
 
 @Component({
@@ -24,6 +28,7 @@ import { Stock } from 'src/app/Models/stock';
   styleUrls: ['./produits.component.css']
 })
 export class ProduitsComponent implements OnInit {
+
     Nom: String='';
     Photo: String='';
     Nouveaute: string='';
@@ -33,11 +38,21 @@ export class ProduitsComponent implements OnInit {
     MarqueId: number=0;
     Marque: Marque = new Marque;    
     PromoProds:PromoProd[] = [];
-    //router: any;
-  constructor(private router:Router) { }
+    @ViewChild(TabprodComponent, { static: false }) tabprod: any;
+    @ViewChild(TabprodComponent, { static: false })
+        selectedProduct: Produit = new Produit;
+  constructor(
+             private router:Router,
+             private dialog: MatDialog,
+             private prodservice: ProduitsService,
+             private categservice: CategorieService,
+             private marqueservice: MarqueService
+             ){ }
 
   ngOnInit(): void {
+    
   }
+  
   
   gotoTransfertstockClick(): void{
     this.router.navigate(['transfertstocks']);
@@ -50,6 +65,7 @@ export class ProduitsComponent implements OnInit {
     this.router.navigate(['produits/edit-produit']);
   }
   
-
-
+  openAddproduitClick(){
+    
+  }
 }

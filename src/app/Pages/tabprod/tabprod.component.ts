@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProduitsService } from 'src/app/Shared/produit.service';
 import { Produit } from 'src/app/Models/produit';
+import { Dialog } from '@angular/cdk/dialog';
+import { AddProduitComponent } from '../produits/add-produit/add-produit.component';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 export interface PeriodicElement {
   nom: string;
@@ -27,7 +31,7 @@ export interface PeriodicElement {
 })
 export class TabprodComponent implements OnInit {
   public lesproduits: Produit[] = [];
-  public selectedProduct:any;
+  public selectedProduct: any;
   
   displayedColumns: string[] = ['nom','description','prix','categorieid','marqueid','actions'];
   stateSpinner = false;
@@ -37,16 +41,21 @@ export class TabprodComponent implements OnInit {
   constructor(
     private prodservice: ProduitsService,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    public dialog:MatDialog
   ) { }
 
   ngOnInit(): void {
+    this.selectedProduct = new Produit();
     this.refreshProduits();
+   
   }
 
   refreshProduits(){
     this.prodservice.getProduits().subscribe(result => {
-      this.dataSource = result;
+      // this.dataSource = result;
+      this.lesproduits = result;
+      this.dataSource =result;
     })
 
     this.prodservice.getProduits().subscribe(produits => {
@@ -57,18 +66,10 @@ export class TabprodComponent implements OnInit {
   }
 
   getProduit(id: number) {
-    this.selectedProduct= new Produit;
     this.selectedProduct = this.lesproduits.find((p) => p.id == id);
     console.log(this.selectedProduct);
   }
   
-  detailsProduct(){
-    console.log('vrai');
-  }
-  updateProduct(){
-     console.log('vrai');
-  }
-
   deleteProduct(id:number){
     return this.prodservice.deleteProduct(id).subscribe((res) => {
       this.refreshProduits();
@@ -80,6 +81,17 @@ export class TabprodComponent implements OnInit {
     window.open("/produits/" + id + "/edit")
   }
 
+
+  
+  detailsProduct(){
+    console.log('vrai');
+  }
+  updateProduct(){
+     console.log('vrai');
+  }
+
+  
+
   showSpinner(){
     this.stateSpinner = true;
     setTimeout(() => {
@@ -89,6 +101,22 @@ export class TabprodComponent implements OnInit {
 
   gotoEditproduitClick(): void{
     this.router.navigate(['produits/edit-produit']);
+  }
+
+  gotoDetailProduitClick(): void{
+    this.router.navigate(['produits/detail-produit']);
+  }
+
+  openAddproduitClick(){
+    this.dialog.open(AddProduitComponent);
+  }
+
+  openDetailprodDialog(){
+    let dialogRef = this.dialog.open(DialogComponent,{data: {name:'Antoine'}});
+    dialogRef.afterClosed().subscribe( result => {
+      console.log("Dialog result:", result);
+    }); 
+     
   }
   
 

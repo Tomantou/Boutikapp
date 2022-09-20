@@ -19,9 +19,13 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule, MatDialogConfig} from '@angular/material/dialog';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 import { AccueilComponent } from './Pages/accueil/accueil.component';
 import { NewsComponent } from './Pages/news/news.component';
@@ -82,7 +86,17 @@ import { TabpromotionComponent } from './Pages/tabpromotion/tabpromotion.compone
 import { AddProduitComponent } from './Pages/produits/add-produit/add-produit.component';
 import { EditProduitComponent } from './Pages/produits/edit-produit/edit-produit.component';
 import { EdittranstockComponent } from './Pages/edittranstock/edittranstock.component';
-import { DetailsComponent } from './Pages/produits/details/details.component';
+import { DetailProduitComponent } from './Pages/produits/detail-produit/detail-produit.component';
+import { ProddetailComponent } from './Pages/proddetail/proddetail.component';
+import { ProduitsService } from './Shared/produit.service';
+import { CategorieService } from './Shared/categorie.service';
+import { MarqueService } from './Shared/marque.service';
+import { DialogComponent } from './Pages/dialog/dialog.component';
+import { ThenewsComponent } from './Pages/gerernews/thenews/thenews.component';
+import { ThenewsService } from './Shared/thenews.service';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -143,7 +157,11 @@ import { DetailsComponent } from './Pages/produits/details/details.component';
     EdittranstockComponent,
     AddProduitComponent,
     EditProduitComponent,
-    DetailsComponent
+    DetailProduitComponent,
+    ProddetailComponent,
+    DialogComponent,
+    ThenewsComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -161,12 +179,13 @@ import { DetailsComponent } from './Pages/produits/details/details.component';
     MatCardModule,
     MatFormFieldModule,
     FormsModule, ReactiveFormsModule, MatInputModule,
-    MatTabsModule,MatExpansionModule,MatDatepickerModule,
+    MatTabsModule,MatExpansionModule,MatDatepickerModule,MatNativeDateModule,
     HttpClientModule,MatBadgeModule,MatTableModule,
-    MatSelectModule
+    MatSelectModule,MatDialogModule,MatGridListModule
 
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ProduitsService, CategorieService,MarqueService,ThenewsService],
+  bootstrap: [AppComponent],
+  entryComponents:[DialogComponent,AddProduitComponent]
 })
 export class AppModule { }

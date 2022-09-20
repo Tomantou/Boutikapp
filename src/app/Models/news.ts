@@ -1,11 +1,11 @@
 
 export class News {
-    Id!: Number;
-    Titre!: String;
-    Soustitre!: String;
-    Texte!: String;
-    image!: String;
-    Datedebut!: Date;
-    Datefin!: Date;
+    id: Number = 0;
+    titre: string = '';
+    texte1: string='';
+    Texte2: string ='';
+    image: string='';
+    datepublication: Date = new Date;
+    publier: string ='';
 
 }

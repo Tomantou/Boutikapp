@@ -31,7 +31,7 @@ export class AddProduitComponent implements OnInit {
   prodid = 0;
   constructor(
     private router:Router,
-    private prodservice: ProduitsService,
+    public prodservice: ProduitsService,
     private categorieservice: CategorieService,
     private marqueservice: MarqueService
     ) { }
@@ -90,5 +90,9 @@ export class AddProduitComponent implements OnInit {
     this.router.navigate(['produits']);
  }
   
+ onClear(){
+  this.prodservice.form.reset();
+  this.prodservice.initializeFormGroup();
+}
 
 }

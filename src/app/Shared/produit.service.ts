@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Categorie } from '../Models/categorie';
 import { Produit } from '../Models/produit';
 import { Stock } from '../Models/stock';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Injectable({
@@ -16,6 +17,31 @@ export class ProduitsService {
    
   constructor(
     private readonly http: HttpClient) { }
+
+    
+  form: FormGroup = new FormGroup({
+    $id: new FormControl(null),
+    nom: new FormControl('', Validators.required),
+    prix: new FormControl(),
+    photo: new FormControl(''),
+    nouveaute: new FormControl(''),
+    description: new FormControl(''),
+    categorieid: new FormControl('',Validators.required),
+    marqueid: new FormControl('',Validators.required)
+  })
+
+  initializeFormGroup(){
+    this.form.setValue({
+    $Id: null,
+    nom: '',
+    prix: 0,
+    photo: '',
+    nouveaute: '',
+    description: '',
+    categorieid: '',
+    marqueid:''
+  });
+}
    
   getProduits(): Observable<any> {
 

@@ -3,83 +3,111 @@
 <br><br>
 <div class="titre">
     <br>
-    <h2>EDITION DES PRODUITS</h2>
+    <h2>PRODUIT</h2>
 </div>
 <br>
 <div class="conteneur">
+        <form [formGroup] = "prodservice.form" class="conteneur">
+              <mat-form-field>
+                <input formControlName="nom" matInput placeholder="nom">
+                <mat-error *ngIf ="prodservice.form.get('nom').hasError('required')"> ce champ est obligatoire</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="prix" matInput placeholder="prix">
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="photo" matInput placeholder="photo">
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="nouveaute" matInput placeholder="nouveaute">
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="categorieid" matInput placeholder="categorie">
+                <mat-error *ngIf ="prodservice.form.get('categorieid').hasError('required')"> ce champ est obligatoire</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="marqueid" matInput placeholder="marque">
+                <mat-error *ngIf ="prodservice.form.get('marqueid').hasError('required')"> ce champ est obligatoire</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="description" matInput placeholder="description">
+              </mat-form-field>
 
-    <mat-form-field appearance="fill">
+        </form>
+
+        <div></div>
+        <div style="margin-left: 700px;">
+          <button mat-raised-button color="primary" type = "submit" [disabled] ="prodservice.form.invalid">Submit</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button mat-raised-button color="warn" (click) = "onClear()">Clear</button>
+        </div>
+
+      <!-- <button mat-flat-button color="primary" (click)="this.create();gotoProduitClick()"><h4>Enregistrer</h4></button>
+      <button mat-flat-button color="warn" (click)="gotoProduitClick()"><h4>Quitter</h4></button>
+ -->
+    <!-- <mat-form-field appearance="fill">
       <mat-label>Nom</mat-label>
       <input matInput placeholder="nom" [formControl]="Nom" required>
-      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      
     </mat-form-field>
 
     <mat-form-field appearance="fill">  
         <mat-label>Prix</mat-label>
         <input matInput placeholder="prix" [formControl]="Prix" required>
-        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+       
     </mat-form-field>
 
     <p>Photo</p>
 
-        <!-- <input #imageInput
+        <input #imageInput
         type="file"
         accept="image/*"
-        (change)="processFile(imageInput)"> -->
+        (change)="processFile(imageInput)">
         
         <mat-form-field appearance="fill">
             <mat-label>Photo</mat-label>
             <input matInput placeholder="photo" [formControl]="photo" required>
-        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+       
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Nouveauté</mat-label>
             <input matInput placeholder="nouveauté ou non?" [formControl]="Nouveaute" required>
-        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+       
         </mat-form-field>
 
       <mat-form-field appearance="fill">
           <mat-label>Catégorie</mat-label>
           <mat-select [(value)]="selectedCategorie">
-            <mat-option *ngFor="let categorie of Categories" [value]="categorie.libelle">
+            <mat-option *ngFor="let categorie of Categories" [value]="categorie.Id">
               {{categorie.libelle}}
             </mat-option>
           </mat-select>
-          <!-- <input matInput placeholder="catégorie" [formControl]= "CategorieId" required> -->
-          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+          
       </mat-form-field>
 
-      <!-- <mat-form-field appearance="fill">
-        <mat-label>Favorite food</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let food of foods" [value]="food.value">
-            {{food.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field> -->
+     
 
       <mat-form-field appearance="fill">
           <mat-label>Marque</mat-label>
           <mat-select [(value)]="selectedMarque">
-            <mat-option *ngFor="let marque of Marques" [value]="marque.nom">
+            <mat-option *ngFor="let marque of Marques" [value]="marque.id">
               {{marque.nom}}
             </mat-option>
           </mat-select>
-          <!-- <input matInput placeholder="Marque" [formControl]= "MarqueId" required> -->
-          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+          
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Description</mat-label>
         <input matInput placeholder="description" [formControl]="description" required>
-    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+   
       </mat-form-field>
       <div></div><div></div>
 
       <button mat-flat-button color="warn" (click)="this.create();gotoProduitClick()"><h4>Enregistrer</h4></button>
-      <button mat-flat-button color="primary" (click)="this.create();gotoProduitClick()"><h4>Quitter</h4></button>
-      
+      <button mat-flat-button color="primary" (click)="gotoProduitClick()"><h4>Quitter</h4></button>
+     -->  
   
 </div>
 <br>

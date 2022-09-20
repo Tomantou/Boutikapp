@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Configdata } from 'src/app/Models/configdata';
+import { MatDialog } from '@angular/material/dialog';
+import { DetailProduitComponent } from '../produits/detail-produit/detail-produit.component';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-accueil',
@@ -24,7 +27,7 @@ export class AccueilComponent implements OnInit {
   lesproduits: Produit[] = [];
   public configdatas: Configdata[] = [];
   panier: Produit[] = [];
-  selectedProduct: any
+  selectedProduct: any;
   selectedConfigdata: Configdata = new Configdata;
  private link = ['accueil'];
   p: number = 1;
@@ -33,7 +36,8 @@ export class AccueilComponent implements OnInit {
 
   constructor(private router:Router, 
     private produitservice: ProduitsService,
-    private configdataservice: ConfigdataService) { }
+    private configdataservice: ConfigdataService,
+    private dialog: MatDialog) { }
 
     opened = true;
     title = 'NCL *  Nutri-Cosmétique en Ligne';
@@ -82,8 +86,9 @@ export class AccueilComponent implements OnInit {
      console.log(this.selectedConfigdata);
    }
    
-     
   
+     
+   
 
    Textechaussure = `Chaussure de sécurité siev .`;
    Textetoner = `Cartouche Toner pour imprimante laser .`;
