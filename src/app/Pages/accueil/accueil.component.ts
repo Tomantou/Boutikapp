@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
 import { Produit } from 'src/app/Models/produit';
 import { Marque } from 'src/app/Models/marque';
@@ -12,9 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Configdata } from 'src/app/Models/configdata';
-import { MatDialog } from '@angular/material/dialog';
 import { DetailProduitComponent } from '../produits/detail-produit/detail-produit.component';
 import { DialogComponent } from '../dialog/dialog.component';
+import { BottompventesComponent } from '../bottompventes/bottompventes.component';
 
 @Component({
   selector: 'app-accueil',
@@ -37,7 +37,8 @@ export class AccueilComponent implements OnInit {
   constructor(private router:Router, 
     private produitservice: ProduitsService,
     private configdataservice: ConfigdataService,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    ) { }
 
     opened = true;
     title = 'NCL *  Nutri-Cosmétique en Ligne';
@@ -78,6 +79,9 @@ export class AccueilComponent implements OnInit {
    getProduit(id: number){
      this.selectedProduct = this.lesproduits.find(p => p.id == id);
      console.log(this.selectedProduct);
+    
+     
+
    }
    
    getSignal(tva: number){
@@ -87,14 +91,12 @@ export class AccueilComponent implements OnInit {
    }
    
   
-     
-   
-
-   Textechaussure = `Chaussure de sécurité siev .`;
-   Textetoner = `Cartouche Toner pour imprimante laser .`;
- 
-
+   openDetailprodDialog(){
+    let dialogRef = this.dialog.open(DetailProduitComponent,{data: {name:'Antoine'}});
+    dialogRef.afterClosed().subscribe( result => {
+      console.log("Dialog result:", result);
+    });    
   
+    }
+
 }
-
-

@@ -1,4 +1,4 @@
-<router-outlet></router-outlet>
+
 
 <br><br>
 <div class="titre">
@@ -35,8 +35,9 @@
                     <input formControlName="publier" matInput placeholder="publier o/n">
                     <mat-error *ngIf ="thenewsservice.form.get('publier').hasError('required')"> ce champ est obligatoire</mat-error>
                   </mat-form-field>
-                  <div>
+                  <div style="margin-left: 300px;">
                      <button mat-raised-button color="primary" type = "submit" [disabled] ="thenewsservice.form.invalid">Submit</button>
+                     &nbsp;&nbsp;&nbsp;&nbsp;
                      <button mat-raised-button color="warn" (click) = "onClear()">Clear</button>
                   </div>
     </form>

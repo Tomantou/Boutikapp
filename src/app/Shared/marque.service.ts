@@ -7,6 +7,7 @@ import { HttpErrorResponse,  } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Categorie } from '../Models/categorie';
 import { Marque } from '../Models/marque';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 
@@ -39,13 +40,20 @@ export class MarqueService {
   getMarques(): Observable<any>{
      return this.http.get<Marque[]>(this.lien);
    }
+   
+   form: FormGroup = new FormGroup({
+    $id: new FormControl(null),
+    nom: new FormControl('', Validators.required),
+    origine: new FormControl('',Validators.required)
+    
+  });
 
-  /*  getCategories(): Observable<any>{
-  try{
-     return this.http.get<Categorie []>(this.lien);
-    }catch{
-     (this.handleError);
-    }
-             
-  }     */
+  initializeFormGroup(){
+    this.form.setValue({
+    $Id: null,
+    nom: '',
+    origine: ''
+   
+  });
+  }
 }

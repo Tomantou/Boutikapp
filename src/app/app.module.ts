@@ -56,44 +56,59 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { DetcommandeclComponent } from './Pages/detcommandecl/detcommandecl.component';
 import { DetcommandefournComponent } from './Pages/detcommandefourn/detcommandefourn.component';
 import { GerernewsComponent } from './Pages/gerernews/gerernews.component';
-import { TabprodComponent } from './Pages/tabprod/tabprod.component';
-import { EditproduitComponent } from './Pages/editproduit/editproduit.component';
-import { EditnewsComponent } from './Pages/editnews/editnews.component';
-import { EditstockComponent } from './Pages/editstock/editstock.component';
-import { EditcategorieComponent } from './Pages/editcategorie/editcategorie.component';
-import { EditmarqueComponent } from './Pages/editmarque/editmarque.component';
-import { EditgerantComponent } from './Pages/editgerant/editgerant.component';
-import { EditpventeComponent } from './Pages/editpvente/editpvente.component';
-import { EditclientComponent } from './Pages/editclient/editclient.component';
-import { EditfournisseurComponent } from './Pages/editfournisseur/editfournisseur.component';
-import { EditpromotionComponent } from './Pages/editpromotion/editpromotion.component';
-import { BottompventesComponent } from './Pages/bottompventes/bottompventes.component';
-import { BottompventesrefComponent } from './Pages/bottompventesref/bottompventesref.component';
-import { EditfactureComponent } from './Pages/editfacture/editfacture.component';
-import { EditcommandeComponent } from './Pages/editcommande/editcommande.component';
-import { TabcategorieComponent } from './Pages/tabcategorie/tabcategorie.component';
-import { TabmarqueComponent } from './Pages/tabmarque/tabmarque.component';
-import { TabclientComponent } from './Pages/tabclient/tabclient.component';
-import { TabcommandeComponent } from './Pages/tabcommande/tabcommande.component';
-import { TabfactureComponent } from './Pages/tabfacture/tabfacture.component';
-import { TabfournisseurComponent } from './Pages/tabfournisseur/tabfournisseur.component';
-import { TabgerantComponent } from './Pages/tabgerant/tabgerant.component';
-import { TabpventeComponent } from './Pages/tabpvente/tabpvente.component';
-import { TabstockComponent } from './Pages/tabstock/tabstock.component';
-import { TabtranstockComponent } from './Pages/tabtranstock/tabtranstock.component';
-import { TabnewsComponent } from './Pages/tabnews/tabnews.component';
-import { TabpromotionComponent } from './Pages/tabpromotion/tabpromotion.component';
 import { AddProduitComponent } from './Pages/produits/add-produit/add-produit.component';
 import { EditProduitComponent } from './Pages/produits/edit-produit/edit-produit.component';
-import { EdittranstockComponent } from './Pages/edittranstock/edittranstock.component';
 import { DetailProduitComponent } from './Pages/produits/detail-produit/detail-produit.component';
-import { ProddetailComponent } from './Pages/proddetail/proddetail.component';
 import { ProduitsService } from './Shared/produit.service';
 import { CategorieService } from './Shared/categorie.service';
 import { MarqueService } from './Shared/marque.service';
 import { DialogComponent } from './Pages/dialog/dialog.component';
 import { ThenewsComponent } from './Pages/gerernews/thenews/thenews.component';
 import { ThenewsService } from './Shared/thenews.service';
+import { TableproductComponent } from 'src/app/Pages/produits/tableproduct/tableproduct.component';
+import { AddNewsComponent } from 'src/app/Pages/gerernews/add-news/add-news.component';
+import { EditNewsComponent } from 'src/app/Pages/gerernews/edit-news/edit-news.component';
+import { TablenewsComponent } from 'src/app/Pages/gerernews/tablenews/tablenews.component';
+import { AddStockComponent } from 'src/app/Pages/stocks/add-stock/add-stock.component';
+import { EditStockComponent } from 'src/app/Pages/stocks/edit-stock/edit-stock.component';
+import { TablestockComponent } from 'src/app/Pages/stocks/tablestock/tablestock.component';
+import { AddCategorieComponent } from 'src/app/Pages/categories/add-categorie/add-categorie.component';
+import { EditCategorieComponent } from 'src/app/Pages/categories/edit-categorie/edit-categorie.component';
+import { TablecategorieComponent } from 'src/app/Pages/categories/tablecategorie/tablecategorie.component';
+import { AddMarqueComponent } from 'src/app/Pages/marques/add-marque/add-marque.component';
+import { EditMarqueComponent } from 'src/app/Pages/marques/edit-marque/edit-marque.component';
+import { TablemarqueComponent } from 'src/app/Pages/marques/tablemarque/tablemarque.component';
+import { AddClientComponent } from 'src/app/Pages/clients/add-client/add-client.component';
+import { EditClientComponent } from 'src/app/Pages/clients/edit-client/edit-client.component';
+import { TableclientComponent } from 'src/app/Pages/clients/tableclient/tableclient.component';
+import { AddGerantComponent } from 'src/app/Pages/gerants/add-gerant/add-gerant.component';
+import { EditGerantComponent } from 'src/app/Pages/gerants/edit-gerant/edit-gerant.component';
+import { TablegerantComponent } from 'src/app/Pages/gerants/tablegerant/tablegerant.component';
+import { AddPventeComponent } from 'src/app/Pages/pventes/add-pvente/add-pvente.component';
+import { EditPventeComponent } from 'src/app/Pages/pventes/edit-pvente/edit-pvente.component';
+import { TablepventeComponent } from 'src/app/Pages/pventes/tablepvente/tablepvente.component';
+import { AddFournisseurComponent } from 'src/app/Pages/fournisseurs/add-fournisseur/add-fournisseur.component';
+import { EditFournisseurComponent } from 'src/app/Pages/fournisseurs/edit-fournisseur/edit-fournisseur.component';
+import { TablefournisseurComponent } from 'src/app/Pages/fournisseurs/tablefournisseur/tablefournisseur.component';
+import { AddCommandeclComponent } from 'src/app/Pages/commandecl/add-commandecl/add-commandecl.component';
+import { EditCommandeclComponent } from 'src/app/Pages/commandecl/edit-commandecl/edit-commandecl.component';
+import { TablecommandeclComponent } from 'src/app/Pages/commandecl/tablecommandecl/tablecommandecl.component';
+import { AddConfigdataComponent } from 'src/app/Pages/configdata/add-configdata/add-configdata.component';
+import { EditConfigdataComponent } from 'src/app/Pages/configdata/edit-configdata/edit-configdata.component';
+import { AddFactureComponent } from 'src/app/Pages/factures/add-facture/add-facture.component';
+import { EditFactureComponent } from 'src/app/Pages/factures/edit-facture/edit-facture.component';
+import { TablefactureComponent } from 'src/app/Pages/factures/tablefacture/tablefacture.component';
+import { AddPromotionComponent } from 'src/app/Pages/promotions/add-promotion/add-promotion.component';
+import { EditPromotionComponent } from 'src/app/Pages/promotions/edit-promotion/edit-promotion.component';
+import { TablepromotionComponent } from 'src/app/Pages/promotions/tablepromotion/tablepromotion.component';
+import { AddCommandefournComponent } from 'src/app/Pages/commandefourn/add-commandefourn/add-commandefourn.component';
+import { EditCommandefournComponent } from 'src/app/Pages/commandefourn/edit-commandefourn/edit-commandefourn.component';
+import { TablecommandefournComponent } from 'src/app/Pages/commandefourn/tablecommandefourn/tablecommandefourn.component';
+import { AddTransferstockComponent } from 'src/app/Pages/transferstocks/add-transferstock/add-transferstock.component';
+import { EditTransferstockComponent } from 'src/app/Pages/transferstocks/edit-transferstock/edit-transferstock.component';
+import { TabletransferstockComponent } from 'src/app/Pages/transferstocks/tabletransferstock/tabletransferstock.component';
+import { ProductdialogComponent } from 'src/app/Pages/produits/productdialog/productdialog.component';
+import { BottompventesComponent } from './Pages/bottompventes/bottompventes.component';
 
 
 
@@ -127,40 +142,55 @@ import { ThenewsService } from './Shared/thenews.service';
     DetcommandeclComponent,
     DetcommandefournComponent,
     GerernewsComponent,
-    TabprodComponent,
-    EditproduitComponent,
-    EditnewsComponent,
-    EditstockComponent,
-    EditcategorieComponent,
-    EditmarqueComponent,
-    EditgerantComponent,
-    EditpventeComponent,
-    EditclientComponent,
-    EditfournisseurComponent,
-    EditpromotionComponent,
-    BottompventesComponent,
-    BottompventesrefComponent,
-    EditfactureComponent,
-    EditcommandeComponent,
-    TabcategorieComponent,
-    TabmarqueComponent,
-    TabclientComponent,
-    TabcommandeComponent,
-    TabfactureComponent,
-    TabfournisseurComponent,
-    TabgerantComponent,
-    TabpventeComponent,
-    TabstockComponent,
-    TabtranstockComponent,
-    TabnewsComponent,
-    TabpromotionComponent,
-    EdittranstockComponent,
     AddProduitComponent,
     EditProduitComponent,
     DetailProduitComponent,
-    ProddetailComponent,
     DialogComponent,
-    ThenewsComponent
+    ThenewsComponent,
+    TableproductComponent,
+    AddNewsComponent,
+    EditNewsComponent,
+    TablenewsComponent,
+    AddStockComponent,
+    EditStockComponent,
+    TablestockComponent,
+    AddCategorieComponent,
+    EditCategorieComponent,
+    TablecategorieComponent,
+    AddMarqueComponent,
+    EditMarqueComponent,
+    TablemarqueComponent,
+    AddClientComponent,
+    EditClientComponent,
+    TableclientComponent,
+    AddGerantComponent,
+    EditGerantComponent,
+    TablegerantComponent,
+    AddPventeComponent,
+    EditPventeComponent,
+    TablepventeComponent,
+    AddFournisseurComponent,
+    EditFournisseurComponent,
+    TablefournisseurComponent,
+    AddCommandeclComponent,
+    EditCommandeclComponent,
+    TablecommandeclComponent,
+    AddConfigdataComponent,
+    EditConfigdataComponent,
+    AddFactureComponent,
+    EditFactureComponent,
+    TablefactureComponent,
+    AddPromotionComponent,
+    EditPromotionComponent,
+    TablepromotionComponent,
+    AddCommandefournComponent,
+    EditCommandefournComponent,
+    TablecommandefournComponent,
+    AddTransferstockComponent,
+    EditTransferstockComponent,
+    TabletransferstockComponent,
+    ProductdialogComponent,
+    BottompventesComponent
   
   ],
   imports: [
@@ -186,6 +216,10 @@ import { ThenewsService } from './Shared/thenews.service';
   ],
   providers: [ProduitsService, CategorieService,MarqueService,ThenewsService],
   bootstrap: [AppComponent],
-  entryComponents:[DialogComponent,AddProduitComponent]
+  entryComponents:[DialogComponent,
+                  AddProduitComponent,EditProduitComponent,DetailProduitComponent,
+                  AddNewsComponent,EditNewsComponent,
+                  AddCategorieComponent,
+                  AddStockComponent]
 })
 export class AppModule { }

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-detail-produit',
@@ -9,7 +12,7 @@ import { Router } from '@angular/router';
 export class DetailProduitComponent implements OnInit {
   
 
-  constructor(private router: Router) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
   }
@@ -17,6 +20,6 @@ export class DetailProduitComponent implements OnInit {
 
   gotoProduitClick(): void{
     
-    this.router.navigate(['produits']);
+    // this.router.navigate(['produits']);
  }
 }

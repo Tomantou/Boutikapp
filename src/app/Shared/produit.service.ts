@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject,tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Categorie } from '../Models/categorie';
 import { Produit } from '../Models/produit';
@@ -14,32 +14,37 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class ProduitsService {
   private lien = environment.boutiqueContainer + 'api/produits';
    productAdded = new Subject();
+   private _refreshRequired = new Subject<void>();
+   get RequiredRefresh(){
+    return this._refreshRequired;
+
+   }
    
   constructor(
     private readonly http: HttpClient) { }
 
     
   form: FormGroup = new FormGroup({
-    $id: new FormControl(null),
-    nom: new FormControl('', Validators.required),
-    prix: new FormControl(),
-    photo: new FormControl(''),
-    nouveaute: new FormControl(''),
-    description: new FormControl(''),
-    categorieid: new FormControl('',Validators.required),
-    marqueid: new FormControl('',Validators.required)
-  })
+    $Id: new FormControl(null),
+    Nom: new FormControl('', Validators.required),
+    Prix: new FormControl(),
+    Photo: new FormControl(''),
+    Nouveaute: new FormControl(''),
+    Description: new FormControl(''),
+    CategorieId: new FormControl('',Validators.required),
+    MarqueId: new FormControl('',Validators.required)
+  });
 
   initializeFormGroup(){
     this.form.setValue({
     $Id: null,
-    nom: '',
-    prix: 0,
-    photo: '',
-    nouveaute: '',
-    description: '',
-    categorieid: '',
-    marqueid:''
+    Nom: '',
+    Prix: 0,
+    Photo: '',
+    Nouveaute: '',
+    Description: '',
+    CategorieId: '',
+    MarqueId:''
   });
 }
    
@@ -67,7 +72,8 @@ export class ProduitsService {
 
   createProduct(prodt: Object){
     console.log(prodt)
-     return this.http.post<Produit>(this.lien, prodt)
+     return this.http.post<Produit>(this.lien, prodt).pipe(tap(() => 
+        {this.RequiredRefresh.next();} ));
 
   }
 

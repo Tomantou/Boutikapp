@@ -6,6 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { HttpErrorResponse,  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment';
 import { Categorie } from '../Models/categorie';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Injectable({
@@ -39,12 +40,19 @@ export class CategorieService {
      return this.http.get<Categorie[]>(this.lien);
    }
 
-  /*  getCategories(): Observable<any>{
-  try{
-     return this.http.get<Categorie []>(this.lien);
-    }catch{
-     (this.handleError);
-    }
-             
-  }     */
+   
+   form: FormGroup = new FormGroup({
+    $id: new FormControl(null),
+    libelle: new FormControl('', Validators.required)
+    
+  })
+
+  initializeFormGroup(){
+    this.form.setValue({
+    $Id: null,
+    libelle: ''
+  })
+}
+   
+  
 }

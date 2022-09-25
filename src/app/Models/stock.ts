@@ -4,15 +4,14 @@ import { Pvente } from "./pvente";
 
 
 export class Stock {
-    Id!: String;
-    Quantite!: Number;
-    QuantiteMin!: Number;
-    QuantiteMax!: Number;
-
+    id: String ='';
+    quantite: Number=0;
+    quantitemin: Number=0;
+    quantitemax: Number = 0;
     // navigation properties
-    PventeId!: Number;
-    pvente!: Pvente;
-    ProduitId!: Number;
-    produit!: Produit;
+    pventeId: Number = 0;
+    pvente: Pvente  = new Pvente;
+    produitid: Number =0;
+    //produit: Produit = new Produit;
     //transfertstocks: Transfertstock[] = [];
 }

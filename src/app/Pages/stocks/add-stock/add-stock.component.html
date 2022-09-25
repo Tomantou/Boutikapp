@@ -1,0 +1,42 @@
+
+<br><br>
+<div class="titre">
+    <br>
+    <h2>ENREGISTREMENT STOCK</h2>
+</div>
+<br>
+<div class="conteneur">
+        <form [formGroup] = "stockservice.form" class="conteneur">
+              <mat-form-field>
+                <input formControlName="quantite" matInput placeholder="quantite">
+                <mat-error *ngIf ="stockservice.form.get('quantite').hasError('required')"> ce champ est obligatoire</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="quantitemin" matInput placeholder="quantitemin">
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="quantitemax" matInput placeholder="quantitemax">
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="pventeid" matInput placeholder="pventeid">
+                <mat-error *ngIf ="stockservice.form.get('pventeid').hasError('required')"> ce champ est obligatoire</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="produitid" matInput placeholder="produitid">
+                <mat-error *ngIf ="stockservice.form.get('produitid').hasError('required')"> ce champ est obligatoire</mat-error>
+              </mat-form-field>
+              
+        </form>
+
+</div>
+
+    <div class="place-buttons">
+      <button mat-raised-button color="primary" type = "submit" [disabled] ="stockservice.form.invalid">Submit</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-raised-button color="warn" (click) = "onClear()">Clear</button>
+    </div>
+    
+    
+
+<br>
+

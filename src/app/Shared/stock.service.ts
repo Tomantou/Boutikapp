@@ -5,8 +5,8 @@ import { catchError } from 'rxjs/operators';
 import { Pipe, PipeTransform } from '@angular/core';
 import { HttpErrorResponse,  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment';
-import { Categorie } from '../Models/categorie';
-import { ok } from 'assert';
+import { Categorie } from '../Models/categorie'
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Injectable({
@@ -39,12 +39,26 @@ export class StockService {
      return this.http.get<Categorie[]>(this.lien);
    }
 
-  /*  getCategories(): Observable<any>{
-  try{
-     return this.http.get<Categorie []>(this.lien);
-    }catch{
-     (this.handleError);
-    }
-             
-  }     */
+  
+  form: FormGroup = new FormGroup({
+    $id: new FormControl(null),
+    quantite: new FormControl(0),
+    quantitemin: new FormControl(0),
+    quantitemax: new FormControl(0),
+    pventeid: new FormControl('', Validators.required),
+    produitid: new FormControl('',Validators.required),
+    
+  });
+
+  initializeFormGroup(){
+    this.form.setValue({
+    $id: null,
+    quantite: 0,
+    quantitemin: '',
+    quantitemax: '',
+    pventeid: '',
+    produitid: ''
+  
+  });
+}
 }

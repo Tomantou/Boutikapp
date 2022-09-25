@@ -18,9 +18,6 @@ import { environment } from 'src/environments/environment';
 import { Stock } from 'src/app/Models/stock';
 import { MatDialog } from '@angular/material/dialog';
 import { AddProduitComponent } from './add-produit/add-produit.component';
-import { ProddetailComponent } from '../proddetail/proddetail.component';
-import { TabprodComponent } from '../tabprod/tabprod.component';
-
 
 @Component({
   selector: 'app-produits',
@@ -28,18 +25,19 @@ import { TabprodComponent } from '../tabprod/tabprod.component';
   styleUrls: ['./produits.component.css']
 })
 export class ProduitsComponent implements OnInit {
-
-    Nom: String='';
-    Photo: String='';
+    Id:number=0;
+    Nom: string='';
+    Prix: number =0;
+    Photo: string='';
     Nouveaute: string='';
-    // Navigation properthies
+    Description: string='';
     CategorieId: number=0;
     Categorie: Categorie = new Categorie; 
     MarqueId: number=0;
     Marque: Marque = new Marque;    
     PromoProds:PromoProd[] = [];
-    @ViewChild(TabprodComponent, { static: false }) tabprod: any;
-    @ViewChild(TabprodComponent, { static: false })
+    /* @ViewChild(TabprodComponent, { static: false }) tabprod: any;
+    @ViewChild(TabprodComponent, { static: false }) */
         selectedProduct: Produit = new Produit;
   constructor(
              private router:Router,

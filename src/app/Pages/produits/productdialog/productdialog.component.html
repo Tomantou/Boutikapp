@@ -1,0 +1,21 @@
+
+<h2 mat-dialog-titke> BOITE DE DILOGUE</h2>
+<mat-dialog-content>
+    <div style="width: 900px; height: 400px;">
+    <mat-card class="example-card">
+        <mat-card-title-group>
+        <mat-card-title>{{data.name}}</mat-card-title>
+        <mat-card-subtitle>Extra large</mat-card-subtitle>
+        <img mat-card-xl-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+        </mat-card-title-group>
+        <mat-card-content>
+        Description
+        </mat-card-content>
+    </mat-card>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+   
+    <button mat-raised-button color = "accent" mat-dialog-close mat-dialog-close="true">Fermer</button>
+    <button mat-raised-button color = "accent" mat-dialog-close mat-dialog-close="false">Ajouter</button>
+</mat-dialog-actions>

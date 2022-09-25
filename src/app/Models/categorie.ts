@@ -1,5 +1,5 @@
 
 export class Categorie {
-   Id: number=0;
+   id: number=0;
    libelle: string=''; 
 }
