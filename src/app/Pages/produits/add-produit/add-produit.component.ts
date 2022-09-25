@@ -43,8 +43,8 @@ export class AddProduitComponent implements OnInit {
   constructor(
     private router:Router,
     public prodservice: ProduitsService,
-    private categorieservice: CategorieService,
-    private marqueservice: MarqueService,
+    public categorieservice: CategorieService,
+    public marqueservice: MarqueService,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogref: MatDialogRef<AddProduitComponent>
     ) { }

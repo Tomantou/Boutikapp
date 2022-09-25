@@ -18,12 +18,12 @@ saveresp:any;
   }
 
   form: FormGroup = new FormGroup({
-    Titre: new FormControl('', Validators.required),
-    Texte1: new FormControl('', Validators.required),
+    Titre: new FormControl(''),
+    Texte1: new FormControl(''),
     Texte2: new FormControl(''),
     Image: new FormControl(''),
     Datepublication: new FormControl(''),
-    Publier: new FormControl('',Validators.required),
+    Publier: new FormControl(''),
     
   });
 
@@ -33,13 +33,30 @@ saveresp:any;
     Texte1: '',
     Texte2: '',
     Image: '',
-    Datepublication: '',
+    Datepublication:'',
     Publier: ''
     
     });
   }
 
+
   public create() {
+    this.newsservice.createNews(this.form.getRawValue()).subscribe(result => {
+        this.saveresp = result;
+        if(this.saveresp.result =='pass'){
+          alertifyjs.success('produit enregistré avec succès');
+          this.dialogref.close();
+        }else{
+          alertifyjs.error('échec enrengistrement, entrez des données valides svp!');
+        }
+        
+        console.log(this.form.value)
+   
+    });
+   }
+
+
+  /* public create() {
     this.newsservice.createNews(
       {
       
@@ -52,23 +69,15 @@ saveresp:any;
      } 
     ).subscribe(result => {
      console.log('news enreg')
-     console.log(this.form.value)
      if(this.saveresp.result =='pass'){   alertifyjs.success('produit enregistré avec succès');
      this.dialogref.close();
    }else{
      alertifyjs.error('échec enrengistrement, entrez des données valides svp!');
    }
    
-    
-
-    
-     /* this.newsservice.createNews(this.form.getRawValue()).subscribe(result => {
-      this.saveresp = result;
-     */
-    
     });
-   }
- 
+   } */
+  
 
   onClear(){
     this.form.reset();

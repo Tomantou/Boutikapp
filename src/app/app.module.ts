@@ -109,6 +109,7 @@ import { EditTransferstockComponent } from 'src/app/Pages/transferstocks/edit-tr
 import { TabletransferstockComponent } from 'src/app/Pages/transferstocks/tabletransferstock/tabletransferstock.component';
 import { ProductdialogComponent } from 'src/app/Pages/produits/productdialog/productdialog.component';
 import { BottompventesComponent } from './Pages/bottompventes/bottompventes.component';
+import { TitresComponent } from './pages/titres/titres.component';
 
 
 
@@ -190,7 +191,8 @@ import { BottompventesComponent } from './Pages/bottompventes/bottompventes.comp
     EditTransferstockComponent,
     TabletransferstockComponent,
     ProductdialogComponent,
-    BottompventesComponent
+    BottompventesComponent,
+    TitresComponent
   
   ],
   imports: [

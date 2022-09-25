@@ -17,6 +17,7 @@
                     <input formControlName="Datepublication" matInput [matDatepicker] ="picker" placeholder="date publication">
                     <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
+                    <!-- <mat-error *ngIf ="this.form.get('Titre').hasError('required')"> ce champ est obligatoire</mat-error> -->
                   </mat-form-field>
                   <mat-form-field>
                     <textarea matInput formControlName="Texte1"  placeholder="texte 1">Texte 1</textarea>

@@ -49,10 +49,7 @@ export class ProduitsService {
 }
    
   getProduits(): Observable<any> {
-
     return this.http.get<Produit[]>(this.lien);
-    
-
   }
 
   saveProduit(produit: Produit): Observable<Produit> {

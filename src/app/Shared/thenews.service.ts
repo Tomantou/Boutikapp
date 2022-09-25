@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { News } from '../Models/news';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -37,6 +38,22 @@ export class ThenewsService {
    
      return this.http.post<News>(this.lien, news)
      console.log(news)
+  }
+
+  getNews(): Observable<any> {
+    return this.http.get<News[]>(this.lien);
+  }
+
+  getNewsById(id: number){
+    return this.http.get(this.lien + '/' + id);
+  }
+
+  updateProduct(id: number, news:News){
+    return this.http.put(this.lien + '/' + id, News);
+  }
+
+  deleteProduct(id: number){
+    return this.http.delete(this.lien + '/' + id );
   }
  
 }

@@ -20,7 +20,7 @@
                        (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <h2><u>CHAUSSURES</u></h2>
+        <h2><u>{{this.titre[0]}}</u></h2>
       </mat-panel-title>
       <mat-panel-description>
         <!-- Currently I am {{panelOpenState ? 'open' : 'closed'}} -->
@@ -53,7 +53,7 @@
                        (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <h2><u>SPORT</u></h2>
+        <h2><u>{{this.titre[1]}}</u></h2>
       </mat-panel-title>
       <mat-panel-description>
         <!-- Currently I am {{panelOpenState ? 'open' : 'closed'}} -->
@@ -82,7 +82,7 @@
   (closed)="panelOpenState = false">
 <mat-expansion-panel-header>
 <mat-panel-title>
-  <h2><u>IMPRESSION</u></h2>
+  <h2><u>{{this.titre[2]}}</u></h2>
 </mat-panel-title>
 <mat-panel-description>
 <!-- Currently I am {{panelOpenState ? 'open' : 'closed'}} -->
@@ -111,7 +111,7 @@ Currently I amCurrently I amCurrently I amCurrently I am
 (closed)="panelOpenState = false">
 <mat-expansion-panel-header>
 <mat-panel-title>
-  <h2><u>ELECTRO MENAGER</u></h2>
+  <h2><u>{{this.titre[3]}}</u></h2>
 </mat-panel-title>
 <mat-panel-description>
 <!-- Currently I am {{panelOpenState ? 'open' : 'closed'}} -->

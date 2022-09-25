@@ -18,7 +18,7 @@ import { Configdata } from '../Models/configdata';
 export class ConfigdataService {
   private lien = environment.boutiqueContainer + '/configdatas';
 
-  constructor(private readonly http: HttpClient,) 
+  constructor(private readonly http: HttpClient) 
   {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
