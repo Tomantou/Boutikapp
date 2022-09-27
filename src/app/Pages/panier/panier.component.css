@@ -1,0 +1,47 @@
+.container-panier {
+    max-width: 700px;
+    border: black solid 1px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.panier {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 10px;
+}
+
+.panier-header {
+    display: flex;
+    flex-direction: row;
+    font-weight: 800;
+    justify-content: space-around;
+}
+
+.panier-total {
+    display: flex;
+    flex-direction: column;
+    font-weight: 800;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 25px;
+    row-gap: 30px;
+}
+
+.panier-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.button-q {
+    font-weight: 800;
+    border: black solid 1px;
+    padding: 5px;
+    margin: 0 5px;
+}
+.button-q:hover {
+    cursor: pointer;
+    color: red;
+}

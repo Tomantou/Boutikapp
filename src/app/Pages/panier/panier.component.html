@@ -1,0 +1,29 @@
+<div class="container-panier">
+
+    <div class="panier">
+
+        <div class="panier-header">
+            <span>Produit Nom</span>
+            <span>Q</span>
+            <span>P</span>
+        </div>
+
+        <div class="panier-row" *ngFor="let produit of produits">
+            <span>{{produit.produitModel.nom}}</span>
+            <div>
+                <a class="button-q">+</a>
+                <span>{{produit.quantite}}</span>
+                <a class="button-q">-</a>
+            </div>
+            <span>{{produit.prix * produit.solde}} €</span>
+        </div>
+
+        <div class="panier-total">
+            <span>Total</span>
+            <span>{{total}}</span>
+        </div>
+
+
+    </div>
+
+</div>

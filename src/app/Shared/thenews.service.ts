@@ -11,7 +11,7 @@ export class ThenewsService {
   private lien = environment.boutiqueContainer + 'api/news';
   constructor(private http: HttpClient) { }
 
-  form: FormGroup = new FormGroup({
+  /* form: FormGroup = new FormGroup({
     $Id: new FormControl(null),
     titre: new FormControl('', Validators.required),
     texte1: new FormControl('',Validators.required),
@@ -31,10 +31,10 @@ export class ThenewsService {
     Datepublication: '',
     publier: false
   });
+ 
+  }*/
 
-  }
-
-  createNews(news: Object){
+  createNews(news: News): Observable<News>{
    
      return this.http.post<News>(this.lien, news)
      console.log(news)

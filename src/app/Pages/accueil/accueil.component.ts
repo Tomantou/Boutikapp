@@ -25,6 +25,8 @@ import { BottompventesComponent } from '../bottompventes/bottompventes.component
 export class AccueilComponent implements OnInit {
   // @Input() image: string
   lesproduits: Produit[] = [];
+  les10prod: Produit[] = [];
+  les10randprod: Produit[] = [];
   public configdatas: Configdata[] = [];
   panier: Produit[] = [];
   selectedProduct: any;
@@ -60,6 +62,26 @@ export class AccueilComponent implements OnInit {
       }
       );  
 
+      this.produitservice.getTenProduits().subscribe(
+        (prod10) => {this.les10prod=prod10;
+         console.log('les 10 produits',this.les10prod);
+        },
+        (error) => {
+           alert('probleme d\'acces a l api');
+        }
+        );  
+
+        this.produitservice.getTenRandomProduits().subscribe(
+          (rand10prod) => {this.les10randprod = rand10prod;
+           console.log('les 10 produits randomisés',this.les10randprod);
+          },
+          (error) => {
+             alert('probleme d\'acces a l api');
+          }
+          );  
+
+
+
      /*  this.configdataservice.getSignaletique().subscribe(
         (configdatas) => {this.configdatas = configdatas;
         console.log('liste signaletiques',this.signaletics);
@@ -91,12 +113,27 @@ export class AccueilComponent implements OnInit {
    }
    
   
-   openDetailprodDialog(){
+   /* openDetailprodDialog(){
     let dialogRef = this.dialog.open(DetailProduitComponent,{data: {name:'Antoine'}});
     dialogRef.afterClosed().subscribe( result => {
       console.log("Dialog result:", result);
     });    
   
-    }
+    } */
+
+    openDetailprodDialog(enteranimation:any,exitanimation:any,idprod:any){
+
+      this.dialog.open(DetailProduitComponent,{
+        enterAnimationDuration:enteranimation,
+        exitAnimationDuration:exitanimation,
+        width:'50%'
+      })
+    /* let dialogRef = this.dialog.open(DetailProduitComponent,{data: {name:'Antoine'}});
+    dialogRef.afterClosed().subscribe( result => {
+      console.log("Dialog result:", result);
+    });  */
+     
+  }
+
 
 }

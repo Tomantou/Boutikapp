@@ -45,7 +45,7 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef> Actions </th>
       <td mat-cell *matCellDef="let produit">
-        <button mat-raised-button color="primary" (click)="openDetailprodDialog('1000ms','500ms')"><h4>Détails</h4></button>&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button color="primary" (click)="openDetailprodDialog('1000ms','500ms',produit.id)"><h4>Détails</h4></button>&nbsp;&nbsp;&nbsp;
         <button mat-raised-button color="warn" (click)="openAddprodDialog('1000ms','500ms',produit.id);getProduit(produit.id);"><h4>Edit</h4></button>&nbsp;&nbsp;&nbsp;
         <button mat-raised-button color="accent" (click)="deleteProduct(produit.id)"><h4>Delete</h4></button>
         

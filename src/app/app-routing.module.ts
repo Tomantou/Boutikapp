@@ -30,6 +30,7 @@ import { EditProduitComponent } from './Pages/produits/edit-produit/edit-produit
 import { AddProduitComponent } from './Pages/produits/add-produit/add-produit.component';
 import { DetailProduitComponent } from './Pages/produits/detail-produit/detail-produit.component';
 import { AddMarqueComponent } from './Pages/marques/add-marque/add-marque.component';
+import { PanierComponent } from './Pages/panier/panier.component';
 
 const routes: Routes = [
   {
@@ -132,8 +133,12 @@ const routes: Routes = [
 
   { 
     path: 'marques/add-marque', component: AddMarqueComponent 
-  }
+  },
 
+
+  { 
+    path: 'panier', component: PanierComponent 
+  }
 
 
 

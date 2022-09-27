@@ -7,12 +7,12 @@
 
 
 <div class="conteneur">
-    <form [formGroup] = "thenewsservice.form" class="conteneur">
+    <form [formGroup] = "this.form" class="conteneur">
     
                   <input type="hidden" formControlName="$key">
                   <mat-form-field>
                       <input formControlName="titre" matInput placeholder="titre">
-                      <mat-error *ngIf ="thenewsservice.form.get('titre').hasError('required')"> ce champ est obligatoire</mat-error>
+                      <mat-error *ngIf ="this.form.get('titre').hasError('required')"> ce champ est obligatoire</mat-error>
                   </mat-form-field>
                   <mat-form-field>
                     <input formControlName="datepublication" matInput [matDatepicker] ="picker" placeholder="date publication">
@@ -21,7 +21,7 @@
                   </mat-form-field>
                   <mat-form-field>
                     <textarea matInput formControlName="texte1"  placeholder="texte 1">Texte 1</textarea>
-                    <mat-error *ngIf ="thenewsservice.form.get('texte1').hasError('required')"> ce champ est obligatoire</mat-error>
+                    <mat-error *ngIf ="this.form.get('texte1').hasError('required')"> ce champ est obligatoire</mat-error>
                   </mat-form-field>
                   <mat-form-field>
                     <textarea matInput formControlName="texte2"  placeholder="texte 2">Texte 2</textarea>
@@ -32,10 +32,10 @@
                   </mat-form-field>
                   <mat-form-field>
                     <input formControlName="publier" matInput placeholder="publier o/n">
-                    <mat-error *ngIf ="thenewsservice.form.get('publier').hasError('required')"> ce champ est obligatoire</mat-error>
+                    <mat-error *ngIf ="this.form.get('publier').hasError('required')"> ce champ est obligatoire</mat-error>
                   </mat-form-field>
                   <div style="margin-left: 300px;">
-                     <button mat-raised-button color="primary" type = "submit" [disabled] ="thenewsservice.form.invalid">Submit</button>
+                     <button mat-raised-button color="primary" type = "submit" [disabled] ="this.form.invalid">Submit</button>
                      &nbsp;&nbsp;&nbsp;&nbsp;
                      <button mat-raised-button color="warn" (click) = "onClear()">Clear</button>
                   </div>

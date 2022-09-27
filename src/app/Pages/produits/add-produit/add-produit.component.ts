@@ -75,6 +75,7 @@ export class AddProduitComponent implements OnInit {
     })
   }
   form: FormGroup = new FormGroup({
+    Id: new FormControl({value:0, disabled:true}),
     Nom: new FormControl('', Validators.required),
     Prix: new FormControl(),
     Photo: new FormControl(''),
@@ -86,6 +87,7 @@ export class AddProduitComponent implements OnInit {
 
   initializeFormGroup(){
     this.form.setValue({
+    Id:0,
     Nom: '',
     Prix: 0,
     Photo: '',
@@ -97,26 +99,21 @@ export class AddProduitComponent implements OnInit {
 }
  
   public create() {
-    this.prodservice.createProduct(this.form.getRawValue()).subscribe(result => {
-        this.saveresp = result;
-        if(this.saveresp.result =='pass'){
-          alertifyjs.success('produit enregistré avec succès');
-          this.dialogref.close();
-        }else{
-          alertifyjs.error('échec enrengistrement, entrez des données valides svp!');
-        }
-        console.log('produt enreg')
-        this.prodid = result.id;
-        console.log(this.prodid)
-        console.log(this.form.value)
-   
+    this.prodservice.createProduct(this.form.getRawValue()).subscribe({
+          next: (produit) => {
+            console.log(this.form.value);
+            alertifyjs.success('produit enregistré avec succès');
+          },
+          error:() =>{alertifyjs.error('échec enrengistrement, entrez des données valides svp!');
+        },
     });
    }
  
 
-   loadEditData(id: any){
+   loadEditData(id: number){
     this.prodservice.getProductById(id).subscribe(item =>{
       this.EditData = item;
+      console.log(item);
       this.form.setValue({Nom:this.EditData.Nom,Prix:this.EditData.Prix,
         Photo:this.EditData.Photo,Nouveaute:this.EditData.Nouveaute,
         Description:this.EditData.Description,CategorieId:this.EditData.CategorieId,

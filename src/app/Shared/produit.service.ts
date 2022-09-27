@@ -13,6 +13,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class ProduitsService {
   private lien = environment.boutiqueContainer + 'api/produits';
+  private lien10 = environment.boutiqueContainer + 'api/produits/les10';
+  private lien10rand = environment.boutiqueContainer + 'api/Produits/Rand10';
+
    productAdded = new Subject();
    private _refreshRequired = new Subject<void>();
    get RequiredRefresh(){
@@ -50,6 +53,14 @@ export class ProduitsService {
    
   getProduits(): Observable<any> {
     return this.http.get<Produit[]>(this.lien);
+  }
+
+  getTenRandomProduits(): Observable<any> {
+    return this.http.get<Produit[]>(this.lien10rand);
+  }
+
+  getTenProduits(): Observable<any> {
+    return this.http.get<Produit[]>(this.lien10);
   }
 
   saveProduit(produit: Produit): Observable<Produit> {

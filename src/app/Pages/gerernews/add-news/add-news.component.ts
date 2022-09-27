@@ -3,12 +3,25 @@ import { ThenewsService } from 'src/app/Shared/thenews.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as alertifyjs from 'alertifyjs';
+import { News } from 'src/app/Models/news';
+import { MatDatepickerContent } from '@angular/material/datepicker';
 @Component({
   selector: 'app-add-news',
   templateUrl: './add-news.component.html',
   styleUrls: ['./add-news.component.css']
 })
 export class AddNewsComponent implements OnInit {
+AddnewsRequest: News = {
+    id: 0,
+    titre:'',
+    texte1: '',
+    texte2:'',
+    image:'',
+    datepublication: new Date(),
+    publier:''
+};
+
+
 saveresp:any;
   constructor(public newsservice: ThenewsService,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -18,17 +31,19 @@ saveresp:any;
   }
 
   form: FormGroup = new FormGroup({
-    Titre: new FormControl(''),
-    Texte1: new FormControl(''),
+    //Id: new FormControl({value:0, disabled:true}),
+    Titre: new FormControl('', Validators.required),
+    Texte1: new FormControl('', Validators.required),
     Texte2: new FormControl(''),
     Image: new FormControl(''),
-    Datepublication: new FormControl(''),
-    Publier: new FormControl(''),
+    Datepublication: new FormControl(Date),
+    Publier: new FormControl(false,Validators.required),
     
   });
 
   initializeFormGroup(){
     this.form.setValue({
+    Id:0,
     Titre: '',
     Texte1: '',
     Texte2: '',
@@ -39,21 +54,31 @@ saveresp:any;
     });
   }
 
+  public saveNews(){
+     this.newsservice.createNews(this.AddnewsRequest)
+     .subscribe({
+       next: (news) =>{
+        console.log(news);
+       },
+       error:() =>{
+        console.log('Erreur');
+       } 
+     })
+  }
+
 
   public create() {
-    this.newsservice.createNews(this.form.getRawValue()).subscribe(result => {
-        this.saveresp = result;
-        if(this.saveresp.result =='pass'){
-          alertifyjs.success('produit enregistré avec succès');
-          this.dialogref.close();
-        }else{
-          alertifyjs.error('échec enrengistrement, entrez des données valides svp!');
+  
+    this.newsservice.createNews(this.form.getRawValue()).subscribe({
+      
+      next: (news)  => {alertifyjs.success('produit enregistré avec succès');
+      console.log(this.form.value)
+      },
+      error: () =>  {alertifyjs.error('échec enrengistrement, entrez des données valides svp!');
         }
         
-        console.log(this.form.value)
-   
     });
-   }
+  } 
 
 
   /* public create() {

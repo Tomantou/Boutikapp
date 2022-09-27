@@ -1,5 +1,5 @@
 export class Titres {
-    id: String ='';
+    Id: String ='';
     Titre1: String ='';
     Titre2: String ='';
     Titre3: String ='';

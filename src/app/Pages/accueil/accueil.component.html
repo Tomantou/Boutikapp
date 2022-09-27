@@ -28,7 +28,7 @@
                     </mat-card-subtitle>
                     <!-- <a href data-toggle="modal" data-target="#modalDetProduits" (click) = "getProduit(prod.Id)"><img src= "{{(!prod.photo) ? this.boutiqueContainer + 'logo-product.jpg' : this.boutiqueContainer + prod.photo}}" class="card-img-top" alt="..." height="200" width="100"></a> -->
 
-                    <a href (click)="openDetailprodDialog()"><img mat-card-lg-image src="../assets/img/slider/{{prod.id}}.jpg"></a>
+                    <a href (click)="openDetailprodDialog('1000ms','500ms',prod.id)"><img mat-card-lg-image src="../assets/img/slider/{{prod.id}}.jpg"></a>
                     </mat-card-title-group>
                     <mat-card-content style="background-color: black; color:azure; text-align:center;">
                     {{prod.nom}}

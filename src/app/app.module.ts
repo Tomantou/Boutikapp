@@ -63,7 +63,6 @@ import { ProduitsService } from './Shared/produit.service';
 import { CategorieService } from './Shared/categorie.service';
 import { MarqueService } from './Shared/marque.service';
 import { DialogComponent } from './Pages/dialog/dialog.component';
-import { ThenewsComponent } from './Pages/gerernews/thenews/thenews.component';
 import { ThenewsService } from './Shared/thenews.service';
 import { TableproductComponent } from 'src/app/Pages/produits/tableproduct/tableproduct.component';
 import { AddNewsComponent } from 'src/app/Pages/gerernews/add-news/add-news.component';
@@ -109,7 +108,9 @@ import { EditTransferstockComponent } from 'src/app/Pages/transferstocks/edit-tr
 import { TabletransferstockComponent } from 'src/app/Pages/transferstocks/tabletransferstock/tabletransferstock.component';
 import { ProductdialogComponent } from 'src/app/Pages/produits/productdialog/productdialog.component';
 import { BottompventesComponent } from './Pages/bottompventes/bottompventes.component';
-import { TitresComponent } from './pages/titres/titres.component';
+import { TitresComponent } from './Pages/titres/titres.component';
+import { PanierComponent } from './Pages/panier/panier.component';
+
 
 
 
@@ -147,7 +148,6 @@ import { TitresComponent } from './pages/titres/titres.component';
     EditProduitComponent,
     DetailProduitComponent,
     DialogComponent,
-    ThenewsComponent,
     TableproductComponent,
     AddNewsComponent,
     EditNewsComponent,
@@ -192,7 +192,8 @@ import { TitresComponent } from './pages/titres/titres.component';
     TabletransferstockComponent,
     ProductdialogComponent,
     BottompventesComponent,
-    TitresComponent
+    TitresComponent,
+    PanierComponent
   
   ],
   imports: [

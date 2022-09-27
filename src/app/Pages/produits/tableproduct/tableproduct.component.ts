@@ -156,7 +156,7 @@ export class TableproductComponent implements OnInit {
     }); */
   }
 
-  openDetailprodDialog(enteranimation:any,exitanimation:any){
+  openDetailprodDialog(enteranimation:any,exitanimation:any,idprod:any){
 
       this.dialog.open(DetailProduitComponent,{
         enterAnimationDuration:enteranimation,

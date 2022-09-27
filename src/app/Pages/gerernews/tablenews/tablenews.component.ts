@@ -38,10 +38,22 @@ export class TablenewsComponent implements OnInit {
   dataSource = ELEMENT_DATA;
 
 
-  openAddNewsDialog(){
+  openAddNewsDialog(enteranimation:any,exitanimation:any,idnews:any){
+
+    this.dialog.open(AddNewsComponent,{
+      enterAnimationDuration:enteranimation,
+      exitAnimationDuration:exitanimation,
+      width:'60%',
+      data:{id:idnews}
+    })
+
+  }
+
+ /*  openAddNewsDialog(){
     let dialogRef= this.dialog.open(AddNewsComponent,{data: {name:'Antoine'}});
     dialogRef.afterClosed().subscribe( result => {
       console.log("Dialog result:", result);
     });
-  }
+  } 
+ }  */
 }
