@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ProduitsService } from 'src/app/Shared/produit.service';
 import { Produit } from 'src/app/Models/produit';
 import { Dialog } from '@angular/cdk/dialog';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddProduitComponent} from 'src/app/Pages/produits/add-produit/add-produit.component';
 import { ProductdialogComponent } from 'src/app/Pages/produits/productdialog/productdialog.component';
 import { DetailProduitComponent } from '../detail-produit/detail-produit.component';
@@ -13,8 +13,13 @@ import { Categorie } from 'src/app/Models/categorie';
 import { Marque } from 'src/app/Models/marque';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as alertifyjs from 'alertifyjs';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { filter } from 'rxjs/operators';
 
-export interface PeriodicElement {
+
+/* export interface PeriodicElement {
   nom: string;
   description: string;
   prix: number;
@@ -23,7 +28,7 @@ export interface PeriodicElement {
   actions:'';
 
 }
-
+ */
 @Component({
   selector: 'app-tableproduct',
   templateUrl: './tableproduct.component.html',
@@ -35,10 +40,15 @@ export class TableproductComponent implements OnInit {
   EditData:any;
   Produitid:any;
 
-  displayedColumns: string[] = ['nom','description','prix','categorieid','marqueid','actions'];
+  displayedColumns: string[] = ['id','nom','description','prix','categorieid','marqueid','actions'];
   stateSpinner = false;
   dataSource: any;
-  
+  dialogConfig: any;
+  proddata:any;
+
+  @ViewChild(MatPaginator) paginator !: MatPaginator;
+  @ViewChild(MatSort) sort !: MatSort;
+
   constructor(private prodservice: ProduitsService,
     private router: Router,
     private http: HttpClient,
@@ -50,21 +60,43 @@ export class TableproductComponent implements OnInit {
     this.prodservice.RequiredRefresh.subscribe(r => {
       this.refreshProduits();
     })
+    
   }
 
   refreshProduits(){
     this.prodservice.getProduits().subscribe(result => {
-      // this.dataSource = result;
       this.lesproduits = result;
-      this.dataSource = this.lesproduits;
-    })
+      this.dataSource = new MatTableDataSource<Produit>(this.lesproduits);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
 
-   /*  this.prodservice.getProduits().subscribe(produits => {
-      this.lesproduits = produits;
-      console.log(this.lesproduits);
-    }) */
-    
+
+  
+   /* Filterchange(event:Event);{
+      const filvalue=(event.target as HTMLInputElement).value;
+      this.dataSource.sort=this.sort;
+    } 
+     */
   }
+
+   
+     
+
+   Filterchange(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  } 
+
+  getrow(row:any){
+    //console.log(row);
+  }
+
+  functionEdit(row:any){
+    console.log(row);
+  }
+
+  
 
   form: FormGroup = new FormGroup({
     Nom: new FormControl('', Validators.required),
@@ -156,13 +188,30 @@ export class TableproductComponent implements OnInit {
     }); */
   }
 
-  openDetailprodDialog(enteranimation:any,exitanimation:any,idprod:any){
+  openDetailprodDialog(){
 
-      this.dialog.open(DetailProduitComponent,{
-        enterAnimationDuration:enteranimation,
-        exitAnimationDuration:exitanimation,
-        width:'50%'
-      })
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    //dialogConfig.autoFocus = true;
+    dialogConfig.width='50%';
+
+    this.dialogConfig.data ={
+      nom:'nom',
+      prix:0,
+      description:'description'
+
+    }
+
+    this.dialog.open(DetailProduitComponent, dialogConfig);
+
+    const dialogRef = this.dialog.open(DetailProduitComponent, dialogConfig);
+
+
+
+    dialogRef.afterClosed().subscribe(
+        data => console.log("Dialog output:", data)
+    );    
+     
     /* let dialogRef = this.dialog.open(DetailProduitComponent,{data: {name:'Antoine'}});
     dialogRef.afterClosed().subscribe( result => {
       console.log("Dialog result:", result);
@@ -172,3 +221,7 @@ export class TableproductComponent implements OnInit {
 
 
 }
+function Filterchange(event: Event | undefined, Event: { new(type: string, eventInitDict?: EventInit | undefined): Event; prototype: Event; readonly AT_TARGET: number; readonly BUBBLING_PHASE: number; readonly CAPTURING_PHASE: number; readonly NONE: number; }) {
+  throw new Error('Function not implemented.');
+}
+

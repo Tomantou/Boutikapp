@@ -4,20 +4,19 @@
     <div style="width: 1000px; height: 400px;">
     <mat-card class="example-card">
         <mat-card-title-group>
-        <mat-card-title>{{data.name}}</mat-card-title>
-        <mat-card-subtitle>Extra large</mat-card-subtitle>
-        <img mat-card-xl-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+        <mat-card-title>{{data.nom}}</mat-card-title>
+        <mat-card-subtitle>{{data.prix}}</mat-card-subtitle>
+        <img mat-card-xl-image src="../assets/img/slider/{{data.id}}.jpg" >
         </mat-card-title-group>
         <mat-card-content>
-        Description
+            {{data.description}}
         </mat-card-content>
     </mat-card>
     </div>
 </mat-dialog-content>
+
 <mat-dialog-actions>
-   
     <button mat-raised-button color = "accent" mat-dialog-close mat-dialog-close="true">Fermer</button>
-    <button mat-raised-button color = "accent" mat-dialog-close mat-dialog-close="false">Ajouter</button>
 </mat-dialog-actions>
 
 

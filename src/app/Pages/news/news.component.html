@@ -20,7 +20,7 @@
                        (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <h2><u>{{this.titre[0]}}</u></h2>
+        <h2><u>{{this.titres[0]}}</u></h2>
       </mat-panel-title>
       <mat-panel-description>
         <!-- Currently I am {{panelOpenState ? 'open' : 'closed'}} -->
@@ -30,22 +30,15 @@
         
         <div class="item-news">
           <!-- <img mat-card-lg-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" width ="500" height="300"> -->
-          <img mat-card-lg-image src="assets/img/slider/11.jpg" width ="500" height="300">
+          <img mat-card-lg-image src="../assets/img/slider/11.jpg" width ="500" height="300">
         </div>
 
         <div class="item-news">
-          Comme vous pouvez le constater cs derniers mois beaucoup de nouvelles marques
-          de chaussures sont mises sur le marché et cela fait le bonheur de beaucoup. Ne voulons pas 
-          etre les derniers à faire plaisir à nos chers clients, nous avons accueilli les marques de 
-          chaussures les plus en vogue et à des prix défiant toute concurrence. Comme nos clients le savent
-           très bien, chez nous le rapport qualité/prix est de mise. C'est soit satisfait ou remboursé.
+              {{this.chaussuresNew.texte1}}
+            
       </div>
       <div class="item-news">
-        Depuis le début du mois de Juillet 2022 un large choix de chaussures vous est proposé
-        dans nos rayons tout comme en ligne. Partant des marques européennes à celles de l'asie
-         ou d'amérique en passant par les marques africaines, vos yeux auront le plaisir de contempler
-         ces merveilleuses chaussures aussi jolies les unes que les autres. Vous y trouverez des balérines
-         et talons pour femmes ainsi que toutes autres marques pour les hommes.
+            {{this.chaussuresNew.texte2}}
      </div>
     </div>
   </mat-expansion-panel>
@@ -53,7 +46,7 @@
                        (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <h2><u>{{this.titre[1]}}</u></h2>
+        <h2><u>{{this.titres[1]}}</u></h2>
       </mat-panel-title>
       <mat-panel-description>
         <!-- Currently I am {{panelOpenState ? 'open' : 'closed'}} -->
@@ -62,18 +55,14 @@
      <div class="contentnews">
         
         <div class="item-news">
-          <img mat-card-lg-image src="assets/img/slider/14.jpg" width ="500" height="400">
+          <img mat-card-lg-image src="../assets/img/slider/14.jpg" width ="500" height="400">
         </div>
 
         <div class="item-news">
-          Currently I amvCurrently I amCurrently I amCurrently I am
-          Currently I amCurrently I amCurrently I am
-          Currently I amCurrently I amCurrently I amCurrently I am
+          {{this.sportNew.texte1}}
       </div>
       <div class="item-news">
-        Currently I amvCurrently I amCurrently I amCurrently I am
-        Currently I amCurrently I amCurrently I am
-        Currently I amCurrently I amCurrently I amCurrently I am
+          {{this.sportNew.texte2}}
      </div>
     </div>
   </mat-expansion-panel>
@@ -82,7 +71,7 @@
   (closed)="panelOpenState = false">
 <mat-expansion-panel-header>
 <mat-panel-title>
-  <h2><u>{{this.titre[2]}}</u></h2>
+  <h2><u>{{this.titres[2]}}</u></h2>
 </mat-panel-title>
 <mat-panel-description>
 <!-- Currently I am {{panelOpenState ? 'open' : 'closed'}} -->
@@ -91,18 +80,14 @@
 <div class="contentnews">
 
 <div class="item-news">
-<img mat-card-lg-image src="assets/img/slider/16.jpg" width ="500" height="400">
+<img mat-card-lg-image src="../assets/img/slider/16.jpg" width ="500" height="400">
 </div>
 
 <div class="item-news">
-Currently I amvCurrently I amCurrently I amCurrently I am
-Currently I amCurrently I amCurrently I am
-Currently I amCurrently I amCurrently I amCurrently I am
+  {{this.impressionNew.texte1}}
 </div>
 <div class="item-news">
-Currently I amvCurrently I amCurrently I amCurrently I am
-Currently I amCurrently I amCurrently I am
-Currently I amCurrently I amCurrently I amCurrently I am
+  {{this.impressionNew.texte2}}
 </div>
 </div>
 </mat-expansion-panel>
@@ -111,7 +96,7 @@ Currently I amCurrently I amCurrently I amCurrently I am
 (closed)="panelOpenState = false">
 <mat-expansion-panel-header>
 <mat-panel-title>
-  <h2><u>{{this.titre[3]}}</u></h2>
+  <h2><u>{{this.titres[3]}}</u></h2>
 </mat-panel-title>
 <mat-panel-description>
 <!-- Currently I am {{panelOpenState ? 'open' : 'closed'}} -->
@@ -120,18 +105,14 @@ Currently I amCurrently I amCurrently I amCurrently I am
 <div class="contentnews">
 
 <div class="item-news">
-<img mat-card-lg-image src="assets/img/slider/18.jpg" width ="500" height="400">
+<img mat-card-lg-image src="../assets/img/slider/18.jpg" width ="500" height="400">
 </div>
 
 <div class="item-news">
-Currently I amvCurrently I amCurrently I amCurrently I am
-Currently I amCurrently I amCurrently I am
-Currently I amCurrently I amCurrently I amCurrently I am
+  {{this.electromenagerNew.texte1}}
 </div>
 <div class="item-news">
-Currently I amvCurrently I amCurrently I amCurrently I am
-Currently I amCurrently I amCurrently I am
-Currently I amCurrently I amCurrently I amCurrently I am
+  {{this.electromenagerNew.texte2}}
 </div>
 </div>
 </mat-expansion-panel>

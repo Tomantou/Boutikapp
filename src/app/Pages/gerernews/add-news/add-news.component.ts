@@ -12,13 +12,13 @@ import { MatDatepickerContent } from '@angular/material/datepicker';
 })
 export class AddNewsComponent implements OnInit {
 AddnewsRequest: News = {
-    id: 0,
-    titre:'',
-    texte1: '',
-    texte2:'',
-    image:'',
-    datepublication: new Date(),
-    publier:''
+    Id: 0,
+    Titre:'',
+    Texte1: '',
+    Texte2:'',
+    Image:'',
+    Datepublication: new Date(),
+    Publier:''
 };
 
 

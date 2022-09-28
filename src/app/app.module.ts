@@ -25,6 +25,10 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule, MatDialogConfig} from '@angular/material/dialog';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { filter } from 'rxjs/operators';
+
 
 
 import { AccueilComponent } from './Pages/accueil/accueil.component';
@@ -213,8 +217,10 @@ import { PanierComponent } from './Pages/panier/panier.component';
     MatFormFieldModule,
     FormsModule, ReactiveFormsModule, MatInputModule,
     MatTabsModule,MatExpansionModule,MatDatepickerModule,MatNativeDateModule,
-    HttpClientModule,MatBadgeModule,MatTableModule,
-    MatSelectModule,MatDialogModule,MatGridListModule
+    HttpClientModule,MatBadgeModule,
+    MatSelectModule,MatDialogModule,MatGridListModule,
+    MatTableModule,MatPaginatorModule,MatSortModule
+
 
   ],
   providers: [ProduitsService, CategorieService,MarqueService,ThenewsService],

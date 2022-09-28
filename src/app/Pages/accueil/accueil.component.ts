@@ -24,13 +24,13 @@ import { BottompventesComponent } from '../bottompventes/bottompventes.component
 })
 export class AccueilComponent implements OnInit {
   // @Input() image: string
-  lesproduits: Produit[] = [];
-  les10prod: Produit[] = [];
-  les10randprod: Produit[] = [];
+  public lesproduits: Produit[] = [];
+  public les10prod: Produit[] = [];
+  public les10randprod: Produit[] = [];
   public configdatas: Configdata[] = [];
-  panier: Produit[] = [];
-  selectedProduct: any;
-  selectedConfigdata: Configdata = new Configdata;
+  public panier: Produit[] = [];
+  public selectedProduct: any;
+  public selectedConfigdata: Configdata = new Configdata;
  private link = ['accueil'];
   p: number = 1;
   
@@ -98,13 +98,23 @@ export class AccueilComponent implements OnInit {
      this.router.navigate(lien);  
    }
    
-   getProduit(id: number){
+   /* getProduit(id: number){
      this.selectedProduct = this.lesproduits.find(p => p.id == id);
-     console.log(this.selectedProduct);
-    
-     
+     console.log(this.selectedProduct);  
+   } */
 
-   }
+   getProduit(id: number){
+    this.produitservice.getProductById(id).subscribe({
+        next: (result) =>{this.selectedProduct =result;
+          console.log(this.selectedProduct);
+        },
+        error(err) { console.log('produit non trouvé');
+          
+        },
+    });
+     
+      
+  }
    
    getSignal(tva: number){
      // tva = localStorage.getItem['lelogo'].value;

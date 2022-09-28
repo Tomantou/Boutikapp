@@ -8,7 +8,7 @@ import { Titres } from '../Models/titres';
   providedIn: 'root'
 })
 export class TitresService {
-  private lien = environment.boutiqueContainer + '/titres';
+  private lien = environment.boutiqueContainer + 'api/titres';
 
   constructor(private readonly http: HttpClient) { }
 
@@ -30,6 +30,10 @@ export class TitresService {
   getTitres(): Observable<any>{
     return this.http.get<Titres[]>(this.lien);  
     // return this.http.get<Titres[]>(this.lien + '?filter={"limit": 1}');           
+}
+
+getTitresById(id: number){
+  return this.http.get(this.lien + '/' + id);
 }
 
 }

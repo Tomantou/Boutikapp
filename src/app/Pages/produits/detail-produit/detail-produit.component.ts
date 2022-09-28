@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 
 @Component({
@@ -12,7 +12,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class DetailProduitComponent implements OnInit {
   
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(private dialogRef: MatDialogRef<DetailProduitComponent>,
+             @Inject(MAT_DIALOG_DATA) public data:any) { }
 
   ngOnInit(): void {
   }
