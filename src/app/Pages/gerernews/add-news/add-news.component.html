@@ -35,7 +35,7 @@
                     <mat-error *ngIf ="this.form.get('Publier').hasError('required')"> ce champ est obligatoire</mat-error> 
                   </mat-form-field>
                   <div style="margin-left: 200px;">
-                     <button mat-raised-button color="primary" (click)="this.create();" [disabled] ="this.form.invalid">Submit</button>
+                     <button mat-raised-button color="primary" (click)="this.create()" [disabled] ="this.form.invalid">Submit</button>
                      &nbsp;&nbsp;&nbsp;&nbsp;
                      <button mat-raised-button color="warn" (click) = "this.onClear()">Réinitialiser</button>
                      &nbsp;&nbsp;&nbsp;&nbsp;

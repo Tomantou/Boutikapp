@@ -229,6 +229,7 @@ import { PanierComponent } from './Pages/panier/panier.component';
                   AddProduitComponent,EditProduitComponent,DetailProduitComponent,
                   AddNewsComponent,EditNewsComponent,
                   AddCategorieComponent,
+                  AddConfigdataComponent,
                   AddStockComponent]
 })
 export class AppModule { }

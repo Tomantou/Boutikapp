@@ -68,15 +68,12 @@ saveresp:any;
 
 
   public create() {
-  
     this.newsservice.createNews(this.form.getRawValue()).subscribe({
-      
       next: (news)  => {alertifyjs.success('produit enregistré avec succès');
       console.log(this.form.value)
       },
       error: () =>  {alertifyjs.error('échec enrengistrement, entrez des données valides svp!');
         }
-        
     });
   } 
 

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AddConfigdataComponent } from './add-configdata/add-configdata.component';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfigdataService } from 'src/app/Shared/configdata.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import * as alertifyjs from 'alertifyjs';
 @Component({
   selector: 'app-configdata',
   templateUrl: './configdata.component.html',
@@ -21,11 +25,30 @@ export class ConfigdataComponent implements OnInit {
   notrepolitique = new FormControl();
   nosobjectifs = new FormControl();
   
-  constructor() { }
+  constructor(private dialog:MatDialog,
+              private configservice:ConfigdataService) { }
 
   ngOnInit(): void {
   }
+
+ 
+ 
+
+  openEditConfigDialog(){
+
+  }
   
+
+  openAddConfigDialog(enteranimation:any,exitanimation:any,tva:any){
+
+    this.dialog.open(AddConfigdataComponent,{
+      enterAnimationDuration:enteranimation,
+      exitAnimationDuration:exitanimation,
+      width:'60%',
+      data:{tva:tva}
+    })
+
+  }
 
    getErrorMessage() {
     if (this.email.hasError('required')) {

@@ -16,7 +16,7 @@ import { Configdata } from '../Models/configdata';
 })
 
 export class ConfigdataService {
-  private lien = environment.boutiqueContainer + '/configdatas';
+  private lien = environment.boutiqueContainer + 'api/configdatas';
 
   constructor(private readonly http: HttpClient) 
   {
@@ -39,7 +39,7 @@ export class ConfigdataService {
 
   }
 
-  saveSignaletique(signaletiq: Configdata) {
+  saveSignaletique(configdat: Configdata) {
     const headerDict = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
@@ -49,25 +49,13 @@ export class ConfigdataService {
     const requestOptions = {
       headers: new HttpHeaders(headerDict),
     };
-    return this.http.post(environment.boutiqueContainer + '/configdatas', signaletiq, requestOptions);
+    return this.http.post<Configdata>(this.lien, configdat, requestOptions);
   }
 
 
   getSignaletique(): Observable<any>{
-    return this.http.get<Configdata[]>(this.lien + '?filter={"limit": 1}');           
+    return this.http.get<Configdata[]>(this.lien);       //+ '?filter={"limit": 1}'    
 }
 
 
-  geetCategories(): Observable<any>{
-     return this.http.get<Categorie[]>(this.lien);
-   }
-
-  /*  getCategories(): Observable<any>{
-  try{
-     return this.http.get<Categorie []>(this.lien);
-    }catch{
-     (this.handleError);
-    }
-             
-  }     */
 }

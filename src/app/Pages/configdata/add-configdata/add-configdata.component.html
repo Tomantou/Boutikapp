@@ -1,1 +1,87 @@
-<p>add-configdata works!</p>
+
+<div class="conteneur">
+    <form [formGroup] = "this.form" class="conteneur">
+    <mat-form-field appearance="outline">
+      <mat-label>Numéro TVA</mat-label>
+      <input matInput placeholder="N° Tva" formControlName="tva" required>
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      <mat-error *ngIf ="this.form.get('tva').hasError('required')"> ce champ est obligatoire</mat-error> 
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">  
+        <mat-label>Raison sociale</mat-label>
+        <input matInput placeholder="la raison sociale" formControlName="raisonsociale" required>
+        <mat-error *ngIf ="this.form.get('raisonsociale').hasError('required')"> ce champ est obligatoire</mat-error> 
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Type de société</mat-label>
+        <input matInput placeholder="type de société" formControlName="typesociete" required>
+        <mat-error *ngIf ="this.form.get('typesociete').hasError('required')"> ce champ est obligatoire</mat-error> 
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Logo</mat-label>
+        <input matInput placeholder="entrez le logo" formControlName="logo" required>
+        <mat-error *ngIf ="this.form.get('logo').hasError('required')"> ce champ est obligatoire</mat-error> 
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+          <mat-label>Adresse</mat-label>
+          <input matInput placeholder="adresse" formControlName="adresse" required>
+          <mat-error *ngIf ="this.form.get('adresse').hasError('required')"> ce champ est obligatoire</mat-error> 
+      </mat-form-field>
+     
+      <mat-form-field appearance="outline">
+          <mat-label>Contact</mat-label>
+          <input matInput placeholder="contact téléphonique" formControlName="contact" required>
+          <mat-error *ngIf ="this.form.get('contact').hasError('required')"> ce champ est obligatoire</mat-error> 
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" formControlName="email" required>
+        <mat-error *ngIf ="this.form.get('email').hasError('required')"> ce champ est obligatoire</mat-error> 
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+          <mat-label>Pays</mat-label>
+          <input matInput placeholder="pays" formControlName="pays" required>
+          <mat-error *ngIf ="this.form.get('pays').hasError('required')"> ce champ est obligatoire</mat-error> 
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+          <mat-label>Taux Tva</mat-label>
+          <input matInput placeholder="taux de tva" formControlName="tauxtva" required>
+          <mat-error *ngIf ="this.form.get('tauxtva').hasError('required')"> ce champ est obligatoire</mat-error> 
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Devise</mat-label>
+        <input matInput placeholder="devise" formControlName="devise" required>
+        <mat-error *ngIf ="this.form.get('devise').hasError('required')"> ce champ est obligatoire</mat-error> 
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+          <mat-label>Qui sommes-nous?</mat-label>
+          <input matInput placeholder="quisommesnous" formControlName="quisommesnous" required>
+          <mat-error *ngIf ="this.form.get('quisommesnous').hasError('required')"> ce champ est obligatoire</mat-error> 
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Notre Politique</mat-label>
+        <input matInput placeholder="notrepolitique" formControlName="notrepolitique" required>
+        <mat-error *ngIf ="this.form.get('notrepolitique').hasError('required')"> ce champ est obligatoire</mat-error> 
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Nos objectifs</mat-label>
+        <input matInput placeholder="nosobjectifs" formControlName="nosobjectifs" required>
+        <mat-error *ngIf ="this.form.get('nosobjectifs').hasError('required')"> ce champ est obligatoire</mat-error> 
+    </mat-form-field><div></div>
+    
+      <button mat-flat-button color="primary" (click)="this.create()" [disabled] ="this.form.invalid"><h4>Enregistrer</h4></button>
+      <button mat-flat-button color="accent"><h4>Annuler</h4></button>
+    </form>
+</div>
+<br>
