@@ -15,7 +15,7 @@ import { Configdata } from 'src/app/Models/configdata';
 import { DetailProduitComponent } from '../produits/detail-produit/detail-produit.component';
 import { DialogComponent } from '../dialog/dialog.component';
 import { BottompventesComponent } from '../bottompventes/bottompventes.component';
-
+import { author, title } from 'src/app/global-variables';
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',
@@ -92,7 +92,10 @@ export class AccueilComponent implements OnInit {
       );  */
       
     } 
-   
+    loadProduit(produit:Produit){
+      this.produitservice.produit = Object.assign({},produit);
+      console.log('product loaded',produit);
+    }
     gotoPageContact(){
      const lien = ['contact'];
      this.router.navigate(lien);  

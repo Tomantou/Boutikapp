@@ -12,10 +12,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   providedIn: 'root'
 })
 export class ProduitsService {
+  
   private lien = environment.boutiqueContainer + 'api/produits';
   private lien10 = environment.boutiqueContainer + 'api/produits/les10';
   private lien10rand = environment.boutiqueContainer + 'api/Produits/Rand10';
-
+  produit: Produit = new Produit();
+  produits: Produit[]=[]; 
    productAdded = new Subject();
    private _refreshRequired = new Subject<void>();
    get RequiredRefresh(){
@@ -25,8 +27,7 @@ export class ProduitsService {
    
   constructor(
     private readonly http: HttpClient) { }
-
-    
+     
   form: FormGroup = new FormGroup({
     $Id: new FormControl(null),
     Nom: new FormControl('', Validators.required),

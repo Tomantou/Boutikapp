@@ -28,7 +28,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { filter } from 'rxjs/operators';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 import { AccueilComponent } from './Pages/accueil/accueil.component';
@@ -114,6 +114,7 @@ import { ProductdialogComponent } from 'src/app/Pages/produits/productdialog/pro
 import { BottompventesComponent } from './Pages/bottompventes/bottompventes.component';
 import { TitresComponent } from './Pages/titres/titres.component';
 import { PanierComponent } from './Pages/panier/panier.component';
+import { DetailsComponent } from './Pages/details/details.component';
 
 
 
@@ -197,7 +198,8 @@ import { PanierComponent } from './Pages/panier/panier.component';
     ProductdialogComponent,
     BottompventesComponent,
     TitresComponent,
-    PanierComponent
+    PanierComponent,
+    DetailsComponent
   
   ],
   imports: [
@@ -219,14 +221,15 @@ import { PanierComponent } from './Pages/panier/panier.component';
     MatTabsModule,MatExpansionModule,MatDatepickerModule,MatNativeDateModule,
     HttpClientModule,MatBadgeModule,
     MatSelectModule,MatDialogModule,MatGridListModule,
-    MatTableModule,MatPaginatorModule,MatSortModule
+    MatTableModule,MatPaginatorModule,MatSortModule,
+    MatSidenavModule
 
 
   ],
   providers: [ProduitsService, CategorieService,MarqueService,ThenewsService],
   bootstrap: [AppComponent],
   entryComponents:[DialogComponent,
-                  AddProduitComponent,EditProduitComponent,DetailProduitComponent,
+                  AddProduitComponent,EditProduitComponent,DetailsComponent,
                   AddNewsComponent,EditNewsComponent,
                   AddCategorieComponent,
                   AddConfigdataComponent,

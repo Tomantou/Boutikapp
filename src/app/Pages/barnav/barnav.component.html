@@ -18,20 +18,25 @@
                     <span></span>
                     <span><a mat-button [routerLink]="'/recherche'"><h5><mat-icon>search</mat-icon>Recherche</h5></a></span>
                     <span><a mat-button [routerLink]="'/panier'"><h5><mat-icon>shopping_basket</mat-icon>Panier</h5></a></span>
-                
+                   <!--  <span><div class="example-button-container"><a mat-button style="color:white ;text-decoration: none;" [routerLink]="'/accueil'"><h5><mat-icon>home</mat-icon>Accueil</h5></a></div></span>
+                    <span><a mat-button [routerLink]="'/news'"><h5><mat-icon>info</mat-icon>News</h5></a></span>
+                    <span><a mat-button [routerLink]="'/promo'"><h5><mat-icon>percentage</mat-icon>Promos</h5></a></span>
+                    <span><a mat-button [routerLink]="'/contact'"><h5><mat-icon> contacts</mat-icon>Contact</h5></a></span>
+                    <span><a mat-button [routerLink]="'/apropos'"><h5><mat-icon>about_us</mat-icon>A Propos de nous</h5></a></span>
+                    <span><a mat-button [routerLink]="'/login'"><h5><mat-icon>account_circle</mat-icon>Se connecter</h5></a></span> -->
         </mat-toolbar-row>     
         <mat-divider [inset]="true"></mat-divider>      
         <mat-toolbar-row  class="navbar">  
-  
-              <div class="example-button-container">
+          
+              <!-- <div class="example-button-container">
                 <button mat-mini-fab color="accent" [matMenuTriggerFor]="menu" aria-label="Example icon button with a menu icon">
                   <mat-icon>menu</mat-icon>
                 </button>
-              </div>
+              </div> -->
           
-                <!-- <button mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button> -->
-                    <span></span>
-                    <span></span>
+                   <!-- <button mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button> -->
+                   <button mat-mini-fab color="accent"(click)="opened=!opened"><mat-icon>menu</mat-icon></button>
+                    
                     <span></span>
                     <span></span>
                     <span></span>
@@ -40,25 +45,45 @@
                     <span></span>
                     
                     
-                    <span>
-                         <div class="example-button-container"><a mat-button style="color:white ;text-decoration: none;" [routerLink]="'/accueil'"><h5><mat-icon>home</mat-icon>Accueil</h5></a>
-                         </div></span>
+                    <span><div class="example-button-container"><a mat-button style="color:white ;text-decoration: none;" [routerLink]="'/accueil'"><h5><mat-icon>home</mat-icon>Accueil</h5></a></div></span>
                     <span><a mat-button [routerLink]="'/news'"><h5><mat-icon>info</mat-icon>News</h5></a></span>
                     <span><a mat-button [routerLink]="'/promo'"><h5><mat-icon>percentage</mat-icon>Promos</h5></a></span>
                     <span><a mat-button [routerLink]="'/contact'"><h5><mat-icon> contacts</mat-icon>Contact</h5></a></span>
                     <span><a mat-button [routerLink]="'/apropos'"><h5><mat-icon>about_us</mat-icon>A Propos de nous</h5></a></span>
                     <span><a mat-button [routerLink]="'/login'"><h5><mat-icon>account_circle</mat-icon>Se connecter</h5></a></span>
+                  
                     
                     
                 
         </mat-toolbar-row>            
     </mat-toolbar>
-    
-  
-  <router-outlet></router-outlet>
   </div>
+  <!-- essai sidenav-->
+  <mat-sidenav-container>
+     <mat-sidenav [(opened)]="opened" mode ="side">
+        <button (click)="gotoProduitClick()">Produits</button> 
+        <button (click)="gotoMarqueClick()">Marques</button> 
+        <button (click)="gotoCategorieClick()">Catégories</button> 
+        <button (click)="gotoPromotionClick()">Promotions</button> 
+        <button (click)="gotoStockClick()">Stocks</button> 
+        <button (click)="gotoGerernewsClick()">Les News</button> 
+        <button (click)="gotoClientClick()">Clients</button> 
+        <button (click)="gotoCommandeClick()">Commandes</button> 
+        <button (click)="gotoFournisseurClick()">Fournisseurs</button> 
+        <button (click)="gotoTransfertstockClick()">Transfert Stocks</button> 
+        <button (click)="gotoFactureClick()">Factures</button> 
+        <button (click)="gotoGerantClick()">Gerants</button> 
+        <button (click)="gotoPventeClick()">Points vente</button> 
+        <button (click)="gotoConfigdataClick()">Signalétiques</button> 
+     </mat-sidenav>
+     <mat-sidenav-content>
+         <router-outlet></router-outlet>
+     </mat-sidenav-content>
+  </mat-sidenav-container>
   
-  <div>    
+  <!-- essai sidenav-->
+  
+ <!--  <div>    
     <mat-menu #menu="matMenu" class="matmenu">
      <button mat-menu-item  (click)="gotoProduitClick()"> <mat-icon>launch</mat-icon>Produits</button>
      <mat-divider></mat-divider>
@@ -92,3 +117,4 @@
     
     </mat-menu>
   </div>
+ -->

@@ -13,6 +13,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./edit-produit.component.css']
 })
 export class EditProduitComponent implements OnInit {
+  lesproduits: Produit[] = [];
   public produit: any;
   public marque: any;
   public produitForm: any;
@@ -30,6 +31,15 @@ export class EditProduitComponent implements OnInit {
     this.produit = new Produit();
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.getProduit(id);
+    this.refreshProduits();
+  }
+
+  refreshProduits(){
+    this.produitservice.getProduits().subscribe(result => {
+      this.lesproduits = result;
+      console.log(this.lesproduits);
+      
+    })
   }
 
   public getProduit(id: number): void {

@@ -17,26 +17,20 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { filter } from 'rxjs/operators';
+import { EditProduitComponent } from '../edit-produit/edit-produit.component';
+import { ConnectableObservable } from 'rxjs';
+import { ThisReceiver } from '@angular/compiler';
+import { DetailsComponent } from '../../details/details.component';
 
-
-/* export interface PeriodicElement {
-  nom: string;
-  description: string;
-  prix: number;
-  categorieid: number;
-  marqueid: number;
-  actions:'';
-
-}
- */
 @Component({
   selector: 'app-tableproduct',
   templateUrl: './tableproduct.component.html',
   styleUrls: ['./tableproduct.component.css']
 })
 export class TableproductComponent implements OnInit {
-  public lesproduits: Produit[] = [];
-  public selectedProduct: any;
+  lesproduits: Produit[] = [];
+  selectedProduct:any;
+  selectedRow: any;
   EditData:any;
   Produitid:any;
 
@@ -53,14 +47,17 @@ export class TableproductComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
     public dialog:MatDialog) { }
-
+showDataOfChildComponent:any;
   ngOnInit(): void {
-    this.selectedProduct = new Produit();
+    this.selectedRow = new Produit();
     this.refreshProduits();
     this.prodservice.RequiredRefresh.subscribe(r => {
       this.refreshProduits();
     })
-    
+  }
+
+  loadProduit(produit:Produit){
+    this.prodservice.produit = Object.assign({},produit);
   }
 
   refreshProduits(){
@@ -72,12 +69,6 @@ export class TableproductComponent implements OnInit {
     });
 
 
-  
-   /* Filterchange(event:Event);{
-      const filvalue=(event.target as HTMLInputElement).value;
-      this.dataSource.sort=this.sort;
-    } 
-     */
   }
 
    
@@ -89,37 +80,10 @@ export class TableproductComponent implements OnInit {
   } 
 
   getrow(row:any){
-    //console.log(row);
+    this.selectedRow=row;
+  console.log(this.selectedRow);
+    
   }
-
-  functionEdit(row:any){
-    console.log(row);
-  }
-
-  
-
-  form: FormGroup = new FormGroup({
-    Nom: new FormControl('', Validators.required),
-    Prix: new FormControl(),
-    Photo: new FormControl(''),
-    Nouveaute: new FormControl(''),
-    Description: new FormControl(''),
-    CategorieId: new FormControl('',Validators.required),
-    MarqueId: new FormControl('',Validators.required)
-  });
-
-  initializeFormGroup(){
-    this.form.setValue({
-    Nom: '',
-    Prix: 0,
-    Photo: '',
-    Nouveaute: '',
-    Description: '',
-    CategorieId: '',
-    MarqueId:''
-  });
-}
- 
 
   getProduit(id: number) {
     this.selectedProduct = this.lesproduits.find((p) => p.id == id);
@@ -149,15 +113,6 @@ export class TableproductComponent implements OnInit {
   }
 
 
-  
-  detailsProduct(){
-    console.log('vrai');
-  }
-  updateProduct(){
-     console.log('vrai');
-  }
-
-  
 
   showSpinner(){
     this.stateSpinner = true;
@@ -174,13 +129,18 @@ export class TableproductComponent implements OnInit {
     this.router.navigate(['produits/detail-produit']);
   }
 
-  openAddprodDialog(enteranimation:any,exitanimation:any,idprod:any){
+  functionEdit(code:any){
+    this.openAddprodDialog('1000ms','500ms',code)
+    console.log('le code est', code);
+  }
 
-    this.dialog.open(AddProduitComponent,{
+  openEditprodDialog(enteranimation:any,exitanimation:any,code:any){
+
+    this.dialog.open(EditProduitComponent,{
       enterAnimationDuration:enteranimation,
       exitAnimationDuration:exitanimation,
       width:'60%',
-      data:{id:idprod}
+      data:{}
     })
    /*  let dialogRef= this.dialog.open(AddProduitComponent,{data: {name:'Antoine'}});
     dialogRef.afterClosed().subscribe( result => {
@@ -188,40 +148,61 @@ export class TableproductComponent implements OnInit {
     }); */
   }
 
-  openDetailprodDialog(){
+  openAddprodDialog(enteranimation:any,exitanimation:any,code:any){
 
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    //dialogConfig.autoFocus = true;
-    dialogConfig.width='50%';
-
-    this.dialogConfig.data ={
-      nom:'nom',
-      prix:0,
-      description:'description'
-
-    }
-
-    this.dialog.open(DetailProduitComponent, dialogConfig);
-
-    const dialogRef = this.dialog.open(DetailProduitComponent, dialogConfig);
-
-
-
-    dialogRef.afterClosed().subscribe(
-        data => console.log("Dialog output:", data)
-    );    
-     
-    /* let dialogRef = this.dialog.open(DetailProduitComponent,{data: {name:'Antoine'}});
+    this.dialog.open(AddProduitComponent,{
+      enterAnimationDuration:enteranimation,
+      exitAnimationDuration:exitanimation,
+      width:'60%',
+      data:{empcode:code}
+    })
+   /*  let dialogRef= this.dialog.open(AddProduitComponent,{data: {name:'Antoine'}});
     dialogRef.afterClosed().subscribe( result => {
       console.log("Dialog result:", result);
-    });  */
-     
+    }); */
   }
 
+  datachild:Produit = new Produit;
+  
+  openDetailProdDialog(){
+      this.dialog.open(DetailProduitComponent,{width:'50%',height: '500px',
+                  enterAnimationDuration:'1000ms',
+                  exitAnimationDuration: '2000ms',
+                  data:{
+                    Nom:this.selectedRow.nom,
+                    Prenoms:'Issa'
+                  }
+                  });
+  }
 
-}
-function Filterchange(event: Event | undefined, Event: { new(type: string, eventInitDict?: EventInit | undefined): Event; prototype: Event; readonly AT_TARGET: number; readonly BUBBLING_PHASE: number; readonly CAPTURING_PHASE: number; readonly NONE: number; }) {
-  throw new Error('Function not implemented.');
-}
+  openDialog(){
 
+    /* this.dialog.open(DetailsComponent,{width:'70%',height: '500px',
+    enterAnimationDuration:'1000ms',
+    exitAnimationDuration: '2000ms',
+    data:{
+      nom: this.selectedRow.nom,
+      prix: this.selectedRow.prix,
+      image: this.selectedRow.image,
+      description: this.selectedRow.description
+    }
+    }); */
+  
+     const dialogRef = this.dialog.open(DetailsComponent,{width:'70%',height: '500px',
+     enterAnimationDuration:'1000ms',
+     exitAnimationDuration: '2000ms',
+     data:{
+       nom: this.selectedRow.nom,
+       prix: this.selectedRow.prix,
+       image: this.selectedRow.image,
+       description: this.selectedRow.description
+     }
+     }); 
+    /* dialogRef.afterClosed().subscribe(result => {
+      this.showDataOfChildComponent = result;
+      console.log('here is the data result ${result}')
+    });      */
+ 
+}
+  
+}

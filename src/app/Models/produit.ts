@@ -5,7 +5,7 @@ import { PromoProd } from "src/app/Models/promo_prod";
 import { Stock } from "./stock";
 export class Produit {
 
-    id: number=0;
+    id?: number=0;
     nom: String='';
     prix: number=0;
     photo: String='';

@@ -1,0 +1,13 @@
+
+<h1 mat-dialog-title>Détails</h1><br>
+<div mat-dialog-content>
+     <p> What do you want ?</p>
+       {{this.result.nom}}<br>
+       {{this.result.prix}}<br>
+       {{result.image}}<br>
+       {{result.description}}
+</div>
+<mat-dialog-actions>
+    <button mat-raised-button color = "primary">Ok</button>
+    <button mat-raised-button color = "accent" mat-dialog-close="true">Fermer</button>
+</mat-dialog-actions>

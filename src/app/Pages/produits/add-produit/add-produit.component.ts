@@ -26,7 +26,7 @@ export class AddProduitComponent implements OnInit {
   public Marques:Marque [] = [];
   public selectedCategorie: Categorie = new Categorie;
   public selectedMarque: Marque = new Marque;
-
+  Id = new FormControl(0);
   Nom = new FormControl('',Validators.required);
   Prix = new FormControl(0);
   Photo = new FormControl('');
@@ -51,12 +51,15 @@ export class AddProduitComponent implements OnInit {
 
   ngOnInit(): void {
     this.refreshProduits();
-    if(this.data.id != null && this.data.id !=0){
-      this.loadEditData(this.data.id);
-    }
+    this.EditData = new Produit;
     this.categorieservice.getCategories().subscribe(categories => {
       this.Categories = categories;
       console.log(this.Categories);
+    
+      if(this.data.empcode != null && this.data.empcode !=''){
+        this.loadEditData(this.data.empcode);
+      }
+
     })
 
     this.marqueservice.getMarques().subscribe(marques => {
@@ -77,7 +80,7 @@ export class AddProduitComponent implements OnInit {
   form: FormGroup = new FormGroup({
     Id: new FormControl({value:0, disabled:true}),
     Nom: new FormControl('', Validators.required),
-    Prix: new FormControl(),
+    Prix: new FormControl(0),
     Photo: new FormControl(''),
     Nouveaute: new FormControl(''),
     Description: new FormControl(''),
@@ -110,15 +113,16 @@ export class AddProduitComponent implements OnInit {
    }
  
 
-   loadEditData(id: number){
+   loadEditData(id: any){
     this.prodservice.getProductById(id).subscribe(item =>{
       this.EditData = item;
       console.log(item);
-      this.form.setValue({Nom:this.EditData.Nom,Prix:this.EditData.Prix,
+      this.form.setValue({Id:this.EditData.Id,Nom:this.EditData.Nom,Prix:this.EditData.Prix,
         Photo:this.EditData.Photo,Nouveaute:this.EditData.Nouveaute,
         Description:this.EditData.Description,CategorieId:this.EditData.CategorieId,
         MarqueId:this.EditData.MarqueId
         })
+        console.log(this.form.value);
       
 
     });

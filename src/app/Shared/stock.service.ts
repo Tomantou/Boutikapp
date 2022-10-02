@@ -1,19 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpClientModule, HttpResponse, HttpRequest } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, Subject, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { Pipe, PipeTransform } from '@angular/core';
 import { HttpErrorResponse,  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment';
-import { Categorie } from '../Models/categorie'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { Stock } from '../Models/stock';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StockService {
-  private lien = environment.boutiqueContainer + '/stocks';
+  private lien = environment.boutiqueContainer + 'api/stocks';
+
+  productAdded = new Subject();
+  private _refreshRequired = new Subject<void>();
+  get RequiredRefresh(){
+   return this._refreshRequired;
+
+  }
 
   constructor(private readonly http: HttpClient) {
     let headers = new Headers();
@@ -35,10 +41,33 @@ export class StockService {
 
   }
 
-  geetCategories(): Observable<any>{
-     return this.http.get<Categorie[]>(this.lien);
+  createStock(stock: Object){
+    console.log(stock)
+     return this.http.post<Stock>(this.lien, stock).pipe(tap(() => 
+        {this.RequiredRefresh.next();} ));
+
+  }
+
+  getProduits(): Observable<any> {
+    return this.http.get<Stock[]>(this.lien);
+  }
+
+  getStockById(id: string){
+    return this.http.get(this.lien + '/' + id);
+  }
+
+  updateStock(id: string, stock:Stock){
+    return this.http.put(this.lien + '/' + id, stock);
+  }
+
+  geetStocks(): Observable<any>{
+     return this.http.get<Stock[]>(this.lien);
    }
 
+  
+   deleteStock(id: string){
+    return this.http.delete(this.lien + '/' + id );
+   }
   
   form: FormGroup = new FormGroup({
     $id: new FormControl(null),
