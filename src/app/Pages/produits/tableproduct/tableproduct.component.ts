@@ -46,18 +46,39 @@ export class TableproductComponent implements OnInit {
   constructor(private prodservice: ProduitsService,
     private router: Router,
     private http: HttpClient,
-    public dialog:MatDialog) { }
+    private dialog:MatDialog) { }
 showDataOfChildComponent:any;
+
   ngOnInit(): void {
     this.selectedRow = new Produit();
+    this.selectedProduct=new Produit;
     this.refreshProduits();
     this.prodservice.RequiredRefresh.subscribe(r => {
       this.refreshProduits();
     })
   }
 
+  onCreate(){
+    this.prodservice.initializeFormGroup();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width ='60%';
+    this.dialog.open(AddProduitComponent,dialogConfig);
+  }
+
+  onEdit(){
+    //this.prodservice.populateForm(row);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width ='60%';
+    this.dialog.open(AddProduitComponent,dialogConfig);
+  }
+
   loadProduit(produit:Produit){
     this.prodservice.produit = Object.assign({},produit);
+    console.log('product loaded',produit);
   }
 
   refreshProduits(){
@@ -82,16 +103,24 @@ showDataOfChildComponent:any;
   getrow(row:any){
     this.selectedRow=row;
   console.log(this.selectedRow);
-    
   }
 
+  
+
+  getProduit2(id: number) {
+     this.prodservice.getProductById(this.selectedRow.id).subscribe((leprod) =>{
+      this.selectedProduct=leprod;
+      console.log(this.selectedProduct);
+     });
+    /* this.selectedProduct = this.lesproduits.find((p) => p.id == id);
+    console.log(this.selectedProduct); */
+  }
   getProduit(id: number) {
     this.selectedProduct = this.lesproduits.find((p) => p.id == id);
     console.log(this.selectedProduct);
   }
   
   public updateProduit(idprod: any) {
-      this.openAddprodDialog('1000ms','600ms', idprod)
    /*  this.prodservice
       .updateProduct(id, this.form.value)
       .subscribe(); */
@@ -129,9 +158,9 @@ showDataOfChildComponent:any;
     this.router.navigate(['produits/detail-produit']);
   }
 
-  functionEdit(code:any){
-    this.openAddprodDialog('1000ms','500ms',code)
-    console.log('le code est', code);
+  functionEdit(){
+   /*  this.openDialogEdit()
+    console.log('le code est', id); */
   }
 
   openEditprodDialog(enteranimation:any,exitanimation:any,code:any){
@@ -162,46 +191,47 @@ showDataOfChildComponent:any;
     }); */
   }
 
-  datachild:Produit = new Produit;
-  
-  openDetailProdDialog(){
-      this.dialog.open(DetailProduitComponent,{width:'50%',height: '500px',
-                  enterAnimationDuration:'1000ms',
-                  exitAnimationDuration: '2000ms',
-                  data:{
-                    Nom:this.selectedRow.nom,
-                    Prenoms:'Issa'
-                  }
-                  });
-  }
-
-  openDialog(){
-
-    /* this.dialog.open(DetailsComponent,{width:'70%',height: '500px',
+ 
+  openDialogEdit(row:any){
+    const dialogRef = this.dialog.open(AddProduitComponent,{width:'70%',height: '600px',
     enterAnimationDuration:'1000ms',
     exitAnimationDuration: '2000ms',
     data:{
+      id:this.selectedRow.id,
       nom: this.selectedRow.nom,
       prix: this.selectedRow.prix,
-      image: this.selectedRow.image,
-      description: this.selectedRow.description
+      photo: this.selectedRow.photo,
+      nouveaute:this.EditData.nouveaute,
+      description: this.selectedRow.description,
+      categorieid:this.EditData.categorieid,
+      marqueid:this.EditData.marqueid 
     }
-    }); */
-  
-     const dialogRef = this.dialog.open(DetailsComponent,{width:'70%',height: '500px',
+    }); 
+    dialogRef.afterClosed().subscribe(result => {
+     this.showDataOfChildComponent = result;
+     console.log('here is the data result', result)
+   });      
+
+  }
+
+  openDialogDet(row:any){
+    this.selectedRow=row;
+     const dialogRef = this.dialog.open(DetailProduitComponent,{width:'50%',height: '500px',
      enterAnimationDuration:'1000ms',
      exitAnimationDuration: '2000ms',
      data:{
-       nom: this.selectedRow.nom,
-       prix: this.selectedRow.prix,
-       image: this.selectedRow.image,
-       description: this.selectedRow.description
+      id:row.id,
+      nom: row.nom,
+      prix: row.prix,
+      image: row.photo,
+      description: row.description
      }
      }); 
-    /* dialogRef.afterClosed().subscribe(result => {
+         
+     dialogRef.afterClosed().subscribe(result => {
       this.showDataOfChildComponent = result;
-      console.log('here is the data result ${result}')
-    });      */
+      console.log('here is the data result', result)
+    });  
  
 }
   

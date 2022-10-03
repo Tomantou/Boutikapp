@@ -12,12 +12,14 @@ import { TableproductComponent } from '../tableproduct/tableproduct.component';
 export class DetailProduitComponent implements OnInit {
   receivedRow:any;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any
+  constructor(public dialogRef: MatDialogRef<DetailProduitComponent>,
+    @Inject(MAT_DIALOG_DATA) public data:any
     
               ) {}
   
 
   ngOnInit(): void {
+    console.log('entrée détail');
     this.receivedRow=this.data;
   }
 

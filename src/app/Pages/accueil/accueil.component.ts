@@ -23,6 +23,7 @@ import { author, title } from 'src/app/global-variables';
   providers: [ProduitsService]
 })
 export class AccueilComponent implements OnInit {
+  prodfound:any;
   // @Input() image: string
   public lesproduits: Produit[] = [];
   public les10prod: Produit[] = [];
@@ -30,6 +31,7 @@ export class AccueilComponent implements OnInit {
   public configdatas: Configdata[] = [];
   public panier: Produit[] = [];
   public selectedProduct: any;
+  showDataOfChildComponent:any;
   public selectedConfigdata: Configdata = new Configdata;
  private link = ['accueil'];
   p: number = 1;
@@ -89,24 +91,24 @@ export class AccueilComponent implements OnInit {
         (error) => {
            alert('probleme d\'acces a l api categories');
         }
-      );  */
-      
+      );  */  
     } 
+
     loadProduit(produit:Produit){
       this.produitservice.produit = Object.assign({},produit);
-      console.log('product loaded',produit);
+     // console.log('product loaded',produit);
     }
     gotoPageContact(){
      const lien = ['contact'];
      this.router.navigate(lien);  
    }
    
-   /* getProduit(id: number){
+    getProduit(id: number){
      this.selectedProduct = this.lesproduits.find(p => p.id == id);
-     console.log(this.selectedProduct);  
-   } */
+     console.log('selected',this.selectedProduct);  
+   } 
 
-   getProduit(id: number){
+   getProduit2(id: number){
     this.produitservice.getProductById(id).subscribe({
         next: (result) =>{this.selectedProduct =result;
           console.log(this.selectedProduct);
@@ -134,19 +136,28 @@ export class AccueilComponent implements OnInit {
   
     } */
 
-    openDetailprodDialog(enteranimation:any,exitanimation:any,idprod:any){
-
-      this.dialog.open(DetailProduitComponent,{
-        enterAnimationDuration:enteranimation,
-        exitAnimationDuration:exitanimation,
-        width:'50%'
-      })
-    /* let dialogRef = this.dialog.open(DetailProduitComponent,{data: {name:'Antoine'}});
-    dialogRef.afterClosed().subscribe( result => {
-      console.log("Dialog result:", result);
-    });  */
-     
+    openDialogDet(prod:any){
+      this.selectedProduct=prod;
+       const dialogRef = this.dialog.open(DetailProduitComponent,{width:'50%',height: '500px',
+       enterAnimationDuration:'1000ms',
+       exitAnimationDuration: '2000ms',
+       data:{
+        id:prod.id,
+        nom: prod.nom,
+        prix: prod.prix,
+        image: prod.photo,
+        description: prod.description
+       }
+       }); 
+           
+       dialogRef.afterClosed().subscribe(result => {
+        this.showDataOfChildComponent = result;
+        console.log('here is the data result', result)
+      });  
+   
   }
+    
 
+    
 
 }

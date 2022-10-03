@@ -45,8 +45,8 @@ export class AddProduitComponent implements OnInit {
     public prodservice: ProduitsService,
     public categorieservice: CategorieService,
     public marqueservice: MarqueService,
+    public dialogref: MatDialogRef<AddProduitComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogref: MatDialogRef<AddProduitComponent>
     ) { }
 
   ngOnInit(): void {
@@ -55,10 +55,10 @@ export class AddProduitComponent implements OnInit {
     this.categorieservice.getCategories().subscribe(categories => {
       this.Categories = categories;
       console.log(this.Categories);
-    
+    /* 
       if(this.data.empcode != null && this.data.empcode !=''){
         this.loadEditData(this.data.empcode);
-      }
+      } */
 
     })
 
@@ -99,6 +99,22 @@ export class AddProduitComponent implements OnInit {
     CategorieId: '',
     MarqueId:''
   });
+}
+
+onSubmit(){
+  if(this.prodservice.form.valid){
+    this.create();// en exemple au lieu du form de produit service
+    this.prodservice.form.reset();
+    this.prodservice.initializeFormGroup();
+    /* this.notifications.service.success(':: submitted successfuly') */
+    this.onClose();
+  }
+}
+
+onClose(){
+  this.prodservice.form.reset();
+  this.prodservice.initializeFormGroup();
+  this.dialogref.close();
 }
  
   public create() {

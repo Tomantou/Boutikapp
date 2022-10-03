@@ -13,6 +13,7 @@ import * as alertifyjs from 'alertifyjs';
 export class PromoComponent implements OnInit {
   public produits: Produit[] = [];
   public selectedProduct: any;
+  showDataOfChildComponent:any;
   constructor(private prodservice: ProduitsService,
               public dialog:MatDialog) { }
 
@@ -33,13 +34,25 @@ export class PromoComponent implements OnInit {
       
     });
   }
-       
-  openDetailprodDialog(enteranimation:any,exitanimation:any,prod:any){
-
-    this.dialog.open(DetailProduitComponent,{
-      enterAnimationDuration:enteranimation,
-      exitAnimationDuration:exitanimation,
-      width:'50%'
-    })
-  }
+     
+  openDialogDet(prod:any){
+     const dialogRef = this.dialog.open(DetailProduitComponent,{width:'50%',height: '500px',
+     enterAnimationDuration:'1000ms',
+     exitAnimationDuration: '2000ms',
+     data:{
+      id:prod.id,
+      nom: prod.nom,
+      prix: prod.prix,
+      image: prod.photo,
+      description: prod.description
+     }
+     }); 
+         
+     dialogRef.afterClosed().subscribe(result => {
+      this.showDataOfChildComponent = result;
+      console.log('here is the data result', result)
+    });  
+ 
+}
+  
 }

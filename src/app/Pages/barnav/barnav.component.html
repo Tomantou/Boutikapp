@@ -59,28 +59,48 @@
     </mat-toolbar>
   </div>
   <!-- essai sidenav-->
+  
   <mat-sidenav-container>
+    
      <mat-sidenav [(opened)]="opened" mode ="side">
-        <button (click)="gotoProduitClick()">Produits</button> 
-        <button (click)="gotoMarqueClick()">Marques</button> 
-        <button (click)="gotoCategorieClick()">Catégories</button> 
-        <button (click)="gotoPromotionClick()">Promotions</button> 
-        <button (click)="gotoStockClick()">Stocks</button> 
-        <button (click)="gotoGerernewsClick()">Les News</button> 
-        <button (click)="gotoClientClick()">Clients</button> 
-        <button (click)="gotoCommandeClick()">Commandes</button> 
-        <button (click)="gotoFournisseurClick()">Fournisseurs</button> 
-        <button (click)="gotoTransfertstockClick()">Transfert Stocks</button> 
-        <button (click)="gotoFactureClick()">Factures</button> 
-        <button (click)="gotoGerantClick()">Gerants</button> 
-        <button (click)="gotoPventeClick()">Points vente</button> 
-        <button (click)="gotoConfigdataClick()">Signalétiques</button> 
+        <button mat-raised-button color="primary" (click)="gotoProduitClick()">Produits</button> 
+        <mat-divider [inset]="true"></mat-divider>
+        <button mat-raised-button color="primary" (click)="gotoMarqueClick()">Marques</button> 
+        <mat-divider [inset]="true"></mat-divider>
+        <button mat-raised-button color="primary" (click)="gotoCategorieClick()">Catégories</button> 
+        <mat-divider [inset]="true"></mat-divider>
+        <button mat-raised-button color="primary" (click)="gotoPromotionClick()">Promotions</button> 
+        <mat-divider [inset]="true"></mat-divider>
+        <button mat-raised-button color="primary" (click)="gotoStockClick()">Stocks</button> 
+        <mat-divider [inset]="true"></mat-divider>
+        <button mat-raised-button color="primary" (click)="gotoGerernewsClick()">Les News</button> 
+        <mat-divider [inset]="true"></mat-divider>
+        <button mat-raised-button color="primary" (click)="gotoClientClick()">Clients</button> 
+        <mat-divider [inset]="true"></mat-divider>
+        <button mat-raised-button color="primary" (click)="gotoCommandeClick()">Commandes</button> 
+        <mat-divider [inset]="true"></mat-divider>
+        <button mat-raised-button color="primary" (click)="gotoFournisseurClick()">Fournisseurs</button> 
+        <mat-divider [inset]="true"></mat-divider>
+        <button mat-raised-button color="primary" (click)="gotoTransfertstockClick()">Transfert Stocks</button> 
+        <mat-divider [inset]="true"></mat-divider>
+        <button mat-raised-button color="primary" (click)="gotoFactureClick()">Factures</button>
+        <mat-divider [inset]="true"></mat-divider> 
+        <button mat-raised-button color="primary" (click)="gotoGerantClick()">Gerants</button> 
+        <mat-divider [inset]="true"></mat-divider>
+        <button mat-raised-button color="primary" (click)="gotoPventeClick()">Points vente</button> 
+        <mat-divider [inset]="true"></mat-divider>
+        <button mat-raised-button color="primary" (click)="gotoConfigdataClick()">Signalétiques</button> 
+        <mat-divider [inset]="true"></mat-divider>
      </mat-sidenav>
      <mat-sidenav-content>
          <router-outlet></router-outlet>
      </mat-sidenav-content>
+    
   </mat-sidenav-container>
-  
+
+
+
+
   <!-- essai sidenav-->
   
  <!--  <div>    

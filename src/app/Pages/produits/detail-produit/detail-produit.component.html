@@ -1,18 +1,31 @@
-
-<h2 mat-dialog-titke> DETAILS PRODUIT  {{receivedRow.nom}}</h2>
+<h1 mat-dialog-title>Détails</h1><br>
 <div mat-dialog-content>
-  <mat-form-field appearance ="outline">
-    <mat-label>Nouveauté</mat-label>
-    <input formControlName="Nouveaute" matInput placeholder="Nouveaute">
-  </mat-form-field>
+       
+       {{this.receivedRow.nom}}<br>
+       {{this.receivedRow.prix}}<br>
+       {{receivedRow.photo}}<br>
+       <img mat-card-lg-image src="../assets/img/slider/{{receivedRow.id}}.jpg" >
+    
+       {{receivedRow.description}}
+</div>
+<mat-dialog-actions>
+    <button mat-raised-button color = "primary">Ok</button>
+    <button mat-raised-button color = "accent" mat-dialog-close="true">Fermer</button>
+</mat-dialog-actions>
+
+
+
+<!-- <h2 mat-dialog-titke> DETAILS PRODUIT  {{receivedRow.nom}}</h2>
+<div mat-dialog-content>
+  
     <p>{{receivedRow.nom}}</p>
-  <!-- <img mat-card-xl-image src="../assets/img/slider/10.jpg" >
-     -->
+  <img mat-card-xl-image src="../assets/img/slider/10.jpg" >
+    
 </div>
 
 <mat-dialog-actions>
     <button mat-raised-button color = "primary">Ok</button>
     <button mat-raised-button color = "accent" mat-dialog-close="true">Fermer</button>
 </mat-dialog-actions>
-
+ -->
 

@@ -51,6 +51,10 @@ export class ProduitsService {
     MarqueId:''
   });
 }
+
+populateForm(produit:Produit){
+  this.form.setValue(produit);
+}
    
   getProduits(): Observable<any> {
     return this.http.get<Produit[]>(this.lien);
