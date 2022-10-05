@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PanierService } from 'src/app/Shared/panier.service';
 
 @Component({
   selector: 'app-panier',
@@ -8,43 +9,25 @@ import { Component, OnInit } from '@angular/core';
 export class PanierComponent implements OnInit {
 
   produits : any[] = [];
-  total = 100;
+  total = 0;
 
-  constructor() { }
+  constructor(private panierSerivce: PanierService) { }
 
-  ngOnInit(): void {
-    this.produits = [
-      { id: 1, prix: 1,
-        produitModel: {
-          nom: 'samsung'
-      },
-      quantite: 10,
-      solde: 1
-    },
-    { id: 1, prix: 1,
-      produitModel: {
-        nom: 'samsung'
-    },
-    quantite: 10,
-    solde: 1
-  },
-  { id: 1, prix: 1,
-    produitModel: {
-      nom: 'samsung'
-  },
-  quantite: 10,
-  solde: 1
-},
-{ id: 1, prix: 1,
-  produitModel: {
-    nom: 'samsung'
-},
-quantite: 10,
-solde: 1
-}
-
-    ]
-
+  public add(id : string) {
+    this.panierSerivce.add(id).subscribe(respose => this.refresh())
+  }
+  public decrease(id : string) {
+    this.panierSerivce.decrease(id).subscribe(respose => this.refresh())
   }
 
+  private refresh() {
+    this.panierSerivce.getPaniers(localStorage.getItem("userid")!).subscribe(
+      response => this.produits = response
+    );
+  }
+
+  ngOnInit(): void {
+    this.refresh();
+
+}
 }

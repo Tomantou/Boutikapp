@@ -15,14 +15,14 @@ import { ɵInjectableAnimationEngine } from '@angular/platform-browser/animation
   styleUrls: ['./edit-produit.component.css']
 })
 export class EditProduitComponent implements OnInit {
-  receivedRow:any;
+  receivedProd:any;
   lesproduits: Produit[] = [];
   Marques:Marque[]=[];
   Categories:Categorie[]=[];
-  public produit: any;
   public marque: any;
   public produitForm: any;
-  EditData:any;
+  produit:any;
+  
   
 
   constructor(private router: Router,
@@ -30,20 +30,19 @@ export class EditProduitComponent implements OnInit {
     private produitservice: ProduitsService,
     private categorieservice: CategorieService,
     private marqueservice: MarqueService,
-    dialogref:MatDialogRef<EditProduitComponent>,@Inject(MAT_DIALOG_DATA) public data:any
+    dialogref:MatDialogRef<EditProduitComponent>,
+    @Inject(MAT_DIALOG_DATA) public data:any
     ) { }
 
   ngOnInit(): void {
-    this.receivedRow=this.data;
-    this.EditData = new Produit;
+    this.receivedProd=this.data;
     this.produitForm= new Produit;
-    this.produit = new Produit();
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.getProduit(id);
     this.refreshProduits();
     
     if(this.data.id !=null && this.data.id !=''){
-      this.loadEditData(this.data.id);
+      this.loadFormData();
       
     }
     
@@ -57,16 +56,14 @@ export class EditProduitComponent implements OnInit {
     })
   }
 
-   loadEditData(id:number){
-    this.produitservice.getProductById(id).subscribe(item =>{
-       this.EditData = item;
-       this.form.setValue({Nom:this.EditData.nom, Prix:this.EditData.prix,
-        Photo:this.EditData.photo,Nouveaute:this.EditData.nouveaute,
-        Description:this.EditData.nouveaute,CategorieId:this.EditData.categorieid,
-        MarqueId:this.EditData.marqueid
+   loadFormData(): void{
+       this.form.setValue({ mom:this.receivedProd.nom, prix:this.receivedProd.prix,
+        Photo:this.receivedProd.photo,nouveaute:this.receivedProd.nouveaute,
+        description:this.receivedProd.description,categorieid:this.receivedProd.categorieid,
+        marqueid:this.receivedProd.marqueid
         });
-        console.log('editdata',this.EditData);
-    });
+        console.log('editdata',this.receivedProd);
+  
    }
   public getProduit(id: number): void {
     this.produitservice.getProductById(id).subscribe((produit) => {
@@ -91,9 +88,9 @@ export class EditProduitComponent implements OnInit {
 
 
 
-  public updateProduit() {
+  public updateProduit(id: number,prodRequest:Produit) {
     this.produitservice
-      .updateProduct(this.produit.Id, this.form.value)
+      .updateProduct(id, prodRequest)
       .subscribe();
     
   }
@@ -109,15 +106,26 @@ export class EditProduitComponent implements OnInit {
  }
 
  form: FormGroup = new FormGroup({
-  Nom: new FormControl('', Validators.required),
-  Prix: new FormControl(),
-  Photo: new FormControl(''),
-  Nouveaute: new FormControl(''),
-  Description: new FormControl(''),
-  CategorieId: new FormControl('',Validators.required),
-  MarqueId: new FormControl('',Validators.required)
+  nom: new FormControl('', Validators.required),
+  prix: new FormControl(),
+  photo: new FormControl(''),
+  nouveaute: new FormControl(''),
+  description: new FormControl(''),
+  categorieid: new FormControl('',Validators.required),
+  marqueid: new FormControl('',Validators.required)
   });
 
+  productData: Produit ={
+    id: 0,
+    nom: '',
+    prix: 0,
+    photo: '',
+    nouveaute: '',
+    description: '',
+    categorieid: 0,
+    marqueid: 0,
+    
+  }
 initializeFormGroup(){
   this.form.setValue({
   $Id: null,

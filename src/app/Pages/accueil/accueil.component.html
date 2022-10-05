@@ -2,14 +2,7 @@
    <br>
      <app-carousel></app-carousel>
      <app-bottompventes></app-bottompventes>
-    <!-- <mat-card style="background-color: teal; color:aliceblue; text-align:center;">
-                
-        <mat-card-title></mat-card-title>
     
-        <mat-card-content>
-             TITRE
-        </mat-card-content>
-    </mat-card> -->
     <br>
     <br>
 
@@ -37,13 +30,13 @@
                     <mat-card-actions>
                         <button mat-raised-button color ="warn"><h3>Ajouter</h3></button>
                     </mat-card-actions>
+                    
                 </mat-card>
-
-
-
                 
         </div>
         
+        <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLast>
+        </mat-paginator>
         <app-footer></app-footer>
   
 

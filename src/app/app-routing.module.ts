@@ -120,7 +120,7 @@ const routes: Routes = [
     path:"factures", component:FacturesComponent,
   },
 
-  { path: 'produits/edit/:id', component: EditProduitComponent
+  { path: 'produits/edit-produit', component: EditProduitComponent
   },
 
   { 

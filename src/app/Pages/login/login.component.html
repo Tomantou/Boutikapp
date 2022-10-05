@@ -6,46 +6,19 @@
         <div class="hedaer">
             <h2>CONNEXION</h2>
         </div>
-        <mat-form-field appearance="fill">
-            <mat-label>User</mat-label>
-            <input matInput>
-        </mat-form-field>
+        <div appearance="fill">
+            <span>Email</span>
+            <input id="email" [(ngModel)]="email">
+        </div>
           <br>
-        <mat-form-field appearance="fill">
-            <mat-label>Password</mat-label>
-            <input matInput>
-        </mat-form-field>
+        <div appearance="fill">
+            <span>Password</span>
+            <input id="password" [(ngModel)]="password">
+        </div>
         
-        <!--
-        <form (ngSubmit)="onLogin()" name ="loginForm" [FormGroup]="loginForm">
-             <div class="email-input">
-                <mat-form-field class="full-width" appearance="outline">
-                    <mat-label>Email</mat-label>
-                    <input FormControlName="email" matinput required/>
-                    <mat-error *ngIf = "loginForm.get('email').errors?.required">
-                        required email adress
-                    </mat-error>
-                </mat-form-field>
-            </div>
-            <div>
-                <span class="aLing">Forgot Password?</span>
-                <mat-form-field class="full-width" appearance="outline">
-                    <mat-label>Password</mat-label>
-                    <input FormControlName="Password" matinput [type]="hide ? 'password': 'text'" required/>
-                    <button mat-icon-button matSuffix (click)= "hide = !hide" 
-                         [attr.aria-label]="'Hide Password'" [attr.aira-pressed]="hide">
-                         <mat-icon>{{ hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                    <mat-error *ngIf = "loginForm.get('password').errors?.required">
-                        required password
-                    </mat-error>
-                </mat-form-field>
-            </div>
-            <button mat-flat-button color = "primary">Login</button>
-        </form> -->
     </mat-card-content>
     <div class="buttons">
-    <button mat-raised-button color="primary"><h4>Se connecter</h4></button>
+    <button mat-raised-button color="primary" (click)="proceedLogin()"><h4>Se connecter</h4></button>
     <button mat-raised-button color="primary"><h4>Annuler</h4></button>
     </div>
 </mat-card>

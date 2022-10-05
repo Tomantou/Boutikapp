@@ -5,6 +5,7 @@ import { ProductdialogComponent } from '../produits/productdialog/productdialog.
 import { DetailProduitComponent } from '../produits/detail-produit/detail-produit.component';
 import { MatDialog } from '@angular/material/dialog';
 import * as alertifyjs from 'alertifyjs';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-promo',
   templateUrl: './promo.component.html',
@@ -14,6 +15,7 @@ export class PromoComponent implements OnInit {
   public produits: Produit[] = [];
   public selectedProduct: any;
   showDataOfChildComponent:any;
+  private lien = environment.imagesUrl;
   constructor(private prodservice: ProduitsService,
               public dialog:MatDialog) { }
 

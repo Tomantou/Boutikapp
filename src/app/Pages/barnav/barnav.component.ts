@@ -8,7 +8,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BarnavComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  role = "";
+
+  constructor(private router:Router) {
+    this.role = localStorage.getItem("role")!;
+  }
   
   opened = false;
   
@@ -79,6 +83,11 @@ gotoConfigdataClick(): void{
 
 gotoSigninClick(): void{
   this.router.navigate(['signin']);
+}
+
+logout(){
+  localStorage.clear();
+  window.open('/login', "_self");
 }
 
   ngOnInit(): void {

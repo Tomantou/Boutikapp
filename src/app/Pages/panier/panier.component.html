@@ -4,18 +4,20 @@
 
         <div class="panier-header">
             <span>Produit Nom</span>
-            <span>Q</span>
-            <span>P</span>
+            <span>Quantité</span>
+            <span>Prix</span>
         </div>
 
         <div class="panier-row" *ngFor="let produit of produits">
             <span>{{produit.produitModel.nom}}</span>
             <div>
-                <a class="button-q">+</a>
+                <a class="button-q" (click)="this.decrease(produit.id)">-</a>
                 <span>{{produit.quantite}}</span>
-                <a class="button-q">-</a>
+                <a class="button-q" (click)="this.add(produit.id)">+</a>
             </div>
             <span>{{produit.prix * produit.solde}} €</span>
+            <span>Montant: {{produit.prix * produit.solde * produit.quantite}} €</span>
+            <span>Suppr</span>
         </div>
 
         <div class="panier-total">

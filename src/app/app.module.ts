@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -19,17 +19,18 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import {MatNativeDateModule } from '@angular/material/core';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule, MatDialogConfig} from '@angular/material/dialog';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
+import {MatPaginatorModule } from '@angular/material/paginator';
+import {MatSortModule } from '@angular/material/sort';
 import { filter } from 'rxjs/operators';
 import {MatSidenavModule} from '@angular/material/sidenav';
-
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatListModule} from '@angular/material/list';
 
 import { AccueilComponent } from './Pages/accueil/accueil.component';
 import { NewsComponent } from './Pages/news/news.component';
@@ -54,7 +55,7 @@ import { PventesComponent } from './Pages/pventes/pventes.component';
 import { ContactComponent } from './Pages/contact/contact.component';
 import { FooterComponent } from './Pages/footer/footer.component';
 import { LoginComponent } from './Pages/login/login.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { CarouselComponent } from './Pages/carousel/carousel.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { DetcommandeclComponent } from './Pages/detcommandecl/detcommandecl.component';
@@ -115,7 +116,8 @@ import { BottompventesComponent } from './Pages/bottompventes/bottompventes.comp
 import { TitresComponent } from './Pages/titres/titres.component';
 import { PanierComponent } from './Pages/panier/panier.component';
 import { DetailsComponent } from './Pages/details/details.component';
-
+import { AuthorizeService } from './Shared/authorize.service';
+import { TokenInterceptor } from './token-interceptor';
 
 
 
@@ -222,11 +224,22 @@ import { DetailsComponent } from './Pages/details/details.component';
     HttpClientModule,MatBadgeModule,
     MatSelectModule,MatDialogModule,MatGridListModule,
     MatTableModule,MatPaginatorModule,MatSortModule,
-    MatSidenavModule
+    MatSidenavModule,MatProgressBarModule,MatListModule
 
 
   ],
-  providers: [ProduitsService, CategorieService,MarqueService,ThenewsService],
+  providers: [
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: TokenInterceptor,
+        multi: true
+    },
+    ProduitsService,
+    CategorieService,
+    MarqueService,
+    ThenewsService,
+    AuthorizeService
+  ],
   bootstrap: [AppComponent],
   entryComponents:[DialogComponent,
                   AddProduitComponent,EditProduitComponent,DetailsComponent,

@@ -13,8 +13,6 @@ export class Produit {
     description: string='';
     // Navigation properthies
     categorieid: number=0;
-    categorie: Categorie = new Categorie; 
     marqueid: number=0;
-    marque: Marque = new Marque; 
-    promoProds:PromoProd[] = [];
+   
 }

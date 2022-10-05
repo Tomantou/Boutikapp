@@ -8,24 +8,24 @@
 
                   <mat-form-field appearance ="outline">
                     <mat-label>Nom</mat-label>
-                    <input formControlName="Nom" matInput placeholder="nom" required>
+                    <input formControlName="receivedProd.nom" matInput placeholder="nom" required>
                     <mat-error *ngIf ="this.form.get('Nom').hasError('required')"> ce champ est obligatoire</mat-error>
                   </mat-form-field>
                   <mat-form-field appearance ="outline">
                     <mat-label>Prix</mat-label>
-                    <input formControlName="Prix" matInput placeholder="Prix">
+                    <input formControlName="reveivedProd.Prix" matInput placeholder="Prix">
                   </mat-form-field>
                   <mat-form-field appearance ="outline">
                     <mat-label>Photo></mat-label>
-                    <input formControlName="Photo" matInput placeholder="Photo">
+                    <input formControlName="receivedProd.Photo" matInput placeholder="Photo">
                   </mat-form-field>
                   <mat-form-field appearance ="outline">
                     <mat-label>Nouveauté</mat-label>
-                    <input formControlName="Nouveaute" matInput placeholder="Nouveaute">
+                    <input formControlName="receivedProd.Nouveaute" matInput placeholder="Nouveaute">
                   </mat-form-field>
                   <mat-form-field appearance ="outline">
                     <mat-label>Catégorie</mat-label>
-                      <mat-select formControlName="CategorieId">
+                      <mat-select formControlName="receivedProd.CategorieId">
                         <mat-option *ngFor="let categorie of Categories" [value]="categorie.id">
                           {{categorie.libelle}}
                         </mat-option>
@@ -34,7 +34,7 @@
                   </mat-form-field>
                   <mat-form-field appearance ="outline">
                     <mat-label>Marque</mat-label>
-                    <mat-select formControlName="MarqueId">
+                    <mat-select formControlName="receivedProd.MarqueId">
                       <mat-option *ngFor="let marque of Marques" [value]="marque.id">
                         {{marque.nom}}
                       </mat-option>
@@ -43,16 +43,18 @@
                   </mat-form-field>
                   <mat-form-field appearance ="outline">
                     <mat-label>Description</mat-label>
-                    <input formControlName="Description" matInput placeholder="description">
+                    <input formControlName="receivedprod.Description" matInput placeholder="description">
                   </mat-form-field>
 
 
 
 
           </form>
- 
-       
-  
+
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary"  (click)="this.updateProduit(receivedProd.Id,form.value)">Enregistrer</button>
+  <button mat-raised-button color = "accent" mat-dialog-close="true">Abandonner</button>
 </div>
 
 

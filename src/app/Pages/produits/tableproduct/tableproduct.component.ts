@@ -34,7 +34,7 @@ export class TableproductComponent implements OnInit {
   EditData:any;
   Produitid:any;
 
-  displayedColumns: string[] = ['id','nom','description','prix','categorieid','marqueid','actions'];
+  displayedColumns: string[] = ['id','nom','description','prix','actions'];
   stateSpinner = false;
   dataSource: any;
   dialogConfig: any;
@@ -158,11 +158,7 @@ showDataOfChildComponent:any;
     this.router.navigate(['produits/detail-produit']);
   }
 
-  functionEdit(){
-   /*  this.openDialogEdit()
-    console.log('le code est', id); */
-  }
-
+  
   openEditprodDialog(enteranimation:any,exitanimation:any,code:any){
 
     this.dialog.open(EditProduitComponent,{
@@ -190,21 +186,25 @@ showDataOfChildComponent:any;
       console.log("Dialog result:", result);
     }); */
   }
-
+  editProduit(prod:any){
+    /*  this.openDialogEdit()
+     console.log('le code est', id); */
+   }
+ 
  
   openDialogEdit(row:any){
-    const dialogRef = this.dialog.open(AddProduitComponent,{width:'70%',height: '600px',
+    const dialogRef = this.dialog.open(EditProduitComponent,{width:'70%',height: '600px',
     enterAnimationDuration:'1000ms',
     exitAnimationDuration: '2000ms',
     data:{
-      id:this.selectedRow.id,
-      nom: this.selectedRow.nom,
-      prix: this.selectedRow.prix,
-      photo: this.selectedRow.photo,
-      nouveaute:this.EditData.nouveaute,
-      description: this.selectedRow.description,
-      categorieid:this.EditData.categorieid,
-      marqueid:this.EditData.marqueid 
+      id:row.id,
+      nom: row.nom,
+      prix: row.prix,
+      photo: row.photo,
+      nouveaute: row.nouveaute,
+      description: row.description,
+      categorieid: row.categorieid,
+      marqueid: row.marqueid 
     }
     }); 
     dialogRef.afterClosed().subscribe(result => {

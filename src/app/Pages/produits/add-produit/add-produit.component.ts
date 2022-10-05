@@ -10,16 +10,29 @@ import { MarqueService } from 'src/app/Shared/marque.service';
 import { ProduitsService } from 'src/app/Shared/produit.service';
 import * as alertifyjs from 'alertifyjs';
 import { Produit } from 'src/app/Models/produit';
+import { HttpEventType, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { LoadfileService } from 'src/app/Shared/loadfile.service'; 
+
 @Component({
   selector: 'app-add-produit',
   templateUrl: './add-produit.component.html',
   styleUrls: ['./add-produit.component.css']
 })
 export class AddProduitComponent implements OnInit {
+  selectedFiles?: FileList;
+  selectedFileNames: string[] = [];
+
+  progressInfos: any[] = [];
+  message: string[] = [];
+
+  previews: string[] = [];
+  imageInfos?: Observable<any>;
+
   public lesproduits: Produit[] = [];
   saveresp:any;
   messageclass='';
-  message ='';
+  
  
 
   public Categories : Categorie[] = [];
@@ -41,6 +54,7 @@ export class AddProduitComponent implements OnInit {
   prodid = 0; 
 
   constructor(
+    private loadfileservice:LoadfileService,
     private router:Router,
     public prodservice: ProduitsService,
     public categorieservice: CategorieService,
@@ -50,6 +64,7 @@ export class AddProduitComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.imageInfos = this.loadfileservice.getFiles();
     this.refreshProduits();
     this.EditData = new Produit;
     this.categorieservice.getCategories().subscribe(categories => {
@@ -154,5 +169,64 @@ onClose(){
   this.form.reset();
   this.initializeFormGroup();
 }
+
+// selectFiles function
+selectFiles(event: any): void {
+  this.message = [];
+  this.progressInfos = [];
+  this.selectedFileNames = [];
+  this.selectedFiles = event.target.files;
+
+  this.previews = [];
+  if (this.selectedFiles && this.selectedFiles[0]) {
+    const numberOfFiles = this.selectedFiles.length;
+    for (let i = 0; i < numberOfFiles; i++) {
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        console.log(e.target.result);
+        this.previews.push(e.target.result);
+      };
+
+      reader.readAsDataURL(this.selectedFiles[i]);
+
+      this.selectedFileNames.push(this.selectedFiles[i].name);
+    }
+  }
+  }
+
+  //uploadFiles fucntion
+  uploadFiles(): void {
+    this.message = [];
+  
+    if (this.selectedFiles) {
+      for (let i = 0; i < this.selectedFiles.length; i++) {
+        this.upload(i, this.selectedFiles[i]);
+      }
+    }
+  }
+
+  //upload function
+  upload(idx: number, file: File): void {
+    this.progressInfos[idx] = { value: 0, fileName: file.name };
+  
+    if (file) {
+      this.loadfileservice.upload(file).subscribe(
+        (event: any) => {
+          if (event.type === HttpEventType.UploadProgress) {
+            this.progressInfos[idx].value = Math.round(100 * event.loaded / event.total);
+          } else if (event instanceof HttpResponse) {
+            const msg = 'Uploaded the file successfully: ' + file.name;
+            this.message.push(msg);
+            this.imageInfos = this.loadfileservice.getFiles();
+          }
+        },
+        (err: any) => {
+          this.progressInfos[idx].value = 0;
+          const msg = 'Could not upload the file: ' + file.name;
+          this.message.push(msg);
+        });
+    }
+  }
 
 }

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   boutiqueContainer: 'https://localhost:7197/',
-  imagesUrl: 'C:/Users/hp/Boutikapp/src/app/Images'
+  imagesUrl: 'C:/Users/hp/Boutikapp/src/app/assats/img/slider'
 
 };
 

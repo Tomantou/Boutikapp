@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
@@ -16,6 +16,8 @@ import { DetailProduitComponent } from '../produits/detail-produit/detail-produi
 import { DialogComponent } from '../dialog/dialog.component';
 import { BottompventesComponent } from '../bottompventes/bottompventes.component';
 import { author, title } from 'src/app/global-variables';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',
@@ -37,6 +39,7 @@ export class AccueilComponent implements OnInit {
   p: number = 1;
   
   public boutiqueContainer = environment.boutiqueContainer;
+  dataSource: any;
 
   constructor(private router:Router, 
     private produitservice: ProduitsService,
