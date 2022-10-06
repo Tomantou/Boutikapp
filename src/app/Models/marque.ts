@@ -5,7 +5,5 @@ export class Marque {
      id: number=0;
      nom: String='';
      origine: String='';
-    // Navigation properties
-    produits: Produit[] = [];
 
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpClientModule, HttpResponse, HttpRequest } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, Subject, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { Pipe, PipeTransform } from '@angular/core';
 import { HttpErrorResponse,  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment';
@@ -15,7 +15,15 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   providedIn: 'root'
 })
 export class MarqueService {
+  marque:Marque = new Marque;
   private lien = environment.boutiqueContainer + 'api/Marques';
+  
+  marqueAdded = new Subject();
+  private _refreshRequired = new Subject<void>();
+  get RequiredRefresh(){
+   return this._refreshRequired;
+
+  }
 
   constructor(private readonly http: HttpClient) { 
     let headers = new Headers();
@@ -37,10 +45,47 @@ export class MarqueService {
 
   }
 
-  getMarques(): Observable<any>{
+  recupererMarques(): Observable<any>{
      return this.http.get<Marque[]>(this.lien);
    }
    
+  
+ 
+ 
+// CRUD Operations
+
+ creerMarque(Marque: Object){
+   console.log(this.marque)
+    return this.http.post<Marque>(this.lien, this.marque).pipe(tap(() => 
+       {this.RequiredRefresh.next();} ));
+
+ }
+
+ updateImage(image: File, prodId: number) {
+   if (image === undefined) {
+       return null;
+   }
+   const formData = new FormData();
+   formData.append('image', image);
+   return this.http.put(this.lien + '/' + prodId + '/photo', formData);
+ }
+
+ recupMarqueParId(id: number){
+   return this.http.get(this.lien + '/' + id);
+ }
+
+ editerMarque(id: number, cat:Marque){
+   return this.http.put(this.lien + '/' + id, cat);
+ }
+
+ supprimerMarque(id: number){
+   return this.http.delete(this.lien + '/' + id );
+ 
+ }
+
+ 
+
+
    form: FormGroup = new FormGroup({
     $id: new FormControl(null),
     nom: new FormControl('', Validators.required),

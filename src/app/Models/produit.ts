@@ -14,5 +14,6 @@ export class Produit {
     // Navigation properthies
     categorieid: number=0;
     marqueid: number=0;
+    soldePromo: number=0;
    
 }

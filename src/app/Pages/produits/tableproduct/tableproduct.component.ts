@@ -17,7 +17,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { filter } from 'rxjs/operators';
-import { EditProduitComponent } from '../edit-produit/edit-produit.component';
 import { ConnectableObservable } from 'rxjs';
 import { ThisReceiver } from '@angular/compiler';
 import { DetailsComponent } from '../../details/details.component';
@@ -88,8 +87,6 @@ showDataOfChildComponent:any;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
-
-
   }
 
    
@@ -106,15 +103,6 @@ showDataOfChildComponent:any;
   }
 
   
-
-  getProduit2(id: number) {
-     this.prodservice.getProductById(this.selectedRow.id).subscribe((leprod) =>{
-      this.selectedProduct=leprod;
-      console.log(this.selectedProduct);
-     });
-    /* this.selectedProduct = this.lesproduits.find((p) => p.id == id);
-    console.log(this.selectedProduct); */
-  }
   getProduit(id: number) {
     this.selectedProduct = this.lesproduits.find((p) => p.id == id);
     console.log(this.selectedProduct);
@@ -159,20 +147,7 @@ showDataOfChildComponent:any;
   }
 
   
-  openEditprodDialog(enteranimation:any,exitanimation:any,code:any){
-
-    this.dialog.open(EditProduitComponent,{
-      enterAnimationDuration:enteranimation,
-      exitAnimationDuration:exitanimation,
-      width:'60%',
-      data:{}
-    })
-   /*  let dialogRef= this.dialog.open(AddProduitComponent,{data: {name:'Antoine'}});
-    dialogRef.afterClosed().subscribe( result => {
-      console.log("Dialog result:", result);
-    }); */
-  }
-
+  
   openAddprodDialog(enteranimation:any,exitanimation:any,code:any){
 
     this.dialog.open(AddProduitComponent,{
@@ -192,30 +167,10 @@ showDataOfChildComponent:any;
    }
  
  
-  openDialogEdit(row:any){
-    const dialogRef = this.dialog.open(EditProduitComponent,{width:'70%',height: '600px',
-    enterAnimationDuration:'1000ms',
-    exitAnimationDuration: '2000ms',
-    data:{
-      id:row.id,
-      nom: row.nom,
-      prix: row.prix,
-      photo: row.photo,
-      nouveaute: row.nouveaute,
-      description: row.description,
-      categorieid: row.categorieid,
-      marqueid: row.marqueid 
-    }
-    }); 
-    dialogRef.afterClosed().subscribe(result => {
-     this.showDataOfChildComponent = result;
-     console.log('here is the data result', result)
-   });      
+  
 
-  }
-
-  openDialogDet(row:any){
-    this.selectedRow=row;
+  openDialogDet(row:any,action:string){
+    console.log('row:',row)
      const dialogRef = this.dialog.open(DetailProduitComponent,{width:'50%',height: '500px',
      enterAnimationDuration:'1000ms',
      exitAnimationDuration: '2000ms',
@@ -224,9 +179,14 @@ showDataOfChildComponent:any;
       nom: row.nom,
       prix: row.prix,
       image: row.photo,
-      description: row.description
+      nouveaute:row.nouveaute,
+      description: row.description,
+      soldepromo:row.soldePromo,
+      action:action
      }
+     
      }); 
+
          
      dialogRef.afterClosed().subscribe(result => {
       this.showDataOfChildComponent = result;

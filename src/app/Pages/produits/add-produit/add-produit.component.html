@@ -11,12 +11,12 @@
               </mat-form-field>
               <mat-form-field appearance ="outline">
                 <mat-label>Nom</mat-label>
-                <input formControlName="Nom" matInput placeholder="nom" required>
+                <input formControlName="nom" matInput placeholder="nom" required [(ngModel)]="nom">
                 <mat-error *ngIf ="this.form.get('Nom').hasError('required')"> ce champ est obligatoire</mat-error>
               </mat-form-field>
               <mat-form-field appearance ="outline">
                 <mat-label>Prix</mat-label>
-                <input type ="number" formControlName="Prix" matInput placeholder="Prix">
+                <input type ="number" formControlName="prix" matInput placeholder="Prix" [(ngModel)]="prix">
               </mat-form-field>
 
               
@@ -46,7 +46,7 @@
                       mat-flat-button
                       color="primary"
                       [disabled]="!selectedFiles"
-                      (click)="uploadFiles()"
+                      (click)="uploadFile($event)"
                     >
                       Upload
                     </button>
@@ -70,6 +70,7 @@
                 <ul *ngFor="let msg of message; let i = index">
                   <li>{{ msg }}</li>
                 </ul>
+                <img mat-card-lg-image [attr.src]="recupererFichier()" >
               </div>
               
               <!-- <mat-card class="list-card">
@@ -87,12 +88,12 @@
               </mat-card>  -->
 
               <mat-form-field appearance ="outline">
-                <mat-label>Nouveauté</mat-label>
-                <input formControlName="Nouveaute" matInput placeholder="Nouveaute">
+                <mat-label>Nouveauté</mat-label >
+                <input formControlName="nouveaute" matInput placeholder="Nouveaute" [(ngModel)]="nouveaute">
               </mat-form-field>
               <mat-form-field appearance ="outline">
                 <mat-label>Catégorie</mat-label>
-                  <mat-select formControlName="CategorieId">
+                  <mat-select formControlName="categorieId" [(ngModel)]="categorieId">
                     <mat-option *ngFor="let categorie of Categories" [value]="categorie.id">
                       {{categorie.libelle}}
                     </mat-option>
@@ -101,7 +102,7 @@
               </mat-form-field>
               <mat-form-field appearance ="outline">
                 <mat-label>Marque</mat-label>
-                <mat-select formControlName="MarqueId">
+                <mat-select formControlName="marqueId" [(ngModel)]="marqueId">
                   <mat-option *ngFor="let marque of Marques" [value]="marque.id">
                     {{marque.nom}}
                   </mat-option>
@@ -110,7 +111,7 @@
               </mat-form-field>
               <mat-form-field appearance ="outline">
                 <mat-label>Description</mat-label>
-                <input formControlName="Description" matInput placeholder="description">
+                <input formControlName="description" matInput placeholder="description" [(ngModel)]="description">
               </mat-form-field>
 
         </form>
@@ -119,7 +120,7 @@
 
 
 <div mat-dialog-actions>
-  <button mat-raised-button color="primary"  (click)="this.create()" [disabled] ="this.form.invalid">Enregistrer</button>
+  <button mat-raised-button color="primary"  (click)="enregistrerProduit()" [disabled] ="!this.form.invalid">Enregistrer</button>
   <button mat-raised-button color="warn" (click) = "this.onClear()">Réinitialiser</button>
   <button mat-raised-button color = "accent" mat-dialog-close mat-dialog-close="true">Fermer</button>
 </div>

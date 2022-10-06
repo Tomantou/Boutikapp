@@ -22,7 +22,6 @@ export class ProduitsService {
    private _refreshRequired = new Subject<void>();
    get RequiredRefresh(){
     return this._refreshRequired;
-
    }
    
   constructor(

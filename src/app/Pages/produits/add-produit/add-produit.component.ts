@@ -39,7 +39,7 @@ export class AddProduitComponent implements OnInit {
   public Marques:Marque [] = [];
   public selectedCategorie: Categorie = new Categorie;
   public selectedMarque: Marque = new Marque;
-  Id = new FormControl(0);
+  /* Id = new FormControl(0);
   Nom = new FormControl('',Validators.required);
   Prix = new FormControl(0);
   Photo = new FormControl('');
@@ -48,7 +48,7 @@ export class AddProduitComponent implements OnInit {
   // Navigation properthies
   CategorieId = new FormControl(0);
   MarqueId = new FormControl(0);
-  Description = new FormControl('');
+  Description = new FormControl(''); */
 
   EditData:any;
   prodid = 0; 
@@ -74,15 +74,52 @@ export class AddProduitComponent implements OnInit {
       if(this.data.empcode != null && this.data.empcode !=''){
         this.loadEditData(this.data.empcode);
       } */
-
     })
 
-    this.marqueservice.getMarques().subscribe(marques => {
+   
+
+    this.marqueservice.recupererMarques().subscribe(marques => {
       this.Marques = marques;
       console.log(this.Marques);
       
     })
     
+  }
+  imgFile!:string;
+  uploadFile(e:any){
+    const reader = new FileReader();
+    if(e.target.files && e.target.files.length){
+      const [file]=e.target.files;
+      reader.readAsDataURL(file);
+      reader.onload=() =>{
+        this.imgFile=reader.result as string;
+        
+       }
+    }
+  }
+  produit!:Produit;
+  nom!:string;
+  prix!:number;
+  nouveaute!:string;
+  description!:string;
+  categorieId!:number;
+  marqueId!:number;
+  enregistrerProduit(){
+    this.produit.categorieid=this.categorieId;
+    this.produit.marqueid=this.marqueId;
+    this.produit.nom= this.nom;
+    this.produit.prix = this.prix;
+    this.produit.nouveaute= this.nouveaute;
+    this.produit.description= this.description;
+    this.produit.photo=this.imgFile;
+    this.prodservice.createProduct(this.produit).subscribe((donnee:any)=>{
+       
+    });
+  }
+  recupererFichier(): string{
+    let fichier=new File([this.imgFile],'test.jpg',{type:'image/jpg'});
+    console.log('nom du fichier:',fichier.name);
+    return fichier.name;
   }
 
   refreshProduits(){
@@ -100,7 +137,8 @@ export class AddProduitComponent implements OnInit {
     Nouveaute: new FormControl(''),
     Description: new FormControl(''),
     CategorieId: new FormControl('',Validators.required),
-    MarqueId: new FormControl('',Validators.required)
+    MarqueId: new FormControl('',Validators.required),
+    SoldePromo: new FormControl(0)
   });
 
   initializeFormGroup(){

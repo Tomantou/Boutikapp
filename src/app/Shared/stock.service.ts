@@ -14,7 +14,7 @@ import { Stock } from '../Models/stock';
 export class StockService {
   private lien = environment.boutiqueContainer + 'api/stocks';
 
-  productAdded = new Subject();
+  stockAdded = new Subject();
   private _refreshRequired = new Subject<void>();
   get RequiredRefresh(){
    return this._refreshRequired;

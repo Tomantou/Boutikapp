@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpClientModule, HttpResponse, HttpRequest } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, Subject, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { Pipe, PipeTransform } from '@angular/core';
 import { HttpErrorResponse,  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment';
@@ -13,8 +13,15 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   providedIn: 'root'
 })
 export class CategorieService {
+categorie:Categorie = new Categorie;
+private lien = environment.boutiqueContainer + 'api/Categories';
 
-  private lien = environment.boutiqueContainer + 'api/Categories';
+  categorieAdded = new Subject();
+  private _refreshRequired = new Subject<void>();
+  get RequiredRefresh(){
+   return this._refreshRequired;
+
+  }
 
   constructor(private readonly http: HttpClient) { 
     let headers = new Headers();
@@ -40,11 +47,42 @@ export class CategorieService {
      return this.http.get<Categorie[]>(this.lien);
    }
 
-   
-   form: FormGroup = new FormGroup({
+  
+  
+// CRUD Operations
+
+  creerCategorie(categorie: Object){
+    console.log(categorie)
+     return this.http.post<Categorie>(this.lien, categorie).pipe(tap(() => 
+        {this.RequiredRefresh.next();} ));
+
+  }
+
+  updateImage(image: File, prodId: number) {
+    if (image === undefined) {
+        return null;
+    }
+    const formData = new FormData();
+    formData.append('image', image);
+    return this.http.put(this.lien + '/' + prodId + '/photo', formData);
+  }
+
+  recupCategorieParId(id: number){
+    return this.http.get(this.lien + '/' + id);
+  }
+
+  editerCategorie(id: number, cat:Categorie){
+    return this.http.put(this.lien + '/' + id, cat);
+  }
+
+  supprimerCategorie(id: number){
+    return this.http.delete(this.lien + '/' + id );
+  
+  }
+
+  form: FormGroup = new FormGroup({
     $id: new FormControl(null),
     libelle: new FormControl('', Validators.required)
-    
   })
 
   initializeFormGroup(){

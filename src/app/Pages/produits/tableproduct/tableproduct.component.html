@@ -35,8 +35,12 @@
               <td mat-cell *matCellDef="let produit"> {{produit.prix}} </td>
             </ng-container>
           
+            <ng-container matColumnDef="soldepromo">
+              <th mat-header-cell *matHeaderCellDef> Catégorie </th>
+              <td mat-cell *matCellDef="let produit"> {{produit.soldepromo}} </td>
+            </ng-container>
 
-            <!-- <ng-container matColumnDef="categorieid">
+           <!--  <ng-container matColumnDef="categorieid">
               <th mat-header-cell *matHeaderCellDef> Catégorie </th>
               <td mat-cell *matCellDef="let produit"> {{produit.categorieid}} </td>
             </ng-container>
@@ -44,13 +48,13 @@
             <ng-container matColumnDef="marqueid">
               <th mat-header-cell *matHeaderCellDef> Marque </th>
               <td mat-cell *matCellDef="let produit"> {{produit.marqueid}} </td>
-            </ng-container> -->
+            </ng-container>  -->
             
               <ng-container matColumnDef="actions">
                   <th mat-header-cell *matHeaderCellDef> Actions </th>
                   <td mat-cell *matCellDef="let produit">
-                    <button (click)="openDialogDet(produit)" mat-raised-button color="primary"><h4>Détails</h4></button> |&nbsp;
-                    <button mat-raised-button color="warn" (click)="openDialogEdit(produit)"><h4>Edit</h4></button> |&nbsp;
+                    <button (click)="openDialogDet(produit,'LECTURE')" mat-raised-button color="primary"><h4>Détails</h4></button> |&nbsp;
+                    <button mat-raised-button color="warn" (click)="openDialogDet(produit,'ECRITURE')"><h4>Edit</h4></button> |&nbsp;
                     <button mat-raised-button color="accent" (click)="deleteProduct(produit.id)"><h4>Delete</h4></button>
                   </td>
             </ng-container>

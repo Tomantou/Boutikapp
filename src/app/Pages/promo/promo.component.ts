@@ -24,7 +24,9 @@ export class PromoComponent implements OnInit {
   }
 
   
-  
+  prixPromo(x:number,y:number){
+    return (x*y)/100
+  }
 
   getProduitsPromo(){
     this.prodservice.getTenProduits().subscribe({
@@ -46,7 +48,8 @@ export class PromoComponent implements OnInit {
       nom: prod.nom,
       prix: prod.prix,
       image: prod.photo,
-      description: prod.description
+      description: prod.description,
+      soldePromo:prod.soldePromo
      }
      }); 
          

@@ -62,7 +62,6 @@ import { DetcommandeclComponent } from './Pages/detcommandecl/detcommandecl.comp
 import { DetcommandefournComponent } from './Pages/detcommandefourn/detcommandefourn.component';
 import { GerernewsComponent } from './Pages/gerernews/gerernews.component';
 import { AddProduitComponent } from './Pages/produits/add-produit/add-produit.component';
-import { EditProduitComponent } from './Pages/produits/edit-produit/edit-produit.component';
 import { DetailProduitComponent } from './Pages/produits/detail-produit/detail-produit.component';
 import { ProduitsService } from './Shared/produit.service';
 import { CategorieService } from './Shared/categorie.service';
@@ -74,13 +73,10 @@ import { AddNewsComponent } from 'src/app/Pages/gerernews/add-news/add-news.comp
 import { EditNewsComponent } from 'src/app/Pages/gerernews/edit-news/edit-news.component';
 import { TablenewsComponent } from 'src/app/Pages/gerernews/tablenews/tablenews.component';
 import { AddStockComponent } from 'src/app/Pages/stocks/add-stock/add-stock.component';
-import { EditStockComponent } from 'src/app/Pages/stocks/edit-stock/edit-stock.component';
 import { TablestockComponent } from 'src/app/Pages/stocks/tablestock/tablestock.component';
 import { AddCategorieComponent } from 'src/app/Pages/categories/add-categorie/add-categorie.component';
-import { EditCategorieComponent } from 'src/app/Pages/categories/edit-categorie/edit-categorie.component';
 import { TablecategorieComponent } from 'src/app/Pages/categories/tablecategorie/tablecategorie.component';
 import { AddMarqueComponent } from 'src/app/Pages/marques/add-marque/add-marque.component';
-import { EditMarqueComponent } from 'src/app/Pages/marques/edit-marque/edit-marque.component';
 import { TablemarqueComponent } from 'src/app/Pages/marques/tablemarque/tablemarque.component';
 import { AddClientComponent } from 'src/app/Pages/clients/add-client/add-client.component';
 import { EditClientComponent } from 'src/app/Pages/clients/edit-client/edit-client.component';
@@ -118,6 +114,12 @@ import { PanierComponent } from './Pages/panier/panier.component';
 import { DetailsComponent } from './Pages/details/details.component';
 import { AuthorizeService } from './Shared/authorize.service';
 import { TokenInterceptor } from './token-interceptor';
+import { DetailcategorieComponent } from './Pages/categories/detailcategorie/detailcategorie.component';
+import { DetailMarqueComponent } from './Pages/marques/detail-marque/detail-marque.component';
+import { DetailStockComponent } from './Pages/stocks/detail-stock/detail-stock.component';
+import { DetailPventeComponent } from './Pages/pventes/detail-pvente/detail-pvente.component';
+import { DetailGerantComponent } from './Pages/gerants/detail-gerant/detail-gerant.component';
+
 
 
 
@@ -152,7 +154,6 @@ import { TokenInterceptor } from './token-interceptor';
     DetcommandefournComponent,
     GerernewsComponent,
     AddProduitComponent,
-    EditProduitComponent,
     DetailProduitComponent,
     DialogComponent,
     TableproductComponent,
@@ -160,13 +161,10 @@ import { TokenInterceptor } from './token-interceptor';
     EditNewsComponent,
     TablenewsComponent,
     AddStockComponent,
-    EditStockComponent,
     TablestockComponent,
     AddCategorieComponent,
-    EditCategorieComponent,
     TablecategorieComponent,
     AddMarqueComponent,
-    EditMarqueComponent,
     TablemarqueComponent,
     AddClientComponent,
     EditClientComponent,
@@ -201,7 +199,11 @@ import { TokenInterceptor } from './token-interceptor';
     BottompventesComponent,
     TitresComponent,
     PanierComponent,
-    DetailsComponent
+    DetailsComponent,
+    DetailcategorieComponent,
+    DetailPventeComponent,
+    DetailGerantComponent,
+    
   
   ],
   imports: [
@@ -242,10 +244,11 @@ import { TokenInterceptor } from './token-interceptor';
   ],
   bootstrap: [AppComponent],
   entryComponents:[DialogComponent,
-                  AddProduitComponent,EditProduitComponent,DetailsComponent,
+                  AddProduitComponent,DetailsComponent,
                   AddNewsComponent,EditNewsComponent,
-                  AddCategorieComponent,
                   AddConfigdataComponent,
-                  AddStockComponent]
+                  AddStockComponent,DetailStockComponent,
+                  AddCategorieComponent,DetailcategorieComponent,
+                  AddMarqueComponent,DetailMarqueComponent]
 })
 export class AppModule { }

@@ -21,9 +21,9 @@
                     <mat-card-subtitle>
                         <br><br>
                         <div class="displayprice">
-                            <s>{{prod.prix}} &nbsp;&euro;</s> 
-                            -50%<br>
-                             => {{prod.prix/2}} &nbsp;&euro;
+                            <s>{{prod.prix}} &nbsp;&euro;</s>
+                            <span>- {{prod.soldePromo}}&nbsp;%</span><br>
+                             => {{prod.prix - prod.prix*prod.soldePromo/100}} &nbsp;&euro;
                         </div>
                         
                     </mat-card-subtitle>

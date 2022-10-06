@@ -13,7 +13,7 @@ import { ok } from 'assert';
   providedIn: 'root'
 })
 export class PromotionService {
-  private lien = environment.boutiqueBackend + '/promotions';
+  private lien = environment.boutiqueContainer + 'api/promotions';
 
   constructor(private readonly http: HttpClient) { 
     let headers = new Headers();

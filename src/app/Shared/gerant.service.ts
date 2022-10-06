@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpClientModule, HttpResponse, HttpRequest } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, Subject, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { Pipe, PipeTransform } from '@angular/core';
 import { HttpErrorResponse,  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment';
 import { Categorie } from '../Models/categorie';
+import { Gerant } from '../Models/gerant';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 
@@ -13,7 +15,16 @@ import { Categorie } from '../Models/categorie';
   providedIn: 'root'
 })
 export class GerantService {
-  private lien = environment.boutiqueContainer + '/gerants';
+  private lien = environment.boutiqueContainer + 'api/gerants';
+  gerant:Gerant = new Gerant;
+  
+  gerantAdded = new Subject();
+  private _refreshRequired = new Subject<void>();
+  get RequiredRefresh(){
+   return this._refreshRequired;
+
+  }
+
 
   constructor(private readonly http: HttpClient) { 
     let headers = new Headers();
@@ -35,16 +46,51 @@ export class GerantService {
 
   }
 
-  geetCategories(): Observable<any>{
-     return this.http.get<Categorie[]>(this.lien);
-   }
+  recupererGerants(): Observable<any>{
+    return this.http.get<Gerant[]>(this.lien);
+  }
+  
 
-  /*  getCategories(): Observable<any>{
-  try{
-     return this.http.get<Categorie []>(this.lien);
-    }catch{
-     (this.handleError);
-    }
-             
-  }     */
+// CRUD Operations
+
+creerGerant(Gerant: Object){
+  console.log(this.gerant)
+   return this.http.post<Gerant>(this.lien, this.gerant).pipe(tap(() => 
+      {this.RequiredRefresh.next();} ));
+
+}
+
+updateImage(image: File, prodId: number) {
+  if (image === undefined) {
+      return null;
+  }
+  const formData = new FormData();
+  formData.append('image', image);
+  return this.http.put(this.lien + '/' + prodId + '/photo', formData);
+}
+
+recupGerantParId(id: number){
+  return this.http.get(this.lien + '/' + id);
+}
+
+editerGerant(id: number, gerant:Gerant){
+  return this.http.put(this.lien + '/' + id, gerant);
+}
+
+supprimerGerant(id: number){
+  return this.http.delete(this.lien + '/' + id );
+
+}
+
+  form: FormGroup = new FormGroup({
+   $id: new FormControl(0),
+   Categorie: new FormControl(''),
+   nom: new FormControl('', Validators.required),
+   Prenom: new FormControl('', Validators.required),
+   Contact: new FormControl('', Validators.required),
+   Email: new FormControl('',Validators.required)
+   
+ });
+
+ 
 }
