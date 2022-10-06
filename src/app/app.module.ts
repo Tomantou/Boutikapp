@@ -70,7 +70,6 @@ import { DialogComponent } from './Pages/dialog/dialog.component';
 import { ThenewsService } from './Shared/thenews.service';
 import { TableproductComponent } from 'src/app/Pages/produits/tableproduct/tableproduct.component';
 import { AddNewsComponent } from 'src/app/Pages/gerernews/add-news/add-news.component';
-import { EditNewsComponent } from 'src/app/Pages/gerernews/edit-news/edit-news.component';
 import { TablenewsComponent } from 'src/app/Pages/gerernews/tablenews/tablenews.component';
 import { AddStockComponent } from 'src/app/Pages/stocks/add-stock/add-stock.component';
 import { TablestockComponent } from 'src/app/Pages/stocks/tablestock/tablestock.component';
@@ -79,30 +78,21 @@ import { TablecategorieComponent } from 'src/app/Pages/categories/tablecategorie
 import { AddMarqueComponent } from 'src/app/Pages/marques/add-marque/add-marque.component';
 import { TablemarqueComponent } from 'src/app/Pages/marques/tablemarque/tablemarque.component';
 import { AddClientComponent } from 'src/app/Pages/clients/add-client/add-client.component';
-import { EditClientComponent } from 'src/app/Pages/clients/edit-client/edit-client.component';
 import { TableclientComponent } from 'src/app/Pages/clients/tableclient/tableclient.component';
 import { AddGerantComponent } from 'src/app/Pages/gerants/add-gerant/add-gerant.component';
-import { EditGerantComponent } from 'src/app/Pages/gerants/edit-gerant/edit-gerant.component';
 import { TablegerantComponent } from 'src/app/Pages/gerants/tablegerant/tablegerant.component';
 import { AddPventeComponent } from 'src/app/Pages/pventes/add-pvente/add-pvente.component';
-import { EditPventeComponent } from 'src/app/Pages/pventes/edit-pvente/edit-pvente.component';
 import { TablepventeComponent } from 'src/app/Pages/pventes/tablepvente/tablepvente.component';
 import { AddFournisseurComponent } from 'src/app/Pages/fournisseurs/add-fournisseur/add-fournisseur.component';
-import { EditFournisseurComponent } from 'src/app/Pages/fournisseurs/edit-fournisseur/edit-fournisseur.component';
 import { TablefournisseurComponent } from 'src/app/Pages/fournisseurs/tablefournisseur/tablefournisseur.component';
 import { AddCommandeclComponent } from 'src/app/Pages/commandecl/add-commandecl/add-commandecl.component';
-import { EditCommandeclComponent } from 'src/app/Pages/commandecl/edit-commandecl/edit-commandecl.component';
 import { TablecommandeclComponent } from 'src/app/Pages/commandecl/tablecommandecl/tablecommandecl.component';
 import { AddConfigdataComponent } from 'src/app/Pages/configdata/add-configdata/add-configdata.component';
-import { EditConfigdataComponent } from 'src/app/Pages/configdata/edit-configdata/edit-configdata.component';
 import { AddFactureComponent } from 'src/app/Pages/factures/add-facture/add-facture.component';
-import { EditFactureComponent } from 'src/app/Pages/factures/edit-facture/edit-facture.component';
 import { TablefactureComponent } from 'src/app/Pages/factures/tablefacture/tablefacture.component';
 import { AddPromotionComponent } from 'src/app/Pages/promotions/add-promotion/add-promotion.component';
-import { EditPromotionComponent } from 'src/app/Pages/promotions/edit-promotion/edit-promotion.component';
 import { TablepromotionComponent } from 'src/app/Pages/promotions/tablepromotion/tablepromotion.component';
 import { AddCommandefournComponent } from 'src/app/Pages/commandefourn/add-commandefourn/add-commandefourn.component';
-import { EditCommandefournComponent } from 'src/app/Pages/commandefourn/edit-commandefourn/edit-commandefourn.component';
 import { TablecommandefournComponent } from 'src/app/Pages/commandefourn/tablecommandefourn/tablecommandefourn.component';
 import { AddTransferstockComponent } from 'src/app/Pages/transferstocks/add-transferstock/add-transferstock.component';
 import { EditTransferstockComponent } from 'src/app/Pages/transferstocks/edit-transferstock/edit-transferstock.component';
@@ -158,7 +148,6 @@ import { DetailGerantComponent } from './Pages/gerants/detail-gerant/detail-gera
     DialogComponent,
     TableproductComponent,
     AddNewsComponent,
-    EditNewsComponent,
     TablenewsComponent,
     AddStockComponent,
     TablestockComponent,
@@ -167,30 +156,21 @@ import { DetailGerantComponent } from './Pages/gerants/detail-gerant/detail-gera
     AddMarqueComponent,
     TablemarqueComponent,
     AddClientComponent,
-    EditClientComponent,
     TableclientComponent,
     AddGerantComponent,
-    EditGerantComponent,
     TablegerantComponent,
     AddPventeComponent,
-    EditPventeComponent,
     TablepventeComponent,
     AddFournisseurComponent,
-    EditFournisseurComponent,
     TablefournisseurComponent,
     AddCommandeclComponent,
-    EditCommandeclComponent,
     TablecommandeclComponent,
     AddConfigdataComponent,
-    EditConfigdataComponent,
     AddFactureComponent,
-    EditFactureComponent,
     TablefactureComponent,
     AddPromotionComponent,
-    EditPromotionComponent,
     TablepromotionComponent,
     AddCommandefournComponent,
-    EditCommandefournComponent,
     TablecommandefournComponent,
     AddTransferstockComponent,
     EditTransferstockComponent,
@@ -245,7 +225,7 @@ import { DetailGerantComponent } from './Pages/gerants/detail-gerant/detail-gera
   bootstrap: [AppComponent],
   entryComponents:[DialogComponent,
                   AddProduitComponent,DetailsComponent,
-                  AddNewsComponent,EditNewsComponent,
+                  AddNewsComponent,
                   AddConfigdataComponent,
                   AddStockComponent,DetailStockComponent,
                   AddCategorieComponent,DetailcategorieComponent,

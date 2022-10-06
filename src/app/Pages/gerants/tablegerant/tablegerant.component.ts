@@ -71,7 +71,7 @@ export class TablegerantComponent implements OnInit {
   } 
   
   getGerant(id: number) {
-    this.gerantSelectionne = this.listGerants.find((g) => g.Id == id);
+    this.gerantSelectionne = this.listGerants.find((g) => g.id == id);
     console.log(this.gerantSelectionne);
   }
   

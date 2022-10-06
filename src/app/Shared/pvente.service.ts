@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpClientModule, HttpResponse, HttpRequest } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, Subject, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { Pipe, PipeTransform } from '@angular/core';
 import { HttpErrorResponse,  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment';
 import { Categorie } from '../Models/categorie';
+import { Pvente } from '../Models/pvente';
 
 
 
@@ -13,8 +14,15 @@ import { Categorie } from '../Models/categorie';
   providedIn: 'root'
 })
 export class PventeService {
-  private lien = environment.boutiqueContainer + '/pventes';
+  private lien = environment.boutiqueContainer + 'api/pventes';
+  pvente: Pvente = new Pvente();
+  pventeAdded = new Subject();
+  private _refreshRequired = new Subject<void>();
+  get RequiredRefresh(){
+   return this._refreshRequired;
 
+  }
+  
   constructor(private readonly http: HttpClient) { 
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -35,16 +43,29 @@ export class PventeService {
 
   }
 
-  geetCategories(): Observable<any>{
-     return this.http.get<Categorie[]>(this.lien);
-   }
 
-  /*  getCategories(): Observable<any>{
-  try{
-     return this.http.get<Categorie []>(this.lien);
-    }catch{
-     (this.handleError);
-    }
-             
-  }     */
+   createPvente(pvente: Object){
+    console.log(pvente)
+     return this.http.post<Pvente>(this.lien, pvente).pipe(tap(() => 
+        {this.RequiredRefresh.next();} ));
+
+  }
+
+  getPventes(): Observable<any> {
+    return this.http.get<Pvente[]>(this.lien);
+  }
+
+  getPventeById(id: string){
+    return this.http.get(this.lien + '/' + id);
+  }
+
+  updatePvente(id: number, pvente:Pvente){
+    return this.http.put(this.lien + '/' + id, pvente);
+  }
+  
+   deletePvente(id: number){
+    return this.http.delete(this.lien + '/' + id );
+   }
+  
+   
 }

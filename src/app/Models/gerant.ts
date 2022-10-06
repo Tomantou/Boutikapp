@@ -3,11 +3,11 @@ import { Pvente } from "./pvente";
 import { Transfertstock } from "./transfertStock";
 
 export class Gerant {
-    Id: Number=0;
-    Categorie: String='';
-    Nom: String='';
-    Prenom: String='';
-    Contact: String='';
-    Email: String='';
+    id: Number=0;
+    categorie: String='';
+    nom: String='';
+    prenom: String='';
+    contact: String='';
+    email: String='';
     
 }

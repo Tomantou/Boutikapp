@@ -4,14 +4,14 @@ import { Commandefourn } from "./commandefourn";
 import { Gerant } from "./gerant";
 
 export class Pvente {
-    Id!: Number;
-    Adresse!: String;
-    Contact!: String;
-    Email!: String;
-    Codepostal!: String;
-    Ville!: String;
+    id: Number=0;
+    adresse: String='';
+    contact: String='';
+    email: String='';
+    codepostal: String='';
+    ville: String='';
     // Navigation properties
-    gerantId!: Number;
+    gerantId: Number=0;
     gerant!: Gerant;
     commandecls: Commandecl[] = [];
     commandefourns: Commandefourn[]= [];
