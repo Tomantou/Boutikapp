@@ -11,15 +11,7 @@ import { MatDatepickerContent } from '@angular/material/datepicker';
   styleUrls: ['./add-news.component.css']
 })
 export class AddNewsComponent implements OnInit {
-AddnewsRequest: News = {
-    Id: 0,
-    Titre:'',
-    Texte1: '',
-    Texte2:'',
-    Image:'',
-    Datepublication: new Date(),
-    Publier:''
-};
+thenew:News = new News;
 
 
 saveresp:any;
@@ -55,7 +47,7 @@ saveresp:any;
   }
 
   public saveNews(){
-     this.newsservice.createNews(this.AddnewsRequest)
+     this.newsservice.createNews(this.thenew)
      .subscribe({
        next: (news) =>{
         console.log(news);

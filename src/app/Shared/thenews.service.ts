@@ -3,37 +3,23 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { News } from '../Models/news';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class ThenewsService {
   private lien = environment.boutiqueContainer + 'api/news';
+  news:News = new News;
+
+  marqueAdded = new Subject();
+  private _refreshRequired = new Subject<void>();
+  get RequiredRefresh(){
+   return this._refreshRequired;
+
+  }
   constructor(private http: HttpClient) { }
 
-  /* form: FormGroup = new FormGroup({
-    $Id: new FormControl(null),
-    titre: new FormControl('', Validators.required),
-    texte1: new FormControl('',Validators.required),
-    texte2: new FormControl(''),
-    image: new FormControl(''),
-    Datepublication: new FormControl(''),
-    publier: new FormControl(false,Validators.required)
-  })
-
-  initializeFormGroup(){
-    this.form.setValue({
-    $Id: null,
-    titre: '',
-    texte1: '',
-    texte2: '',
-    image: '',
-    Datepublication: '',
-    publier: false
-  });
- 
-  }*/
-
+  
   createNews(news: News): Observable<News>{
    
      return this.http.post<News>(this.lien, news)
@@ -48,11 +34,11 @@ export class ThenewsService {
     return this.http.get(this.lien + '/' + id);
   }
 
-  updateProduct(id: number, news:News){
+  updateNews(id: number, news:News){
     return this.http.put(this.lien + '/' + id, News);
   }
 
-  deleteProduct(id: number){
+  deleteNews(id: number){
     return this.http.delete(this.lien + '/' + id );
   }
  

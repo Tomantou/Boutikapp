@@ -1,31 +1,48 @@
 <div class="container-panier">
-
-    <div class="panier">
-
-        <div class="panier-header">
-            <span>Produit Nom</span>
-            <span>Quantité</span>
-            <span>Prix</span>
-        </div>
-
-        <div class="panier-row" *ngFor="let produit of produits">
-            <span>{{produit.produitModel.nom}}</span>
-            <div>
-                <a class="button-q" (click)="this.decrease(produit.id)">-</a>
-                <span>{{produit.quantite}}</span>
-                <a class="button-q" (click)="this.add(produit.id)">+</a>
+<mat-card class="example-card">
+    <mat-card-title class="panier-total">PANIER</mat-card-title>
+    <mat-card-content>
+       
+            <div class="panier">
+        
+                <div class="panier-header">
+                    <span>Produit Nom</span>
+                    <span>Quantité</span>
+                    <span>Prix</span>
+                </div>
+        
+                <div class="panier-row" *ngFor="let produit of produits">
+                    <span>{{produit.produitModel.nom}}</span>
+                    <div>
+                        <a class="button-q" (click)="this.decrease(produit.id)">-</a>
+                        <span>{{produit.quantite}}</span>
+                        <a class="button-q" (click)="this.add(produit.id)">+</a>
+                    </div>
+                    <span>{{produit.prix * produit.solde}} €</span>
+                    <span>Montant: {{produit.prix * produit.solde * produit.quantite}} €</span>
+                    <span>Suppr</span>
+                </div>
+        
+                <div class="panier-total">
+                    <span>Total</span>
+                    <span>{{total}}</span>
+                </div>
             </div>
-            <span>{{produit.prix * produit.solde}} €</span>
-            <span>Montant: {{produit.prix * produit.solde * produit.quantite}} €</span>
-            <span>Suppr</span>
-        </div>
-
-        <div class="panier-total">
-            <span>Total</span>
-            <span>{{total}}</span>
-        </div>
-
-
-    </div>
-
+       
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions class="panier-total">
+      <button mat-raised-button color="primary">CONFIRMER LA COMMANDE</button>
+      <span><button mat-raised-button color="warn">ABANDONNER</button></span>
+    </mat-card-actions>
+    <mat-card-footer>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
 </div>
+
+
+
+
+    
+

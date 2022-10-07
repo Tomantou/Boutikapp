@@ -109,6 +109,8 @@ import { DetailMarqueComponent } from './Pages/marques/detail-marque/detail-marq
 import { DetailStockComponent } from './Pages/stocks/detail-stock/detail-stock.component';
 import { DetailPventeComponent } from './Pages/pventes/detail-pvente/detail-pvente.component';
 import { DetailGerantComponent } from './Pages/gerants/detail-gerant/detail-gerant.component';
+import { DetailClientComponent } from './Pages/clients/detail-client/detail-client.component';
+import { DetailNewsComponent } from './Pages/gerernews/detail-news/detail-news.component';
 
 
 
@@ -183,6 +185,8 @@ import { DetailGerantComponent } from './Pages/gerants/detail-gerant/detail-gera
     DetailcategorieComponent,
     DetailPventeComponent,
     DetailGerantComponent,
+    DetailClientComponent,
+    DetailNewsComponent,
     
   
   ],

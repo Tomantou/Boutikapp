@@ -1,20 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpClientModule, HttpResponse, HttpRequest } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, Subject, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { Pipe, PipeTransform } from '@angular/core';
 import { HttpErrorResponse,  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment';
 import { Categorie } from '../Models/categorie';
-import { ok } from 'assert';
+import { Client } from '../Models/client';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
-  private lien = environment.boutiqueBackend + '/clients';
+  private lien = environment.boutiqueContainer + 'api/clients';
+  client: Client = new Client();
+  clientAdded = new Subject();
+  private _refreshRequired = new Subject<void>();
+  get RequiredRefresh(){
+   return this._refreshRequired;
 
+  }
   constructor(private readonly http: HttpClient) { 
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -35,16 +41,27 @@ export class ClientService {
 
   }
 
-  geetCategories(): Observable<any>{
-     return this.http.get<Categorie[]>(this.lien);
-   }
+  createClient(pvente: Object){
+    console.log(pvente)
+     return this.http.post<Client>(this.lien, pvente).pipe(tap(() => 
+        {this.RequiredRefresh.next();} ));
 
-  /*  getCategories(): Observable<any>{
-  try{
-     return this.http.get<Categorie []>(this.lien);
-    }catch{
-     (this.handleError);
-    }
-             
-  }     */
+  }
+
+  getClients(): Observable<any> {
+    return this.http.get<Client[]>(this.lien);
+  }
+
+  getClientById(id: number){
+    return this.http.get(this.lien + '/' + id);
+  }
+
+  updateClient(id: number, client:Client){
+    return this.http.put(this.lien + '/' + id, client);
+  }
+  
+   deleteClient(id: number){
+    return this.http.delete(this.lien + '/' + id );
+   }
+  
 }

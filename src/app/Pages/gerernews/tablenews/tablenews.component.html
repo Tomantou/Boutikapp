@@ -1,6 +1,6 @@
 <router-outlet></router-outlet>
 <br><br>
-<div style="margin-left: 100px;">
+<div style="margin-left: 200px;">
     <button mat-raised-button color ="primary" (click)="openAddNewsDialog('1000ms','500ms',0)">Add-News</button>
 </div>
 <br><br>
@@ -11,40 +11,52 @@
           The actual rendered columns are set as a property on the row definition" -->
   
     <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let news"> {{news.id}} </td>
+    </ng-container>
+  
     <ng-container matColumnDef="titre">
       <th mat-header-cell *matHeaderCellDef> Titre </th>
-      <td mat-cell *matCellDef="let element"> {{element.titre}} </td>
+      <td mat-cell *matCellDef="let news"> {{news.titre}} </td>
     </ng-container>
   
     <!-- Name Column -->
-    <ng-container matColumnDef="soustitre">
-      <th mat-header-cell *matHeaderCellDef> Sous titre </th>
-      <td mat-cell *matCellDef="let element"> {{element.soustitre}} </td>
-    </ng-container>
+    <!-- <ng-container matColumnDef="texte1">
+      <th mat-header-cell *matHeaderCellDef>1er Texte</th>
+      <td mat-cell *matCellDef="let news"> {{news.texte1}} </td>
+    </ng-container> -->
   
     <!-- Weight Column -->
-    <ng-container matColumnDef="texte">
-      <th mat-header-cell *matHeaderCellDef> Texte </th>
-      <td mat-cell *matCellDef="let element"> {{element.texte}} </td>
-    </ng-container>
+    <!-- <ng-container matColumnDef="texte2">
+      <th mat-header-cell *matHeaderCellDef> 2ème Texte </th>
+      <td mat-cell *matCellDef="let news"> {{news.texte2}} </td>
+    </ng-container> -->
   
     <!-- Symbol Column -->
     <ng-container matColumnDef="image">
       <th mat-header-cell *matHeaderCellDef> Image </th>
-      <td mat-cell *matCellDef="let element"> {{element.image}} </td>
+      <td mat-cell *matCellDef="let news"> {{news.image}} </td>
     </ng-container>
 
     <ng-container matColumnDef="datepublication">
         <th mat-header-cell *matHeaderCellDef> Date publication </th>
-        <td mat-cell *matCellDef="let element"> {{element.datepublication}} </td>
+        <td mat-cell *matCellDef="let news"> {{news.datepublication}} </td>
     </ng-container>
 
      <ng-container matColumnDef="publier">
         <th mat-header-cell *matHeaderCellDef> Publier </th>
-        <td mat-cell *matCellDef="let element"> {{element.publier}} </td>
+        <td mat-cell *matCellDef="let news"> {{news.publier}} </td>
      </ng-container>
        <!-- Actions column -->
-   
+       <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let news">
+          <button (click)="openDialogDet(news,'LECTURE')" mat-raised-button color="primary"><h4>Détails</h4></button> |&nbsp;
+          <button mat-raised-button color="warn" (click)="openDialogDet(news,'ECRITURE')"><h4>Edit</h4></button> |&nbsp;
+          <button mat-raised-button color="accent" (click)="deleteGerant(news.id)"><h4>Delete</h4></button>
+        </td>
+  </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

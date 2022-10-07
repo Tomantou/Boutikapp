@@ -3,15 +3,15 @@ import { Commandecl } from "./commandecl";
 import { Facture } from "./facture";
 
 export class Client {
-    Id!: number;
-    Nom!: String;
-    Preoms!: String;
-    Adresse!: String;
-    Contact!: String;
-    Email!: String;
-    Codepostal!: String;
-    Ville!: String;
-    Civilite!: String;
+    id: number=0;
+    nom: String='';
+    prenoms: String='';
+    adresse: String='';
+    contact: String= '';
+    email: String ='';
+    codepostal: String='';
+    ville: String='';
+    civilite: String='';
     // Navigation properties
     commandescl: Commandecl[] = [];
     factures: Facture[] =[];
