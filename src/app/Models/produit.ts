@@ -12,8 +12,8 @@ export class Produit {
     nouveaute: string='';
     description: string='';
     // Navigation properthies
-    categorieid: number=0;
-    marqueid: number=0;
+    categorieId: number=0;
+    marqueId: number=0;
     soldePromo: number=0;
    
 }

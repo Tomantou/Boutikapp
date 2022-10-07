@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, ViewChild, OnChanges, SimpleChanges } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ProduitsService } from 'src/app/Shared/produit.service';
@@ -26,7 +26,8 @@ import { DetailsComponent } from '../../details/details.component';
   templateUrl: './tableproduct.component.html',
   styleUrls: ['./tableproduct.component.css']
 })
-export class TableproductComponent implements OnInit {
+export class TableproductComponent implements OnInit, OnChanges {
+
   lesproduits: Produit[] = [];
   selectedProduct:any;
   selectedRow: any;
@@ -46,6 +47,9 @@ export class TableproductComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
     private dialog:MatDialog) { }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.refreshProduits();
+  }
 showDataOfChildComponent:any;
 
   ngOnInit(): void {

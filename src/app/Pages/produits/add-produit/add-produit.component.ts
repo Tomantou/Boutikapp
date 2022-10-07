@@ -85,33 +85,34 @@ export class AddProduitComponent implements OnInit {
     })
     
   }
-  imgFile!:string;
-  uploadFile(e:any){
-    const reader = new FileReader();
-    if(e.target.files && e.target.files.length){
-      const [file]=e.target.files;
-      reader.readAsDataURL(file);
-      reader.onload=() =>{
-        this.imgFile=reader.result as string;
-        
-       }
-    }
-  }
-  produit!:Produit;
-  nom!:string;
-  prix!:number;
-  nouveaute!:string;
-  description!:string;
-  categorieId!:number;
-  marqueId!:number;
+  imgFile:string='';
+ 
+  produit:Produit= {
+    categorieId: 0,
+    marqueId:0,
+    nom:'',
+    prix:0,
+    nouveaute:'',
+    photo:'',
+    description:'',
+    soldePromo:0
+  };
+  nom:string='';
+  prix:number=0;
+  nouveaute:string='';
+  description:string='';
+  categorieId:number=0;
+  marqueId:number=0;
+  soldePromo=0;
   enregistrerProduit(){
-    this.produit.categorieid=this.categorieId;
-    this.produit.marqueid=this.marqueId;
+    this.produit.categorieId=this.categorieId;
+    this.produit.marqueId=this.marqueId;
     this.produit.nom= this.nom;
     this.produit.prix = this.prix;
     this.produit.nouveaute= this.nouveaute;
     this.produit.description= this.description;
     this.produit.photo=this.imgFile;
+    console.log('objet produit:',this.produit);
     this.prodservice.createProduct(this.produit).subscribe((donnee:any)=>{
        
     });
@@ -222,6 +223,7 @@ selectFiles(event: any): void {
       const reader = new FileReader();
 
       reader.onload = (e: any) => {
+        this.imgFile = e.target.result as string;
         console.log(e.target.result);
         this.previews.push(e.target.result);
       };

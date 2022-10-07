@@ -36,6 +36,13 @@ export class DetailProduitComponent implements OnInit {
     console.log('data:',this.data);
   }
 
+  recupererImage():string{
+
+     const image = new File([this.receivedRow.photo],'test.jpeg',{type:'image/jpeg'});
+     console.log('image récupérée',image)
+     return image.name;
+  }
+
   recupererListMarques(){
     this.marqueService.recupererMarques().subscribe((marques:Array<Marque>) =>{
          marques.forEach((marque:Marque)=>{

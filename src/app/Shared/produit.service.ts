@@ -82,9 +82,9 @@ populateForm(produit:Produit){
 
 // CRUD Operations
 
-  createProduct(prodt: Object){
-    console.log(prodt)
-     return this.http.post<Produit>(this.lien, prodt).pipe(tap(() => 
+  createProduct(prod: Produit){
+    console.log(prod)
+     return this.http.post<Produit>(this.lien, prod).pipe(tap(() => 
         {this.RequiredRefresh.next();} ));
 
   }
