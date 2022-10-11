@@ -80,8 +80,8 @@
         <mat-error *ngIf ="this.form.get('nosobjectifs').hasError('required')"> ce champ est obligatoire</mat-error> 
     </mat-form-field><div></div>
     
-      <button mat-flat-button color="primary" (click)="this.create()" [disabled] ="this.form.invalid"><h4>Enregistrer</h4></button>
-      <button mat-flat-button color="accent"><h4>Annuler</h4></button>
+      <button mat-flat-button color="primary" (click)="this.create()" [disabled] ="this.form.invalid"  mat-dialog-close mat-dialog-close="true"><h4>Enregistrer</h4></button>
+      <button mat-flat-button color="accent"  mat-dialog-close mat-dialog-close="true"><h4>Annuler</h4></button>
     </form>
 </div>
 <br>

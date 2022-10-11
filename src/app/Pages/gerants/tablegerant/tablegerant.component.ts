@@ -47,6 +47,10 @@ export class TablegerantComponent implements OnInit {
     })
   }
 
+  OnChanges() {
+    this.refreshGerants();
+  }
+  
   loadGerant(gerant:Gerant){
     this.gerantService.gerant = Object.assign({},gerant);
     console.log('categorie loaded',gerant);

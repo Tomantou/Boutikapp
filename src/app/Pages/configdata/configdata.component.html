@@ -2,8 +2,10 @@
 
 <br><br>
 <div style="margin-left: 100px;">
-    <button mat-raised-button color ="primary" (click)="openAddConfigDialog('1000ms','500ms',0)">Créer les signaletiques</button> | &nbsp;
-    <button mat-raised-button color ="warn" (click)="openEditConfigDialog()">Editer les signaletiques</button>
+    <button class="btn btn--accent btn--block" (click)="openAddConfigDialog('1000ms','500ms',0)">Créer les signaletiques</button> | &nbsp;
+    <button mat-raised-button color ="warn" (click)="openEditConfigDialog()">Editer les signaletiques</button> | &nbsp;
+    <button mat-raised-button color ="warn" mat-dialog-close mat-dialog-close="true">Quitter</button>
+    <button cButtonClose size="lg" >Fermer</button>
 </div>
 <br><br>
 

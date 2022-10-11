@@ -31,7 +31,7 @@
 </div>
 
     <div class="place-buttons">
-      <button mat-raised-button color="primary" type = "submit" [disabled] ="stockservice.form.invalid">Submit</button>
+      <button mat-raised-button color="primary" mat-dialog-close mat-dialog-close="true" type = "submit" [disabled] ="stockservice.form.invalid">Submit</button>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <button mat-raised-button color="warn" (click) = "onClear()">Clear</button>
     </div>

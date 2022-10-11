@@ -35,7 +35,7 @@
                     <mat-error *ngIf ="this.form.get('Publier').hasError('required')"> ce champ est obligatoire</mat-error> 
                   </mat-form-field>
                   <div style="margin-left: 200px;">
-                     <button mat-raised-button color="primary" (click)="this.create()" [disabled] ="this.form.invalid">Submit</button>
+                     <button mat-raised-button color="primary" mat-dialog-close mat-dialog-close="true" (click)="this.create()" [disabled] ="this.form.invalid">Submit</button>
                      &nbsp;&nbsp;&nbsp;&nbsp;
                      <button mat-raised-button color="warn" (click) = "this.onClear()">Réinitialiser</button>
                      &nbsp;&nbsp;&nbsp;&nbsp;
@@ -47,56 +47,3 @@
        
 
 
-<!-- 
- <div class="conteneur">
-    <form #form = "ngForm" class="normal-form">
-        
-                  <mat-form-field appearance="outline">
-                    <mat-label> Titre</mat-label>
-                    <input type="text" formControlName="titre" matInput placeholder="titre">
-                    <mat-hint>Hint</mat-hint>
-                  </mat-form-field>
-
-                  <mat-form-field appearance="outline">
-                    <mat-label> Texte1</mat-label>
-                    <input type="text" formControlName="texte1" matInput placeholder="texte1">
-                    <mat-hint>Hint</mat-hint>
-                  </mat-form-field>
-                    
-                  <mat-form-field appearance="outline">
-                    <mat-label> Texte2</mat-label>
-                    <input type="text" formControlName="texte2" matInput placeholder="texte2">
-                    <mat-hint>Hint</mat-hint>
-                  </mat-form-field>
-                    
-                  <mat-form-field appearance="outline">
-                    <mat-label> Image</mat-label>
-                    <input type="text" formControlName="image" matInput placeholder="image">
-                    <mat-hint>Hint</mat-hint>
-                  </mat-form-field>
-                
-                  <mat-form-field appearance="outline">
-                      <mat-label> Date publication</mat-label>
-                      <input formControlName="datepublication" matInput [matDatepicker] ="picker" placeholder="date publication">
-                      <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
-                      <mat-datepicker #picker></mat-datepicker>
-                      <mat-hint>Hint</mat-hint>
-                  </mat-form-field>
-                    
-                  <mat-form-field appearance="outline">
-                    <mat-label> Publier</mat-label>
-                    <input formControlName="publier" matInput placeholder="publier">
-                    <mat-hint>Hint</mat-hint>
-                  </mat-form-field>
-
-                    
-                    <div class="button-row">
-                         <button mat-raised-button color="primary" type = "submit" [disabled] ="this.form.invalid">Enregistrer</button>
-                         <button mat-raised-button color="warn" (click) = "onClear()">Clear</button>
-                    </div>
-          
-    </form>
-  </div>
-    
-    
- -->

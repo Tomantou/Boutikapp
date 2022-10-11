@@ -13,11 +13,17 @@ export class PanierComponent implements OnInit {
 
   constructor(private panierSerivce: PanierService) { }
 
+  ngOnInit(): void {
+    this.refresh();
+    console.log('produits paniers',this.produits);
+
+}
+
   public add(id : string) {
-    this.panierSerivce.add(id).subscribe(respose => this.refresh())
+    this.panierSerivce.add(id).subscribe(response => this.refresh())
   }
   public decrease(id : string) {
-    this.panierSerivce.decrease(id).subscribe(respose => this.refresh())
+    this.panierSerivce.decrease(id).subscribe(response => this.refresh())
   }
 
   private refresh() {
@@ -26,8 +32,5 @@ export class PanierComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {
-    this.refresh();
-
-}
+  
 }

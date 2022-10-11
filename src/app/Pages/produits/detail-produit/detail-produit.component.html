@@ -1,12 +1,38 @@
 <h1 mat-dialog-title *ngIf="data.action==='LECTURE'">DETAILS</h1><br>
 <div mat-dialog-content *ngIf="data.action==='LECTURE'">
+
+  <div id="conteneur">
+            
+    <mat-card>
+       <!-- (click)="loadProduit(this.receivedRow)" -->
+        <mat-card-title-group>
+        <mat-card-title>{{this.receivedRow.nom}}</mat-card-title>
+        <mat-card-subtitle>
+            <br><br>
+            <div class="displayprice">{{this.receivedRow.prix}} &nbsp;&euro;</div>
+        </mat-card-subtitle>
+        
+
+        <a href></a>
+        <img (click)="openDialogDet(this.receivedRow,'LECTURE')" mat-card-lg-image src="../assets/img/slider/{{receivedRow.id}}.jpg">
+        </mat-card-title-group>
+        <mat-card-content style="background-color: black; color:azure; text-align:center;">
+        {{this.receivedRow.description}}
+        </mat-card-content>
+        <mat-card-actions>
+            <!-- <button mat-raised-button color ="warn"><h3>Ajouter</h3></button> -->
+        </mat-card-actions>
+        
+    </mat-card>
+    
+</div>
        
-       {{this.receivedRow.nom}}<br>
+       <!-- {{this.receivedRow.nom}}<br>
        {{this.receivedRow.prix}}<br>
        {{receivedRow.photo}}<br>
        <img mat-card-lg-image src="../assets/img/slider/{{receivedRow.id}}.jpg" >
        <img mat-card-lg-image [attr.src]="recupererImage()" >
-       {{receivedRow.description}}
+       {{receivedRow.description}} -->
 </div>
 <h1 mat-dialog-title *ngIf="data.action==='ECRITURE'">EDIT PRODUIT</h1>
 

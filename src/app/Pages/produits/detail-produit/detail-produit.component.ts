@@ -17,6 +17,8 @@ export class DetailProduitComponent implements OnInit {
   receivedRow:any;
   listMarques:Marque[]=[];
   listCategories:Categorie[]=[];
+  dialog: any;
+  showDataOfChildComponent: any;
 
 
   constructor(private marqueService:MarqueService,
@@ -32,7 +34,6 @@ export class DetailProduitComponent implements OnInit {
     this.receivedRow=this.data;
     this.recupererListMarques();
     this.recupererListCategories();
-    console.log(this.receivedRow);
     console.log('data:',this.data);
   }
 
@@ -69,4 +70,31 @@ export class DetailProduitComponent implements OnInit {
     
     // this.router.navigate(['produits']);
  }
+
+ openDialogDet(row:any,action:string){
+  console.log('row:',row)
+   const dialogRef = this.dialog.open(DetailProduitComponent,{width:'50%',height: '500px',
+   enterAnimationDuration:'1000ms',
+   exitAnimationDuration: '2000ms',
+   data:{
+    id:row.id,
+    nom: row.nom,
+    prix: row.prix,
+    image: row.photo,
+    nouveaute:row.nouveaute,
+    description: row.description,
+    soldepromo:row.soldePromo,
+    action:action
+   }
+   
+   }); 
+
+       
+   dialogRef.afterClosed().subscribe((result: any) => {
+    this.showDataOfChildComponent = result;
+    console.log('here is the data result', result)
+  });  
+
+}
+
 }

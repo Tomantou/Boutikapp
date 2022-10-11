@@ -1,0 +1,11 @@
+.conteneur{
+    width: 900px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content:space-evenly;
+    color:black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}

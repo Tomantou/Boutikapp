@@ -1,19 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpClientModule, HttpResponse, HttpRequest } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, Subject, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { Pipe, PipeTransform } from '@angular/core';
 import { HttpErrorResponse,  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment';
 import { Categorie } from '../Models/categorie';
-import { ok } from 'assert';
+import { Fournisseur } from '../Models/fournisseur';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class FournisseurService {
-  private lien = environment.boutiqueBackend + '/fournisseurs';
+  private lien = environment.boutiqueContainer + 'api/fournisseurs';
+  fournisseur: Fournisseur = new Fournisseur();
+  FournisseurAdded = new Subject();
+  private _refreshRequired = new Subject<void>();
+
+  get RequiredRefresh(){
+   return this._refreshRequired;
+  }
 
   constructor(private readonly http: HttpClient) { 
     let headers = new Headers();
@@ -35,16 +42,28 @@ export class FournisseurService {
 
   }
 
-  geetCategories(): Observable<any>{
-     return this.http.get<Categorie[]>(this.lien);
+  
+  createFournisseur(fourn: Fournisseur){
+    console.log(fourn)
+     return this.http.post<Fournisseur>(this.lien, fourn).pipe(tap(() => 
+        {this.RequiredRefresh.next();} ));
+
+  }
+
+  getFournisseurs(): Observable<any> {
+    return this.http.get<Fournisseur[]>(this.lien);
+  }
+
+  getFournisseurById(id: number){
+    return this.http.get(this.lien + '/' + id);
+  }
+
+  updateFournisseur(id: number, client:Fournisseur){
+    return this.http.put(this.lien + '/' + id, client);
+  }
+  
+   deleteFournisseur(id: number){
+    return this.http.delete(this.lien + '/' + id );
    }
 
-  /*  getCategories(): Observable<any>{
-  try{
-     return this.http.get<Categorie []>(this.lien);
-    }catch{
-     (this.handleError);
-    }
-             
-  }     */
 }

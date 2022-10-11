@@ -7,13 +7,19 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./barnav.component.css']
 })
 export class BarnavComponent implements OnInit {
-
-  role = "";
+role="";
+useremail="";
+userrole="";
+  
 
   constructor(private router:Router) {
-    this.role = localStorage.getItem("role")!;
+    // this.userrole= localStorage.getItem('role');
   }
   
+
+  ngOnInit(): void {
+   
+  }
   opened = false;
   
 
@@ -89,8 +95,5 @@ logout(){
   localStorage.clear();
   window.open('/login', "_self");
 }
-
-  ngOnInit(): void {
-  }
 
 }

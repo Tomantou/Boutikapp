@@ -23,9 +23,13 @@ export class PromoComponent implements OnInit {
     this.getProduitsPromo();
   }
 
+  proceedRegister(){
+    
+  }
+
   
   prixPromo(x:number,y:number){
-    return (x*y)/100
+    return (x - (x*y/100));
   }
 
   getProduitsPromo(){
@@ -39,17 +43,18 @@ export class PromoComponent implements OnInit {
     });
   }
      
-  openDialogDet(prod:any){
+  openDialogDet(row:any,action:string){
      const dialogRef = this.dialog.open(DetailProduitComponent,{width:'50%',height: '500px',
      enterAnimationDuration:'1000ms',
      exitAnimationDuration: '2000ms',
      data:{
-      id:prod.id,
-      nom: prod.nom,
-      prix: prod.prix,
-      image: prod.photo,
-      description: prod.description,
-      soldePromo:prod.soldePromo
+      id:row.id,
+      nom: row.nom,
+      prix: row.prix,
+      image: row.photo,
+      description: row.description,
+      soldePromo:row.soldePromo,
+      action:action
      }
      }); 
          

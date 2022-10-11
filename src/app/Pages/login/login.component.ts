@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms'
+import { Router } from '@angular/router';
 import { AuthorizeService } from 'src/app/Shared/authorize.service';
 
 @Component({
@@ -12,13 +13,16 @@ export class LoginComponent implements OnInit {
   email = "";
   password = "";
 
-  constructor(private authorizeService: AuthorizeService) {
+  constructor(private authorizeService: AuthorizeService,
+             private route:Router) {
     localStorage.clear();
    }
 
   ngOnInit() {
   }
-
+   gotoAccueil(){
+     this.route.navigate(['accueil']);
+   }
   proceedLogin(){
     this.authorizeService.login({email: this.email, password: this.password}).subscribe(
       response => {

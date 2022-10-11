@@ -20,9 +20,10 @@
 </div>
 <br><br><br>
     <div class="place-buttons">
-      <button mat-raised-button color="primary" type = "submit" [disabled] ="marqueservice.form.invalid">Submit</button>
+      <button mat-raised-button color="primary" mat-dialog-close mat-dialog-close="true" type = "submit" [disabled] ="marqueservice.form.invalid">Submit</button>
       &nbsp;&nbsp;&nbsp;&nbsp;
-      <button mat-raised-button color="warn" (click) = "onClear()">Clear</button>
+      <button mat-raised-button color="warn" (click) = "onClear()">Clear</button> |&nbsp;
+      <button mat-raised-button color="warn" mat-dialog-close mat-dialog-close="true">Quitter</button>
     </div>
     
     

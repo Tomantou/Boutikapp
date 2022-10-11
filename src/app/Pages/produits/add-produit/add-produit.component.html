@@ -86,16 +86,16 @@
               </mat-form-field>
               <mat-form-field appearance ="outline">
                 <mat-label>Catégorie</mat-label>
-                  <mat-select name="categorieId" [(ngModel)]="categorieId">
+                  <mat-select name="categorieId" required [(ngModel)]="categorieId" >
+                    <mat-error *ngIf ="this.form.get('CategorieId').hasError('required')"> ce champ est obligatoire</mat-error>
                     <mat-option *ngFor="let categorie of Categories" [value]="categorie.id">
                       {{categorie.libelle}}
                     </mat-option>
                   </mat-select>
-                <mat-error *ngIf ="this.form.get('CategorieId').hasError('required')"> ce champ est obligatoire</mat-error>
-              </mat-form-field>
+                </mat-form-field>
               <mat-form-field appearance ="outline">
                 <mat-label>Marque</mat-label>
-                <mat-select name="marqueId" [(ngModel)]="marqueId">
+                <mat-select name="marqueId" required [(ngModel)]="marqueId">
                   <mat-option *ngFor="let marque of Marques" [value]="marque.id">
                     {{marque.nom}}
                   </mat-option>

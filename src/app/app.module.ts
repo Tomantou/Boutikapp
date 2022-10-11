@@ -111,6 +111,7 @@ import { DetailPventeComponent } from './Pages/pventes/detail-pvente/detail-pven
 import { DetailGerantComponent } from './Pages/gerants/detail-gerant/detail-gerant.component';
 import { DetailClientComponent } from './Pages/clients/detail-client/detail-client.component';
 import { DetailNewsComponent } from './Pages/gerernews/detail-news/detail-news.component';
+import { DetailFournisseurComponent } from './Pages/fournisseurs/detail-fournisseur/detail-fournisseur.component';
 
 
 
@@ -187,6 +188,7 @@ import { DetailNewsComponent } from './Pages/gerernews/detail-news/detail-news.c
     DetailGerantComponent,
     DetailClientComponent,
     DetailNewsComponent,
+    DetailFournisseurComponent,
     
   
   ],

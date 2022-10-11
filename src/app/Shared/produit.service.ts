@@ -56,7 +56,7 @@ populateForm(produit:Produit){
 }
    
   getProduits(): Observable<any> {
-    return this.http.get<Produit[]>(this.lien);
+    return this.http.get<Produit[]>(this.lien + '?filter={"limit": 100}');
   }
 
   getTenRandomProduits(): Observable<any> {

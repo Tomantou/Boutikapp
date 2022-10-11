@@ -1,6 +1,43 @@
 
 
-<div>
+<br><br>
 
+<div class="content-body">
+<mat-card>
+    <mat-card-content>
+        <div class="hedaer">
+            <h2>INSCRIPTION</h2>
+        </div><br>
+        <div appearance="fill">
+            <span style="font-size: 20px;">User name</span>
+            <input id="username" name ="username" [(ngModel)]="username">
+        </div><br>
+        <div appearance="fill">
+            <span style="font-size: 20px;">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <input id="email" name ="Email" [(ngModel)]="email">
+        </div><br>
+        <div appearance="fill">
+            <span style="font-size: 20px;">Password</span>
+            <input type="password" id="password" name ="password" [(ngModel)]="password">
+        </div><br>
+        <div appearance="fill">
+            <span style="font-size: 20px;">Firstname</span>
+            <input id="firstname" name ="firstname" [(ngModel)]="firstname">
+        </div><br>
+        <div appearance="fill">
+            <span style="font-size: 20px;">Lastname</span>
+            <input id="lastname" name ="lastname" [(ngModel)]="lastname">
+        </div><br>
+          <br>
+    </mat-card-content>
+    <div class="buttons">
+    <button class="btn btn--primary" (click)="proceedRegister()"><h4>Enregistrer</h4></button>
+    &nbsp;&nbsp;&nbsp;
+    <button class="btn btn--primary"  (click)="gotoAccueil()"><h4>Abandonner</h4></button>
+    </div>
+</mat-card>
 </div>
+<br><br><br><br><br><br><br><br><br><br>
+<app-footer></app-footer>
+
 <app-footer></app-footer>

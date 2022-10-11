@@ -8,21 +8,17 @@
 
         <div id="conteneur">
             
-                <mat-card *ngFor = "let prod of  lesproduits" style="width: 400px; height: 250px;" (click)="loadProduit(prod)">
+                <mat-card *ngFor = "let prod of  lesproduits" style="width: 400px; height: 250px;">
                     <mat-card-title-group>
                     <mat-card-title>{{prod.nom}}</mat-card-title>
                     <mat-card-subtitle>
                         <br><br>
                         <div class="displayprice">{{prod.prix}} &nbsp;&euro;</div>
-                        
-                        <!-- <div class="">
-                            <button mat-raised-button color><h3>Ajouter</h3></button>
-                        </div> -->
                     </mat-card-subtitle>
-                    <!-- <a href data-toggle="modal" data-target="#modalDetProduits" (click) = "getProduit(prod.Id)"><img src= "{{(!prod.photo) ? this.boutiqueContainer + 'logo-product.jpg' : this.boutiqueContainer + prod.photo}}" class="card-img-top" alt="..." height="200" width="100"></a> -->
+                    
 
                     <a href></a>
-                    <img (click)="openDialogDet(prod)" mat-card-lg-image src="../assets/img/slider/{{prod.id}}.jpg">
+                    <img (click)="openDialogDet(prod,'LECTURE')" mat-card-lg-image src="../assets/img/slider/{{prod.id}}.jpg">
                     </mat-card-title-group>
                     <mat-card-content style="background-color: black; color:azure; text-align:center;">
                     {{prod.nom}}

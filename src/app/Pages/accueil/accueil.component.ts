@@ -7,6 +7,7 @@ import { Marque } from 'src/app/Models/marque';
 import { Categorie } from 'src/app/Models/categorie';
 import { ProduitsService } from 'src/app/Shared/produit.service';
 import { ConfigdataService } from 'src/app/Shared/configdata.service';
+import { PventeService } from 'src/app/Shared/pvente.service';
 import { MarqueService } from 'src/app/Shared/marque.service';
 import { HttpClientModule } from '@angular/common/http';
 import {Observable} from 'rxjs';
@@ -18,6 +19,7 @@ import { BottompventesComponent } from '../bottompventes/bottompventes.component
 import { author, title } from 'src/app/global-variables';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Pvente } from 'src/app/Models/pvente';
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',
@@ -32,17 +34,21 @@ export class AccueilComponent implements OnInit {
   public les10randprod: Produit[] = [];
   public configdatas: Configdata[] = [];
   public panier: Produit[] = [];
+  lesPventes: Pvente[] = [];
   public selectedProduct: any;
   showDataOfChildComponent:any;
   public selectedConfigdata: Configdata = new Configdata;
  private link = ['accueil'];
   p: number = 1;
+  useremail:any;
+  userrole:any;
   
   public boutiqueContainer = environment.boutiqueContainer;
   dataSource: any;
 
   constructor(private router:Router, 
     private produitservice: ProduitsService,
+    private pventeservice:PventeService,
     private configdataservice: ConfigdataService,
     private dialog: MatDialog,
     ) { }
@@ -54,6 +60,8 @@ export class AccueilComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.useremail = localStorage.getItem('email');
+    this.userrole = localStorage.getItem('role');
     this.toggleSidebar();
     //this.selectedSignal =  localStorage.getItem['signaletique'];
     // this.image = this.selectedSignal.logo;
@@ -84,6 +92,15 @@ export class AccueilComponent implements OnInit {
              alert('probleme d\'acces a l api');
           }
           );  
+
+          this.pventeservice.getPventes().subscribe(
+            (pventes) => {this.lesPventes= pventes;
+             
+            },
+            (error) => {
+               alert('probleme d\'acces a l api');
+            }
+            );  
 
 
 
@@ -139,18 +156,19 @@ export class AccueilComponent implements OnInit {
   
     } */
 
-    openDialogDet(prod:any){
-      this.selectedProduct=prod;
+    openDialogDet(row:any,action:string){
+      this.selectedProduct=row;
        const dialogRef = this.dialog.open(DetailProduitComponent,{width:'50%',height: '500px',
        enterAnimationDuration:'1000ms',
        exitAnimationDuration: '2000ms',
        data:{
-        id:prod.id,
-        nom: prod.nom,
-        prix: prod.prix,
-        image: prod.photo,
-        description: prod.description,
-        soldePromo:prod.soldePromo
+        id:row.id,
+        nom: row.nom,
+        prix: row.prix,
+        image: row.photo,
+        description: row.description,
+        soldePromo:row.soldePromo,
+        action:action
        }
        }); 
            

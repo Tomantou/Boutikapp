@@ -52,7 +52,7 @@
                     <span><a mat-button [routerLink]="'/apropos'"><h5><mat-icon>about_us</mat-icon>A Propos de nous</h5></a></span>
                     <span *ngIf="!this.role"><a mat-button [routerLink]="'/login'"><h5><mat-icon>account_circle</mat-icon>Se connecter</h5></a></span>
                     <span *ngIf="this.role"><a (click)="logout()" mat-button><h5><mat-icon>account_circle</mat-icon>Logout</h5></a></span>
-                    <span><a mat-button [routerLink]="'/apropos'"><h5><mat-icon>about_us</mat-icon>s'inscrire</h5></a></span>
+                    <span><a mat-button [routerLink]="'/signin'"><h5><mat-icon>about_us</mat-icon>s'inscrire</h5></a></span>
  
                     
                     
@@ -62,37 +62,22 @@
   </div>
   <!-- essai sidenav-->
   
-  <mat-sidenav-container>
-    
-     <mat-sidenav class="mat-sidenav" [(opened)]="opened" mode ="side">
-        <button mat-raised-button color="primary" (click)="gotoProduitClick()">Produits</button> 
-        <mat-divider [inset]="true"></mat-divider>
-        <button mat-raised-button color="primary" (click)="gotoMarqueClick()">Marques</button> 
-        <mat-divider [inset]="true"></mat-divider>
-        <button mat-raised-button color="primary" (click)="gotoCategorieClick()">Catégories</button> 
-        <mat-divider [inset]="true"></mat-divider>
-        <button mat-raised-button color="primary" (click)="gotoPromotionClick()">Promotions</button> 
-        <mat-divider [inset]="true"></mat-divider>
-        <button mat-raised-button color="primary" (click)="gotoStockClick()">Stocks</button> 
-        <mat-divider [inset]="true"></mat-divider>
-        <button mat-raised-button color="primary" (click)="gotoGerernewsClick()">Les News</button> 
-        <mat-divider [inset]="true"></mat-divider>
-        <button mat-raised-button color="primary" (click)="gotoClientClick()">Clients</button> 
-        <mat-divider [inset]="true"></mat-divider>
-        <button mat-raised-button color="primary" (click)="gotoCommandeClick()">Commandes</button> 
-        <mat-divider [inset]="true"></mat-divider>
-        <button mat-raised-button color="primary" (click)="gotoFournisseurClick()">Fournisseurs</button> 
-        <mat-divider [inset]="true"></mat-divider>
-        <button mat-raised-button color="primary" (click)="gotoTransfertstockClick()">Transfert Stocks</button> 
-        <mat-divider [inset]="true"></mat-divider>
-        <button mat-raised-button color="primary" (click)="gotoFactureClick()">Factures</button>
-        <mat-divider [inset]="true"></mat-divider> 
-        <button mat-raised-button color="primary" (click)="gotoGerantClick()">Gerants</button> 
-        <mat-divider [inset]="true"></mat-divider>
-        <button mat-raised-button color="primary" (click)="gotoPventeClick()">Points vente</button> 
-        <mat-divider [inset]="true"></mat-divider>
-        <button mat-raised-button color="primary" (click)="gotoConfigdataClick()">Signalétiques</button> 
-        <mat-divider [inset]="true"></mat-divider>
+  <mat-sidenav-container> 
+    <mat-sidenav class="mat-sidenav" [(opened)]="opened" mode ="side">
+        <button class="btn btn--outline" (click)="gotoProduitClick()">Produits</button> 
+        <button class="btn btn--outline" (click)="gotoMarqueClick()">Marques</button>     
+        <button class="btn btn--outline" (click)="gotoCategorieClick()">Catégories</button> 
+        <button class="btn btn--outline" (click)="gotoPromotionClick()">Promotions</button>    
+        <button class="btn btn--outline" (click)="gotoStockClick()">Stocks</button>  
+        <button class="btn btn--outline" (click)="gotoGerernewsClick()">Les News</button>  
+        <button class="btn btn--outline" (click)="gotoClientClick()">Clients</button> 
+        <button class="btn btn--outline" (click)="gotoCommandeClick()">Commandes</button>      
+        <button class="btn btn--outline" (click)="gotoFournisseurClick()">Fournisseurs</button> 
+        <button class="btn btn--outline" (click)="gotoTransfertstockClick()">Transfert Stocks</button> 
+        <button class="btn btn--outline" (click)="gotoFactureClick()">Factures</button>
+        <button class="btn btn--outline" (click)="gotoGerantClick()">Gerants</button> 
+        <button class="btn btn--outline" (click)="gotoPventeClick()">Points vente</button> 
+        <button class="btn btn--outline" (click)="gotoConfigdataClick()">Signalétiques</button> 
      </mat-sidenav>
      <mat-sidenav-content>
          <router-outlet></router-outlet>

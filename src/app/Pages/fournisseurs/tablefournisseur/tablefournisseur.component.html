@@ -1,1 +1,52 @@
-<p>tablefournisseur works!</p>
+<br><br><br>
+ <div style="margin-left:350px;">
+  <button class="btn btn--primary" (click) = "openAddFournisseurDialog()">Add-Fournisseurs</button>
+</div>
+
+<div class="content" Role="main">
+  <div class="mat-elevation-z8">
+    <mat-form-field appearance="standard">
+       <mat-label>Filter</mat-label>
+       <input matInput (keyup)="Filterchange($event)" placeholder="Search columns" #input>
+    </mat-form-field>
+       <table mat-table matSort [dataSource]="dataSource">
+           <ng-container matColumnDef="id">
+             <th mat-header-cell mat-sort-header *matHeaderCellDef> ID </th>
+             <td mat-cell *matCellDef="let fournisseur"> {{fournisseur.id}} </td>
+           </ng-container>
+           <ng-container matColumnDef="nom">
+             <th mat-header-cell mat-sort-header *matHeaderCellDef> Nom </th>
+             <td mat-cell *matCellDef="let fournisseur"> {{fournisseur.nom}}</td>
+           </ng-container>
+           <ng-container matColumnDef="adresse">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef>adresse </th>
+            <td mat-cell *matCellDef="let fournisseur"> {{fournisseur.adresse}}</td>
+          </ng-container>
+         <ng-container matColumnDef="contact">
+           <th mat-header-cell mat-sort-header *matHeaderCellDef>Contact </th>
+           <td mat-cell *matCellDef="let fournisseur"> {{fournisseur.contact}}</td>
+         </ng-container>
+         <ng-container matColumnDef="email">
+             <th mat-header-cell mat-sort-header *matHeaderCellDef>Contact </th>
+             <td mat-cell *matCellDef="let fournisseur"> {{fournisseur.email}}</td>
+           </ng-container>
+    
+             <ng-container matColumnDef="actions">
+                 <th mat-header-cell *matHeaderCellDef> Actions </th>
+                 <td mat-cell *matCellDef="let fournisseur">
+                   <button (click)="openDialogDet(fournisseur,'LECTURE')" mat-raised-button color="primary"><h4>Détails</h4></button> |&nbsp;
+                   <button mat-raised-button color="warn" (click)="openDialogDet(fournisseur,'ECRITURE')"><h4>Edit</h4></button> |&nbsp;
+                   <button mat-raised-button color="accent" (click)="deleteFournisseur(fournisseur.id)"><h4>Delete</h4></button>
+                 </td>
+           </ng-container>
+
+               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+               <tr (click)="getrow(row)" mat-row *matRowDef="let row; columns:displayedColumns;"></tr>
+         
+         </table> 
+         <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLast>
+         </mat-paginator>
+         
+ </div>
+</div>
+
