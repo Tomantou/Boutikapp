@@ -35,7 +35,7 @@
               </div> -->
           
                    <!-- <button mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button> -->
-                   <button mat-mini-fab color="accent"(click)="opened=!opened"><mat-icon>menu</mat-icon></button>
+                   <button mat-mini-fab color="accent"  *ngIf="userrole && userrole.includes('ADMIN')"(click)="opened=!opened"><mat-icon>menu</mat-icon></button>
                     
                     <span></span>
                     <span></span>
@@ -50,8 +50,8 @@
                     <span><a mat-button [routerLink]="'/promo'"><h5><mat-icon>percentage</mat-icon>Promos</h5></a></span>
                     <span><a mat-button [routerLink]="'/contact'"><h5><mat-icon> contacts</mat-icon>Contact</h5></a></span>
                     <span><a mat-button [routerLink]="'/apropos'"><h5><mat-icon>about_us</mat-icon>A Propos de nous</h5></a></span>
-                    <span *ngIf="!this.role"><a mat-button [routerLink]="'/login'"><h5><mat-icon>account_circle</mat-icon>Se connecter</h5></a></span>
-                    <span *ngIf="this.role"><a (click)="logout()" mat-button><h5><mat-icon>account_circle</mat-icon>Logout</h5></a></span>
+                    <span *ngIf="!this.userrole"><a mat-button [routerLink]="'/login'"><h5><mat-icon>account_circle</mat-icon>Se connecter</h5></a></span>
+                    <span *ngIf="this.userrole"><a (click)="logout()" mat-button><h5><mat-icon>account_circle</mat-icon>Logout</h5></a></span>
                     <span><a mat-button [routerLink]="'/signin'"><h5><mat-icon>about_us</mat-icon>s'inscrire</h5></a></span>
  
                     
@@ -63,7 +63,7 @@
   <!-- essai sidenav-->
   
   <mat-sidenav-container> 
-    <mat-sidenav class="mat-sidenav" [(opened)]="opened" mode ="side">
+    <mat-sidenav class="mat-sidenav" [(opened)]="opened" mode ="side" *ngIf="userrole && userrole.includes('ADMIN')">
         <button class="btn btn--outline" (click)="gotoProduitClick()">Produits</button> 
         <button class="btn btn--outline" (click)="gotoMarqueClick()">Marques</button>     
         <button class="btn btn--outline" (click)="gotoCategorieClick()">Catégories</button> 

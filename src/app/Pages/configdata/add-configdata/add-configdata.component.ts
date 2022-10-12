@@ -11,10 +11,7 @@ import {  ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./add-configdata.component.css']
 })
 export class AddConfigdataComponent implements OnInit {
-  @ViewChild('fileInput')
-  fileInput!: ElementRef;
-  fileAttr = 'Choose File';
-
+ 
   
   urllink:string = "C:/Users/hp/Boutikapp/src/app/assets/img/slider/9.jpg";
   tva = new FormControl();
@@ -39,32 +36,9 @@ export class AddConfigdataComponent implements OnInit {
   }
 
 
-  uploadFileEvt(imgFile: any) {
-    if (imgFile.target.files && imgFile.target.files[0]) {
-      this.fileAttr = '';
-      Array.from(imgFile.target.files).forEach((file: any) => {
-        this.fileAttr += file.name + ' - ';
-      });
-      // HTML5 FileReader API
-      let reader = new FileReader();
-      reader.onload = (e: any) => {
-        let image = new Image();
-        image.src = e.target.result;
-        image.onload = (rs) => {
-          let imgBase64Path = e.target.result;
-        };
-      };
-      reader.readAsDataURL(imgFile.target.files[0]);
-      // Reset if duplicate image uploaded again
-      this.fileInput.nativeElement.value = '';
-    } else {
-      this.fileAttr = 'Choose File';
-    }
-  }
+  
 
-
-
-   url=('../assets/img/slider/7.jpg');
+   /* url=('../assets/img/slider/7.jpg');
 
   onselectFiles(event:any){
     if(event.target.uploadFiles){
@@ -76,9 +50,9 @@ export class AddConfigdataComponent implements OnInit {
 
     }
 
-  }
+  } */
 
-  onFileSelected(){
+  /* onFileSelected(){
     const inputNode: any = document.querySelector('#file');
 
     if (typeof (FileReader) !== 'undefined') {
@@ -90,7 +64,7 @@ export class AddConfigdataComponent implements OnInit {
   
       reader.readAsArrayBuffer(inputNode.files[0]);
     }
-  }
+  } */
 
   form: FormGroup = new FormGroup({
     tva: new FormControl(0,Validators.required),

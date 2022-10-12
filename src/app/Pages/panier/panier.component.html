@@ -6,6 +6,7 @@
             <div class="panier">
         
                 <div class="panier-header">
+                  <span></span>
                     <span style="width: 100px;font-size: large;">Nom</span>
                     <span style="width: 30px;font-size: large;">Quantité</span>
                     <span style="width: 25px;font-size: large;">Prix</span>
@@ -14,15 +15,18 @@
                 </div>
         
                 <div class="panier-row" *ngFor="let produit of produits">
-                    <span>{{produit.produitModel.nom}}</span>
+                  <div>
+                    <img mat-card-lg-image src="../assets/img/slider/{{produit.produitModel && produit.produitModel.photo ? produit.produitModel.photo : ''}}">
+                  </div>
+                    <span>{{produit.produitModel && produit.produitModel.photo ? produit.produitModel.nom : ''}}</span>
                     <div>
                         <a class="button-q" (click)="this.decrease(produit.id)">-</a>
                         <span>{{produit.quantite}}</span>
                         <a class="button-q" (click)="this.add(produit.id)">+</a>
                     </div>
-                    <span >{{produit.prix * produit.solde}} €</span>
-                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{produit.prix * produit.solde * produit.quantite}} €</span>
-                    <span><button mat-button-raised><mat-icon>delete</mat-icon></button></span>
+                    <span >{{produit.prix * produit.solde / 100}} €</span>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{produit.prix * produit.solde * produit.quantite / 100}} €</span>
+                    <span><button mat-button-raised (click)="this.delete(produit.id)"><mat-icon>delete</mat-icon></button></span>
                 </div>
         
                 <div class="panier-total">
@@ -34,7 +38,7 @@
     </mat-card-content>
     <mat-divider inset></mat-divider>
     <mat-card-actions class="panier-total">
-      <button class="btn btn--secondary btn--block">CONFIRMER LA COMMANDE</button>
+      <button class="btn btn--secondary btn--block" (click)="confirm()">CONFIRMER LA COMMANDE</button>
       <button class="btn btn--outline btn--block">ABANDONNER</button>
     </mat-card-actions>
     <mat-card-footer>

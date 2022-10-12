@@ -20,6 +20,8 @@ import { author, title } from 'src/app/global-variables';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Pvente } from 'src/app/Models/pvente';
+import { PanierService } from 'src/app/Shared/panier.service';
+import { Paniers } from 'src/app/Models/Paniers';
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',
@@ -42,6 +44,7 @@ export class AccueilComponent implements OnInit {
   p: number = 1;
   useremail:any;
   userrole:any;
+  userid:string;
   
   public boutiqueContainer = environment.boutiqueContainer;
   dataSource: any;
@@ -49,6 +52,7 @@ export class AccueilComponent implements OnInit {
   constructor(private router:Router, 
     private produitservice: ProduitsService,
     private pventeservice:PventeService,
+    private panierService:PanierService,
     private configdataservice: ConfigdataService,
     private dialog: MatDialog,
     ) { }
@@ -61,6 +65,7 @@ export class AccueilComponent implements OnInit {
 
   ngOnInit(): void {
     this.useremail = localStorage.getItem('email');
+    this.userid = localStorage.getItem('userid')!;
     this.userrole = localStorage.getItem('role');
     this.toggleSidebar();
     //this.selectedSignal =  localStorage.getItem['signaletique'];
@@ -179,7 +184,15 @@ export class AccueilComponent implements OnInit {
    
   }
     
-
+public addPanier(prod: Produit) {
+  let panier = new Paniers();
+  panier.Prix = prod.prix;
+  panier.Solde = prod.soldePromo;
+  panier.ProduitId = prod.id!;
+  panier.Quantite = 1;
+  panier.UserId = Number(this.userid);
+  this.panierService.create(panier).subscribe(response => console.debug("added panier"));
+}
     
 
 }

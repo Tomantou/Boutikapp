@@ -20,28 +20,6 @@
         <mat-error *ngIf ="this.form.get('typesociete').hasError('required')"> ce champ est obligatoire</mat-error> 
     </mat-form-field>
     
-    <mat-form-field>
-      <div>
-        <mat-toolbar>
-          <!-- Display files names -->
-          <input matInput [(ngModel)]="fileAttr" readonly name="name" />
-          <!-- Browse Button -->
-          <button mat-flat-button color="primary">Browse File</button>
-        </mat-toolbar>
-        <!-- Fetch selected filed on change -->
-        <input
-          type="file"
-          #fileInput
-          id="uploadFile"
-          (change)="uploadFileEvt($event)"
-          name="uploadFile"
-          multiple="multiple"
-          accept="image/*"
-        />
-      </div>
-    </mat-form-field>
-    
-    
       <mat-form-field appearance="outline">
           <mat-label>Adresse</mat-label>
           <input matInput placeholder="adresse" formControlName="adresse" required>

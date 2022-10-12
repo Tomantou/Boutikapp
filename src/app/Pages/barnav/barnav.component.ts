@@ -13,12 +13,12 @@ userrole="";
   
 
   constructor(private router:Router) {
-    // this.userrole= localStorage.getItem('role');
+   
   }
   
 
   ngOnInit(): void {
-   
+    this.userrole= localStorage.getItem('role')!;
   }
   opened = false;
   
