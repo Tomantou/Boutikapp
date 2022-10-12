@@ -111,10 +111,10 @@ export class AddProduitComponent implements OnInit {
     this.produit.prix = this.prix;
     this.produit.nouveaute= this.nouveaute;
     this.produit.description= this.description;
-    this.produit.photo=this.imgFile;
+    // this.produit.photo=this.imgFile;
     console.log('objet produit:',this.produit);
     this.prodservice.createProduct(this.produit).subscribe((donnee:any)=>{
-       
+      alertifyjs.success('produit enregistré avec succès');
     });
   }
   recupererFichier(): string{
@@ -131,7 +131,7 @@ export class AddProduitComponent implements OnInit {
     })
   }
   form: FormGroup = new FormGroup({
-    Id: new FormControl({value:0, disabled:true}),
+    $Id: new FormControl({value:0, disabled:true}),
     Nom: new FormControl('', Validators.required),
     Prix: new FormControl(0),
     Photo: new FormControl(''),

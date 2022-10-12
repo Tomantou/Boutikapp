@@ -7,31 +7,60 @@
 <br>
 <div class="conteneur">
         <form [formGroup] = "stockservice.form" class="conteneur">
+          <mat-form-field appearance ="outline">
+            <mat-label>ID STOCK</mat-label>
+            <input formControlName="Id" matInput placeholder="id stock">
+            
+          </mat-form-field>
+              <mat-form-field appearance ="outline">
+                <mat-label>QUANTITE</mat-label>
+                <input formControlName="Quantite" matInput placeholder="quantite">
+              </mat-form-field>
+              <mat-form-field appearance ="outline">
+                <mat-label>QTE Min.</mat-label>
+                <input formControlName="QuantiteMin" matInput placeholder="quantitemin">
+              </mat-form-field>
+              <mat-form-field appearance ="outline">
+                <mat-label>QTE Max.</mat-label>
+                <input formControlName="QuantiteMax" matInput placeholder="quantitemax">
+              </mat-form-field>
+
+              <!-- <mat-form-field appearance ="outline">
+                <mat-label>POINT VENTE</mat-label>
+                  <mat-select name="pventeId" [(ngModel)]="pventeId" required>
+                    <mat-error *ngIf ="this.stockservice.form.get('pventeId').hasError('required')"> ce champ est obligatoire</mat-error>
+                    <mat-option *ngFor="let pvente of lesPventes" [value]="pvente.id">
+                      {{pvente.ville}}
+                    </mat-option>
+                  </mat-select>
+              </mat-form-field>
+               <mat-form-field appearance ="outline">
+                <mat-label>PRODUIT</mat-label>
+                  <mat-select name="produitId" [(ngModel)]="produitid" required>
+                    <mat-error *ngIf ="this.stockservice.form.get('produitId').hasError('required')"> ce champ est obligatoire</mat-error>
+                    <mat-option *ngFor="let produit of lesProduits" [value]="produit.id">
+                      {{produit.nom}}
+                    </mat-option>
+                  </mat-select>
+              </mat-form-field> --> 
+
               <mat-form-field>
-                <input formControlName="quantite" matInput placeholder="quantite">
-                <mat-error *ngIf ="stockservice.form.get('quantite').hasError('required')"> ce champ est obligatoire</mat-error>
+                <mat-label>Pvente ID</mat-label>
+                <input formControlName="PventeId" matInput placeholder="pventeid">
+                
               </mat-form-field>
               <mat-form-field>
-                <input formControlName="quantitemin" matInput placeholder="quantitemin">
-              </mat-form-field>
-              <mat-form-field>
-                <input formControlName="quantitemax" matInput placeholder="quantitemax">
-              </mat-form-field>
-              <mat-form-field>
-                <input formControlName="pventeid" matInput placeholder="pventeid">
-                <mat-error *ngIf ="stockservice.form.get('pventeid').hasError('required')"> ce champ est obligatoire</mat-error>
-              </mat-form-field>
-              <mat-form-field>
-                <input formControlName="produitid" matInput placeholder="produitid">
-                <mat-error *ngIf ="stockservice.form.get('produitid').hasError('required')"> ce champ est obligatoire</mat-error>
-              </mat-form-field>
+                <mat-label>PRODUIT ID</mat-label>
+                <input formControlName="ProduitId" matInput placeholder="produitid">
+                
+              </mat-form-field> 
               
         </form>
 
 </div>
 
     <div class="place-buttons">
-      <button mat-raised-button color="primary" mat-dialog-close mat-dialog-close="true" type = "submit" [disabled] ="stockservice.form.invalid">Submit</button>
+      <button mat-raised-button color="primary" (click)="creerStock()" mat-dialog-close mat-dialog-close="true" [disabled] ="stockservice.form.invalid">Sauver</button>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <button mat-raised-button color="warn" (click) = "onClear()">Clear</button>
     </div>

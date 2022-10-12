@@ -9,8 +9,7 @@ export class Stock {
     quantitemin: Number=0;
     quantitemax: Number = 0;
     // navigation properties
-    pventeId: Number = 0;
-    pvente: Pvente  = new Pvente;
+    pventeid: Number = 0;
     produitid: Number =0;
     //produit: Produit = new Produit;
     //transfertstocks: Transfertstock[] = [];

@@ -21,7 +21,7 @@ import { DetailMarqueComponent } from '../detail-marque/detail-marque.component'
 
 @Component({
   selector: 'app-tablemarque',
-  templateUrl: './tablemarque.component.html',
+  templateUrl:'./tablemarque.component.html',
   styleUrls: ['./tablemarque.component.css']
 })
 export class TablemarqueComponent implements OnInit {
@@ -123,11 +123,21 @@ export class TablemarqueComponent implements OnInit {
     });  
  
 }
-  openAddmarqueDialog(){
-    let dialogRef= this.dialog.open(AddMarqueComponent,{data: {name:'Antoine'}});
+ 
+
+  openAddMarqueDialog(enteranimation:any,exitanimation:any,code:any){
+
+    this.dialog.open(AddMarqueComponent,{
+      enterAnimationDuration:enteranimation,
+      exitAnimationDuration:exitanimation,
+      width:'60%',
+      data:{marqueCode:code}
+    })
+   /*  let dialogRef= this.dialog.open(AddProduitComponent,{data: {name:'Antoine'}});
     dialogRef.afterClosed().subscribe( result => {
       console.log("Dialog result:", result);
-    });
+    }); */
   }
+  
 
 }

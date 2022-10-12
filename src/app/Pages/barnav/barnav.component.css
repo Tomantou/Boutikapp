@@ -96,7 +96,7 @@ span{
   height: 10px;
   border: 0;
   font-size: 1.0rem;
-  font-weight:80;
+  font-weight:bold;
   margin: 0.8rem 0;
   text-transform: uppercase;
   white-space: nowrap;
@@ -132,7 +132,7 @@ span{
 .btn--outline:hover{
   background: black;
   color: #fff;
-  border: 1px  solid black;
+  border: 2px  solid black;
 }
 .btn--block{
   width: 20%;

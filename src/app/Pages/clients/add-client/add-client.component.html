@@ -1,1 +1,48 @@
-<p>add-client works!</p>
+<br><br>
+<div class="titre">
+    <br>
+    <h2>ENREGISTREMENT CATEGORIE</h2>
+</div>
+
+<div class="conteneur">
+        <form [formGroup] = "clientservice.form" class="conteneur">
+              <mat-form-field>
+                <input formControlName="nom" matInput placeholder="nom">
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="prenoms" matInput placeholder="prenoms">
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="adresse" matInput placeholder="adresse">
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="contact" matInput placeholder="contact">
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="email" matInput placeholder="email">
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="codepostal" matInput placeholder="codepostal">
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="ville" matInput placeholder="ville">
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="civilite" matInput placeholder="civilite">
+              </mat-form-field>
+             
+             
+        </form>  
+</div>
+<br><br><br>
+    <div class="place-buttons">
+      <button mat-raised-button color="primary" (click)="createClient()" mat-dialog-close mat-dialog-close="true" [disabled] ="clientservice.form.invalid">Sauver</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-raised-button color="warn" mat-dialog-close mat-dialog-close="true">Quitter</button>
+    </div>
+    
+    
+
+<br>
+
+

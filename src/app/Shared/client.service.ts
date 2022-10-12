@@ -7,6 +7,7 @@ import { HttpErrorResponse,  } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Categorie } from '../Models/categorie';
 import { Client } from '../Models/client';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Injectable({
@@ -63,5 +64,32 @@ export class ClientService {
    deleteClient(id: number){
     return this.http.delete(this.lien + '/' + id );
    }
+
+   form: FormGroup = new FormGroup({
+    $id: new FormControl(null),
+    nom: new FormControl(''),
+    prenoms: new FormControl(''),
+    adresse: new FormControl(''),
+    contact: new FormControl(''),
+    email: new FormControl(''),
+    codepostal: new FormControl(''),
+    ville: new FormControl(''),
+    civilite: new FormControl('')
+  })
+
+  initializeFormGroup(){
+    this.form.setValue({
+    $Id: null,
+    nom: '',
+    prenoms:'',
+    adresse:'',
+    contact:'',
+    email:'',
+    codepostal:'',
+    ville:'',
+    civilite:''
+  })
   
+ }
+
 }

@@ -6,9 +6,11 @@
             <div class="panier">
         
                 <div class="panier-header">
-                    <span>Produit Nom</span>
-                    <span>Quantité</span>
-                    <span>Prix</span>
+                    <span style="width: 100px;font-size: large;">Nom</span>
+                    <span style="width: 30px;font-size: large;">Quantité</span>
+                    <span style="width: 25px;font-size: large;">Prix</span>
+                    <span style="width: 80px;font-size: large;">Montant</span>
+                   
                 </div>
         
                 <div class="panier-row" *ngFor="let produit of produits">
@@ -18,22 +20,22 @@
                         <span>{{produit.quantite}}</span>
                         <a class="button-q" (click)="this.add(produit.id)">+</a>
                     </div>
-                    <span>{{produit.prix * produit.solde}} €</span>
-                    <span>Montant: {{produit.prix * produit.solde * produit.quantite}} €</span>
-                    <span>Suppr</span>
+                    <span >{{produit.prix * produit.solde}} €</span>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{produit.prix * produit.solde * produit.quantite}} €</span>
+                    <span><button mat-button-raised><mat-icon>delete</mat-icon></button></span>
                 </div>
         
                 <div class="panier-total">
                     <span>Total</span>
-                    <span>{{total}}</span>
+                    <span>{{this.refreshTotalPrix()}}</span>
                 </div>
             </div>
        
     </mat-card-content>
     <mat-divider inset></mat-divider>
     <mat-card-actions class="panier-total">
-      <button class="btn btn--primary btn--block">CONFIRMER LA COMMANDE</button>
-      <button class="btn btn--secondary btn--block">ABANDONNER</button>
+      <button class="btn btn--secondary btn--block">CONFIRMER LA COMMANDE</button>
+      <button class="btn btn--outline btn--block">ABANDONNER</button>
     </mat-card-actions>
     <mat-card-footer>
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>

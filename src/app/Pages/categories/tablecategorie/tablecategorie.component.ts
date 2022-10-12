@@ -119,7 +119,7 @@ export class TablecategorieComponent implements OnInit {
       enterAnimationDuration:enteranimation,
       exitAnimationDuration:exitanimation,
       width:'60%',
-      data:{empcode:code}
+      data:{catcode:code}
     })
    /*  let dialogRef= this.dialog.open(AddProduitComponent,{data: {name:'Antoine'}});
     dialogRef.afterClosed().subscribe( result => {

@@ -60,7 +60,7 @@ export class StockService {
     return this.http.put(this.lien + '/' + id, stock);
   }
 
-  geetStocks(): Observable<any>{
+  getStocks(): Observable<any>{
      return this.http.get<Stock[]>(this.lien);
    }
 
@@ -70,23 +70,23 @@ export class StockService {
    }
   
   form: FormGroup = new FormGroup({
-    $id: new FormControl(null),
-    quantite: new FormControl(0),
-    quantitemin: new FormControl(0),
-    quantitemax: new FormControl(0),
-    pventeid: new FormControl('', Validators.required),
-    produitid: new FormControl('',Validators.required),
+    Id: new FormControl(''),
+    Quantite: new FormControl(0),
+    QuantiteMin: new FormControl(0),
+    QuantiteMax: new FormControl(0),
+    PventeId: new FormControl(''),
+    ProduitId: new FormControl('')
     
   });
 
   initializeFormGroup(){
     this.form.setValue({
-    $id: null,
-    quantite: 0,
-    quantitemin: '',
-    quantitemax: '',
-    pventeid: '',
-    produitid: ''
+    Id: null,
+    Quantite: 0,
+    QuantiteMin: '',
+    QuantiteMax: '',
+    PventeId: '',
+    ProduitId: ''
   
   });
 }

@@ -48,7 +48,7 @@ export class TablestockComponent implements OnInit {
   }
 
   refreshStocks(){
-    this.stockservice.geetStocks().subscribe(result => {
+    this.stockservice.getStocks().subscribe(result => {
       this.lesstocks = result;
       this.dataSource = new MatTableDataSource<Stock>(this.lesstocks);
       this.dataSource.paginator = this.paginator;

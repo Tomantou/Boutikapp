@@ -76,7 +76,7 @@ export class TableclientComponent implements OnInit {
     
   }
 
-  deleteGerant(id:number){
+  deleteClientt(id:number){
     alertifyjs.confirm("Suppresion de produit","Voulez-vous supprimer ce produit?",
     () =>{return this.clientService.deleteClient(id).subscribe((res) => {
       this.refreshClients();

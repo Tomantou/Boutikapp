@@ -30,6 +30,9 @@ import { AddProduitComponent } from './Pages/produits/add-produit/add-produit.co
 import { DetailProduitComponent } from './Pages/produits/detail-produit/detail-produit.component';
 import { AddMarqueComponent } from './Pages/marques/add-marque/add-marque.component';
 import { PanierComponent } from './Pages/panier/panier.component';
+import { AddConfigdataComponent } from './Pages/configdata/add-configdata/add-configdata.component';
+import { PayerComponent } from './Pages/payer/payer.component';
+
 
 const routes: Routes = [
   {
@@ -97,6 +100,9 @@ const routes: Routes = [
   {
     path:"configdata", component:ConfigdataComponent,
   },
+  { 
+    path: 'configdata/add', component: AddConfigdataComponent 
+  },
   {
     path:"marques", component:MarquesComponent,
   },
@@ -105,6 +111,9 @@ const routes: Routes = [
   },
   {
     path:"pventes", component:PventesComponent,
+  },
+  {
+    path:"payer", component:PayerComponent,
   },
   {
     path:"stocks", component:StocksComponent,
@@ -120,15 +129,15 @@ const routes: Routes = [
   },
 
   { 
-    path: 'produits/add-produit', component: AddProduitComponent 
+    path: 'produits/add-produit', component: AddProduitComponent, 
   },
 
   { 
-    path: 'produits/detail-produit', component: DetailProduitComponent 
+    path: 'produits/detail-produit', component: DetailProduitComponent,
   },
 
   { 
-    path: 'marques/add-marque', component: AddMarqueComponent 
+    path: 'marques/add-marque', component: AddMarqueComponent, 
   },
 
 

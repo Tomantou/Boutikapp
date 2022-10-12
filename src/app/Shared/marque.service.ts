@@ -16,7 +16,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class MarqueService {
   marque:Marque = new Marque;
-  private lien = environment.boutiqueContainer + 'api/Marques';
+  private lien = environment.boutiqueContainer + 'api/marques';
   
   marqueAdded = new Subject();
   private _refreshRequired = new Subject<void>();
@@ -54,9 +54,9 @@ export class MarqueService {
  
 // CRUD Operations
 
- creerMarque(Marque: Object){
-   console.log(this.marque)
-    return this.http.post<Marque>(this.lien, this.marque).pipe(tap(() => 
+ creerMarque(marque: Object){
+   console.log(marque)
+    return this.http.post<Marque>(this.lien, marque).pipe(tap(() => 
        {this.RequiredRefresh.next();} ));
 
  }
@@ -74,8 +74,8 @@ export class MarqueService {
    return this.http.get(this.lien + '/' + id);
  }
 
- editerMarque(id: number, cat:Marque){
-   return this.http.put(this.lien + '/' + id, cat);
+ editerMarque(id: number, marque:Marque){
+   return this.http.put(this.lien + '/' + id, marque);
  }
 
  supprimerMarque(id: number){
@@ -95,10 +95,10 @@ export class MarqueService {
 
   initializeFormGroup(){
     this.form.setValue({
-    $Id: null,
+    $id: null,
     nom: '',
     origine: ''
    
-  });
+    });
   }
 }

@@ -11,3 +11,54 @@ table {
   flex-direction: column;
   align-items: center;
 }
+
+.btn {
+  border-radius: 15px;
+  width: 190px;
+  height: 3px;
+  border: 0;
+  font-size: 0.8rem;
+  font-weight:80;
+  margin: 0rem 0;
+  padding-top: 2px;
+  text-transform: uppercase;
+  text-align:justify;
+  white-space: nowrap;
+}
+.btn--primary{
+  background: dodgerblue;
+  color: white;
+}
+.btn--primary:hover{
+  background: rgb(8,123,230);
+}
+.btn--secondary{
+  background: darkturquoise;
+  color: white;
+}
+.btn--secondary:hover{
+  background: rgb(2,155,158);
+}
+.btn--accent{
+  background: orangered;
+  color: white;
+}
+.btn--accent:hover{
+  background: rgb(192,53,2);
+}
+.btn--outline{
+  background: #fff;
+  color: black;
+  border: 1px  solid black;
+  font-weight:80;
+  margin: 0.6rem 0;
+}
+.btn--outline:hover{
+  background: black;
+  color: #fff;
+  border: 1px  solid black;
+}
+.btn--block{
+  width: 10%;
+  display: inline-block;
+}
