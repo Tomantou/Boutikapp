@@ -4,6 +4,7 @@ import { ThenewsService } from 'src/app/Shared/thenews.service';
 import { TitresService } from 'src/app/Shared/titres.service';
 import { Router } from '@angular/router';
 import { Titres } from 'src/app/Models/titres';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-news',
@@ -11,6 +12,7 @@ import { Titres } from 'src/app/Models/titres';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
+  imagesUrl = environment.imagesUrl;
   public Lesnews: News[] = [];
   public Titres: Titres[] = [];
   public chaussuresNew:any;

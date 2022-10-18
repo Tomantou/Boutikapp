@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-carousel',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit {
+  imagesUrl = environment.imagesUrl;
 
   constructor() { }
 
@@ -14,25 +16,25 @@ export class CarouselComponent implements OnInit {
 
   imageObject: Array<object> = [
     {
-    image: 'assets/img/slider/7.jpg',
-    thumbImage: 'assets/img/slider/7.jpg',
+    image: 'src/app/assets/img/slider/7.jpg',
+    thumbImage:'src/app/assets/img/slider/7.jpg',
     alt: 'alt of image',
     title: 'Chaussure'
     }, 
     {
-      image: 'assets/img/slider/8.jpg',
-      thumbImage: 'assets/img/slider/8.jpg',
+      image: 'src/app/assets/img/slider/8.jpg',
+      thumbImage: 'src/app/assets/img/slider/8.jpg',
       alt: 'alt of image',
       title: 'Toner'
       }, 
       {
-        image: 'assets/img/slider/9.jpg',
+        image: './assets/img/slider/9.jpg',
         thumbImage: 'assets/img/slider/9.jpg',
         alt: 'alt of image',
         title: 'Chaussure'
       }, 
       {
-          image: 'assets/img/slider/10.jpg',
+          image: './assets/img/slider/10.jpg',
           thumbImage: 'assets/img/slider/10.jpg',
           alt: 'alt of image',
           title: 'Chaussure'

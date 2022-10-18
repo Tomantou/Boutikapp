@@ -40,6 +40,7 @@ export class AccueilComponent implements OnInit {
   public selectedProduct: any;
   showDataOfChildComponent:any;
   public selectedConfigdata: Configdata = new Configdata;
+  imagesUrl = environment.imagesUrl;
  private link = ['accueil'];
   p: number = 1;
   useremail:any;
@@ -170,7 +171,7 @@ export class AccueilComponent implements OnInit {
         id:row.id,
         nom: row.nom,
         prix: row.prix,
-        image: row.photo,
+        photo: row.photo,
         description: row.description,
         soldePromo:row.soldePromo,
         action:action

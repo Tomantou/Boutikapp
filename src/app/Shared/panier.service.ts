@@ -18,6 +18,9 @@ export class PanierService {
   confirm(userid: string): Observable<any> {
     return this.http.get<any[]>(this.lien + "/user/" + userid + "/confirm");
   }
+  cancel(userid: string): Observable<any> {
+    return this.http.get<any[]>(this.lien + "/user/" + userid + "/cancel");
+  }
   getPaniers(userid: string): Observable<any> {
     return this.http.get<any[]>(this.lien + "/user/" + userid);
   }

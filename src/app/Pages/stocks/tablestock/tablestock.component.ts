@@ -25,7 +25,7 @@ export class TablestockComponent implements OnInit {
   EditData:any;
   Stockid:any;
 
-  displayedColumns: string[] = ['id','quantite','quantitemin','quantitemax','pventeid','produitid','actions'];
+  displayedColumns: string[] = ['id','quantite','produitid','actions'];
   stateSpinner = false;
   dataSource: any;
   dialogConfig: any;

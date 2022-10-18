@@ -10,6 +10,7 @@ import { ClientService } from 'src/app/Shared/client.service';
 import { AddClientComponent } from '../add-client/add-client.component';
 import * as alertifyjs from 'alertifyjs';
 import { DetailClientComponent } from '../detail-client/detail-client.component';
+
 @Component({
   selector: 'app-tableclient',
   templateUrl: './tableclient.component.html',
@@ -76,7 +77,7 @@ export class TableclientComponent implements OnInit {
     
   }
 
-  deleteClientt(id:number){
+  deleteClient(id:number){
     alertifyjs.confirm("Suppresion de produit","Voulez-vous supprimer ce produit?",
     () =>{return this.clientService.deleteClient(id).subscribe((res) => {
       this.refreshClients();

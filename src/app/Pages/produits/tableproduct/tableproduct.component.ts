@@ -112,13 +112,6 @@ showDataOfChildComponent:any;
     console.log(this.selectedProduct);
   }
   
-  public updateProduit(idprod: any) {
-   /*  this.prodservice
-      .updateProduct(id, this.form.value)
-      .subscribe(); */
-    
-  }
-
   deleteProduct(id:number){
     alertifyjs.confirm("Suppresion de produit","Voulez-vous supprimer ce produit?",
     () =>{return this.prodservice.deleteProduct(id).subscribe((res) => {
@@ -176,13 +169,13 @@ showDataOfChildComponent:any;
   openDialogDet(row:any,action:string){
     console.log('row:',row)
      const dialogRef = this.dialog.open(DetailProduitComponent,{width:'50%',height: '500px',
-     enterAnimationDuration:'1000ms',
-     exitAnimationDuration: '2000ms',
+     enterAnimationDuration:'100ms',
+     exitAnimationDuration: '100ms',
      data:{
       id:row.id,
       nom: row.nom,
       prix: row.prix,
-      image: row.photo,
+      photo: row.photo,
       nouveaute:row.nouveaute,
       description: row.description,
       soldepromo:row.soldePromo,

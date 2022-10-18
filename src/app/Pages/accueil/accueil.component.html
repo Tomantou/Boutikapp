@@ -1,6 +1,6 @@
 
    <br>
-     <app-carousel></app-carousel>
+     <!-- <app-carousel></app-carousel> -->
      <app-bottompventes></app-bottompventes>
     
     <br>
@@ -18,7 +18,7 @@
                     
 
                     <a href></a>
-                    <img (click)="openDialogDet(prod,'LECTURE')" mat-card-lg-image src="../assets/img/slider/{{prod.id}}.jpg">
+                    <img (click)="openDialogDet(prod,'LECTURE')" mat-card-lg-image src="{{imagesUrl}}/{{prod.photo}}">
                     </mat-card-title-group>
                     <mat-card-content style="background-color: black; color:azure; text-align:center;">
                     {{prod.nom}}

@@ -16,7 +16,7 @@
         
                 <div class="panier-row" *ngFor="let produit of produits">
                   <div>
-                    <img mat-card-lg-image src="../assets/img/slider/{{produit.produitModel && produit.produitModel.photo ? produit.produitModel.photo : ''}}">
+                    <img mat-card-lg-image src="{{imagesUrl}}/{{produit.produitModel && produit.produitModel.photo ? produit.produitModel.photo : ''}}">
                   </div>
                     <span>{{produit.produitModel && produit.produitModel.photo ? produit.produitModel.nom : ''}}</span>
                     <div>
@@ -31,21 +31,27 @@
         
                 <div class="panier-total">
                     <span>Total</span>
-                    <span>{{this.refreshTotalPrix()}}</span>
+                    <span>{{this.refreshTotalPrix()}} EUR</span>
                 </div>
             </div>
        
     </mat-card-content>
     <mat-divider inset></mat-divider>
     <mat-card-actions class="panier-total">
-      <button class="btn btn--secondary btn--block" (click)="confirm()">CONFIRMER LA COMMANDE</button>
-      <button class="btn btn--outline btn--block">ABANDONNER</button>
+      <button class="btn btn--secondary btn--block" (click)="confirm();envoieMail();gotoPayerClick()">CONFIRMER LA COMMANDE</button>
+      <button class="btn btn--outline btn--block" (click)="cancel();gotoAccuelClick()">ABANDONNER</button>
     </mat-card-actions>
     <mat-card-footer>
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </mat-card-footer>
   </mat-card>
 </div>
+<br>
+
+
+
+
+
 
 
 

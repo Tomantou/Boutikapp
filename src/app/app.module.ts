@@ -32,6 +32,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatListModule} from '@angular/material/list';
 
+
 import { AccueilComponent } from './Pages/accueil/accueil.component';
 import { NewsComponent } from './Pages/news/news.component';
 import { BarnavComponent } from './Pages/barnav/barnav.component';
@@ -214,7 +215,7 @@ import { PayerComponent } from './Pages/payer/payer.component';
     HttpClientModule,MatBadgeModule,
     MatSelectModule,MatDialogModule,MatGridListModule,
     MatTableModule,MatPaginatorModule,MatSortModule,
-    MatSidenavModule,MatProgressBarModule,MatListModule
+    MatSidenavModule,MatProgressBarModule,MatListModule,
 
 
   ],

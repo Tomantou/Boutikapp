@@ -9,12 +9,10 @@ export class Commandecl {
     Total!: Number;
     Adresselivraison!: String;
     Statut!: String;
+    UserId!: number;
+    PventeId!: number;
 
     //Navigation properties
-    ClientId!: Number;
-    client!: Client;
-    PventeId!: Number;
-    pvente!: Pvente;
-    detcommandecls: Detcommandecl[] = [];
+   
     
 }

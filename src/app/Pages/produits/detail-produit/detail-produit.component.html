@@ -13,8 +13,8 @@
         </mat-card-subtitle>
         
 
-        <a href></a>
-        <img (click)="openDialogDet(this.receivedRow,'LECTURE')" mat-card-lg-image src="../assets/img/slider/{{receivedRow.id}}.jpg">
+        <a href></a>{{receivedRow.photo}}
+        <img (click)="openDialogDet(this.receivedRow,'LECTURE')" mat-card-lg-image src="{{imagesUrl}}/{{this.receivedRow.photo}}">
         </mat-card-title-group>
         <mat-card-content style="background-color: black; color:azure; text-align:center;">
         {{this.receivedRow.description}}
@@ -82,7 +82,7 @@
           </form>
 </div>
 <mat-dialog-actions>
-    <button mat-raised-button color = "primary" *ngIf="data.action==='ECRITURE'">Sauver</button>
+    <button mat-raised-button color = "primary" (click)="editProduit(receivedRow.id,receivedRow)" *ngIf="data.action==='ECRITURE'">Sauver</button>
     <button mat-raised-button color = "accent" mat-dialog-close="true">Fermer</button>
 </mat-dialog-actions>
 

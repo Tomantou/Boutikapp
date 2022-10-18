@@ -4,7 +4,7 @@
     <mat-form-field appearance="outline">
       <mat-label>Numéro TVA</mat-label>
       <input matInput placeholder="N° Tva" formControlName="tva" required>
-      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      <!--<mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
       <mat-error *ngIf ="this.form.get('tva').hasError('required')"> ce champ est obligatoire</mat-error> 
     </mat-form-field>
     
@@ -72,7 +72,7 @@
         <mat-label>Nos objectifs</mat-label>
         <input matInput placeholder="nosobjectifs" formControlName="nosobjectifs" required>
         <mat-error *ngIf ="this.form.get('nosobjectifs').hasError('required')"> ce champ est obligatoire</mat-error> 
-    </mat-form-field><div></div>
+    </mat-form-field>
     
       <button mat-flat-button color="primary" (click)="this.create()" [disabled] ="this.form.invalid"  mat-dialog-close mat-dialog-close="true"><h4>Enregistrer</h4></button>
       <button mat-flat-button color="accent"  mat-dialog-close mat-dialog-close="true"><h4>Annuler</h4></button>

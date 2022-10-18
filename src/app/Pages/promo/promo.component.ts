@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./promo.component.css']
 })
 export class PromoComponent implements OnInit {
+  imagesUrl = environment.imagesUrl
   public produits: Produit[] = [];
   public selectedProduct: any;
   showDataOfChildComponent:any;
@@ -51,7 +52,7 @@ export class PromoComponent implements OnInit {
       id:row.id,
       nom: row.nom,
       prix: row.prix,
-      image: row.photo,
+      photo: row.photo,
       description: row.description,
       soldePromo:row.soldePromo,
       action:action

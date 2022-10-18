@@ -1,19 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpClientModule, HttpResponse, HttpRequest } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, Subject, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { Pipe, PipeTransform } from '@angular/core';
 import { HttpErrorResponse,  } from '@angular/common/http'; 
 import { environment } from 'src/environments/environment';
 import { Categorie } from '../Models/categorie';
-import { ok } from 'assert';
+import { Commandecl } from '../Models/commandecl';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommandeclService {
-  private lien = environment.boutiqueBackend + '/commandecls';
+  private lien = environment.boutiqueContainer + '/commandecls';
+  commande: Commandecl = new Commandecl();
+  private _refreshRequired = new Subject<void>();
+  get RequiredRefresh(){
+   return this._refreshRequired;
+
+  }
 
   constructor(private readonly http: HttpClient) { 
     let headers = new Headers();
@@ -35,16 +42,27 @@ export class CommandeclService {
 
   }
 
-  geetCategories(): Observable<any>{
-     return this.http.get<Categorie[]>(this.lien);
+  createCommande(cmde: Object){
+    console.log(cmde)
+     return this.http.post<Commandecl>(this.lien, cmde).pipe(tap(() => 
+        {this.RequiredRefresh.next();} ));
+
+  }
+
+  getCommandes(): Observable<any> {
+    return this.http.get<Commandecl[]>(this.lien);
+  }
+
+  getCommandeById(id: number){
+    return this.http.get(this.lien + '/' + id);
+  }
+
+  updateCommande(id: number, client:Commandecl){
+    return this.http.put(this.lien + '/' + id, client);
+  }
+  
+   deleteCommande(id: number){
+    return this.http.delete(this.lien + '/' + id );
    }
 
-  /*  getCategories(): Observable<any>{
-  try{
-     return this.http.get<Categorie []>(this.lien);
-    }catch{
-     (this.handleError);
-    }
-             
-  }     */
 }

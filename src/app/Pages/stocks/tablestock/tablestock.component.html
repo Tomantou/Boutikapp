@@ -33,12 +33,7 @@
               <td mat-cell *matCellDef="let stock"> {{stock.produitid}} </td>
             </ng-container>
           
-            <!-- description Column -->
-            <ng-container matColumnDef="pventeid">
-              <th mat-header-cell *matHeaderCellDef> Point vente </th>
-              <td mat-cell *matCellDef="let stock"> {{stock.pventeid}} </td>
-            </ng-container>
-
+            
             <!-- Name Column -->
             <ng-container matColumnDef="quantite">
               <th mat-header-cell mat-sort-header *matHeaderCellDef> Quantité stock </th>
@@ -46,15 +41,7 @@
             </ng-container>
           
 
-            <ng-container matColumnDef="quantitemin">
-              <th mat-header-cell *matHeaderCellDef> Quantité Min. </th>
-              <td mat-cell *matCellDef="let stock"> {{stock.QuantiteMin}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="quantitemax">
-              <th mat-header-cell *matHeaderCellDef> Quantité Max. </th>
-              <td mat-cell *matCellDef="let stock"> {{stock.QuantiteMax}} </td>
-            </ng-container>
+            
             <!-- Actions column -->
             <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef> Actions </th>

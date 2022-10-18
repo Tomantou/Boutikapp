@@ -101,6 +101,14 @@ span{
   text-transform: uppercase;
   white-space: nowrap;
 }
+
+.search-place{
+  background-color:white;
+  Height: 50px;
+  width: 200px;
+  border-radius: 20px;
+  padding-bottom: 5px;
+}
 .btn--primary{
   background: dodgerblue;
   color: white;

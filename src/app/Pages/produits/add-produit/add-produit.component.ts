@@ -33,6 +33,7 @@ export class AddProduitComponent implements OnInit {
   saveresp:any;
   messageclass='';
   
+  public logo: File;
  
 
   public Categories : Categorie[] = [];
@@ -111,11 +112,21 @@ export class AddProduitComponent implements OnInit {
     this.produit.prix = this.prix;
     this.produit.nouveaute= this.nouveaute;
     this.produit.description= this.description;
-    // this.produit.photo=this.imgFile;
+    this.produit.photo=this.logo.name;
     console.log('objet produit:',this.produit);
-    this.prodservice.createProduct(this.produit).subscribe((donnee:any)=>{
+    this.prodservice.createProduct(this.produit).subscribe((reponse:any)=>{
+      this.prodservice.updateImage(this.logo, reponse.id)?.subscribe();
       alertifyjs.success('produit enregistré avec succès');
     });
+  }
+  processImage(imageInput: any) {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener('load', (event: any) => {
+      this.logo = file;
+    });
+    reader.readAsDataURL(file);
   }
   recupererFichier(): string{
     let fichier=new File([this.imgFile],'test.jpg',{type:'image/jpg'});
@@ -172,6 +183,7 @@ onClose(){
 }
  
   public create() {
+    
     this.prodservice.createProduct(this.form.getRawValue()).subscribe({
           next: (produit) => {
             console.log(this.form.value);
@@ -210,63 +222,63 @@ onClose(){
 }
 
 // selectFiles function
-selectFiles(event: any): void {
-  this.message = [];
-  this.progressInfos = [];
-  this.selectedFileNames = [];
-  this.selectedFiles = event.target.files;
+// selectFiles(event: any): void {
+//   this.message = [];
+//   this.progressInfos = [];
+//   this.selectedFileNames = [];
+//   this.selectedFiles = event.target.files;
 
-  this.previews = [];
-  if (this.selectedFiles && this.selectedFiles[0]) {
-    const numberOfFiles = this.selectedFiles.length;
-    for (let i = 0; i < numberOfFiles; i++) {
-      const reader = new FileReader();
+//   this.previews = [];
+//   if (this.selectedFiles && this.selectedFiles[0]) {
+//     const numberOfFiles = this.selectedFiles.length;
+//     for (let i = 0; i < numberOfFiles; i++) {
+//       const reader = new FileReader();
 
-      reader.onload = (e: any) => {
-        this.imgFile = e.target.result as string;
-        console.log(e.target.result);
-        this.previews.push(e.target.result);
-      };
+//       reader.onload = (e: any) => {
+//         this.imgFile = e.target.result as string;
+//         console.log(e.target.result);
+//         this.previews.push(e.target.result);
+//       };
 
-      reader.readAsDataURL(this.selectedFiles[i]);
+//       reader.readAsDataURL(this.selectedFiles[i]);
 
-      this.selectedFileNames.push(this.selectedFiles[i].name);
-    }
-  }
-  }
+//       this.selectedFileNames.push(this.selectedFiles[i].name);
+//     }
+//   }
+//   }
 
-  //uploadFiles fucntion
-  uploadFiles(): void {
-    this.message = [];
+//   //uploadFiles fucntion
+//   uploadFiles(): void {
+//     this.message = [];
   
-    if (this.selectedFiles) {
-      for (let i = 0; i < this.selectedFiles.length; i++) {
-        this.upload(i, this.selectedFiles[i]);
-      }
-    }
-  }
+//     if (this.selectedFiles) {
+//       for (let i = 0; i < this.selectedFiles.length; i++) {
+//         this.upload(i, this.selectedFiles[i]);
+//       }
+//     }
+//   }
 
-  //upload function
-  upload(idx: number, file: File): void {
-    this.progressInfos[idx] = { value: 0, fileName: file.name };
+//   //upload function
+//   upload(idx: number, file: File): void {
+//     this.progressInfos[idx] = { value: 0, fileName: file.name };
   
-    if (file) {
-      this.loadfileservice.upload(file).subscribe(
-        (event: any) => {
-          if (event.type === HttpEventType.UploadProgress) {
-            this.progressInfos[idx].value = Math.round(100 * event.loaded / event.total);
-          } else if (event instanceof HttpResponse) {
-            const msg = 'Uploaded the file successfully: ' + file.name;
-            this.message.push(msg);
-            this.imageInfos = this.loadfileservice.getFiles();
-          }
-        },
-        (err: any) => {
-          this.progressInfos[idx].value = 0;
-          const msg = 'Could not upload the file: ' + file.name;
-          this.message.push(msg);
-        });
-    }
-  }
+//     if (file) {
+//       this.loadfileservice.upload(file).subscribe(
+//         (event: any) => {
+//           if (event.type === HttpEventType.UploadProgress) {
+//             this.progressInfos[idx].value = Math.round(100 * event.loaded / event.total);
+//           } else if (event instanceof HttpResponse) {
+//             const msg = 'Uploaded the file successfully: ' + file.name;
+//             this.message.push(msg);
+//             this.imageInfos = this.loadfileservice.getFiles();
+//           }
+//         },
+//         (err: any) => {
+//           this.progressInfos[idx].value = 0;
+//           const msg = 'Could not upload the file: ' + file.name;
+//           this.message.push(msg);
+//         });
+//     }
+//   }
 
 }

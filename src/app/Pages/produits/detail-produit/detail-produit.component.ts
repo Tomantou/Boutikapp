@@ -7,7 +7,11 @@ import { Marque } from 'src/app/Models/marque';
 import { Categorie } from 'src/app/Models/categorie';
 import { MarqueService } from 'src/app/Shared/marque.service';
 import { CategorieService } from 'src/app/Shared/categorie.service';
-
+import { environment } from 'src/environments/environment';
+import {DomSanitizer} from '@angular/platform-browser';
+import { ProduitsService } from 'src/app/Shared/produit.service';
+import { Produit } from 'src/app/Models/produit';
+import * as alertifyjs from 'alertifyjs';
 @Component({
   selector: 'app-detail-produit',
   templateUrl: './detail-produit.component.html',
@@ -19,12 +23,13 @@ export class DetailProduitComponent implements OnInit {
   listCategories:Categorie[]=[];
   dialog: any;
   showDataOfChildComponent: any;
-
+  imagesUrl = environment.imagesUrl;
 
   constructor(private marqueService:MarqueService,
-    private categorieService:CategorieService,
-     public dialogRef: MatDialogRef<DetailProduitComponent>,
-          @Inject(MAT_DIALOG_DATA) public data:any
+             private categorieService:CategorieService,
+             public dialogRef: MatDialogRef<DetailProduitComponent>,
+              private prodservice:ProduitsService,
+             @Inject(MAT_DIALOG_DATA) public data:any
           ) {}
   
 
@@ -37,8 +42,12 @@ export class DetailProduitComponent implements OnInit {
     console.log('data:',this.data);
   }
 
-  recupererImage():string{
+  public editProduit(id: number, prodRequest:Produit) {
+    this.prodservice.updateProduct(id, prodRequest).subscribe();  
+    alertifyjs.success('produit modifié avec succès');
+  }
 
+  recupererImage():string{
      const image = new File([this.receivedRow.photo],'test.jpeg',{type:'image/jpeg'});
      console.log('image récupérée',image)
      return image.name;
@@ -74,13 +83,13 @@ export class DetailProduitComponent implements OnInit {
  openDialogDet(row:any,action:string){
   console.log('row:',row)
    const dialogRef = this.dialog.open(DetailProduitComponent,{width:'50%',height: '500px',
-   enterAnimationDuration:'1000ms',
-   exitAnimationDuration: '2000ms',
+   enterAnimationDuration:'500ms',
+   exitAnimationDuration: '500ms',
    data:{
     id:row.id,
     nom: row.nom,
     prix: row.prix,
-    image: row.photo,
+    photo: row.photo,
     nouveaute:row.nouveaute,
     description: row.description,
     soldepromo:row.soldePromo,
